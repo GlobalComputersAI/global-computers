@@ -22,14 +22,13 @@ export default function Footer() {
 
   const quickLinks = [
     { label: "About Us", href: "/about-us" },
-    { label: "Privacy Policy", href: "/privacy-policy" },
-    { label: "Terms of Service", href: "/terms" },
-    { label: "Support", href: "/support" },
+    { label: "Projects", href: "/projects" },
+    { label: "Contact Us", href: "/contact-us" },
+    { label: "IT Hardware Supply", href: "/it-hardware-supply" },
   ];
 
   return (
     <footer className="bg-slate-950 text-slate-200">
-      {/* ================= TRUST / USP BAR ================= */}
       <div className="bg-gradient-to-r from-blue-700 via-blue-600 to-indigo-600">
         <div className="max-w-7xl mx-auto px-6 py-3 flex flex-col md:flex-row items-center justify-between gap-2 text-[12px] font-black text-white uppercase tracking-widest">
           <span className="opacity-95">📍 Serving Clients Pan-India</span>
@@ -40,9 +39,7 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* ================= MAIN FOOTER GRID ================= */}
       <div className="max-w-7xl mx-auto px-6 py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-        {/* Column 1: Brand */}
         <div className="space-y-5">
           <div>
             <h3 className="font-black text-xl tracking-tight text-white leading-tight">
@@ -66,7 +63,6 @@ export default function Footer() {
             <span className="text-slate-200 font-semibold">turnkey PSU/enterprise projects</span>.
           </p>
 
-          {/* Mini trust chips */}
           <div className="flex flex-wrap gap-2">
             {["ISO Process", "PAN India", "On-site Support", "AMC", "Multi-Brand"].map((t) => (
               <span
@@ -78,7 +74,6 @@ export default function Footer() {
             ))}
           </div>
 
-          {/* Social placeholders (safe, no broken links) */}
           <div className="flex gap-3 pt-2">
             <span className="w-9 h-9 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center text-xs font-black text-slate-300">
               in
@@ -89,7 +84,6 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Column 2: Services */}
         <div>
           <h4 className="font-black text-white mb-6 uppercase text-xs tracking-widest">
             Services
@@ -121,7 +115,6 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Column 3: Contact */}
         <div>
           <h4 className="font-black text-white mb-6 uppercase text-xs tracking-widest">
             Contact
@@ -176,7 +169,6 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Column 4: CTA + Hours */}
         <div className="bg-slate-900/40 p-6 rounded-2xl border border-slate-800">
           <h4 className="font-black text-white mb-2 text-sm">
             Business / PSU Inquiry
@@ -221,7 +213,6 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* ================= BOTTOM BAR ================= */}
       <div className="border-t border-slate-800 bg-black/30">
         <div className="max-w-7xl mx-auto px-6 py-6 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500">
           <p>© {currentYear} Global Computers & IT Solutions. All rights reserved.</p>
