@@ -201,7 +201,7 @@ const demos: DemoItem[] = [
       "Driver assignment",
       "GST billing & reports",
     ],
-    demoHref: "/projects/car-Rental",
+    demoHref: "/projects/car-Rental/",
     quoteHref: "/contact-us",
   },
 ];
@@ -220,7 +220,7 @@ function Badge({ children }: { children: React.ReactNode }) {
 
 function Pill({ label }: { label: string }) {
   return (
-    <span className="inline-flex items-center rounded-full px-4 py-2 text-sm font-extrabold border transition bg-white text-slate-800 border-slate-200 hover:border-blue-400">
+    <span className="inline-flex items-center rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-extrabold text-slate-800 transition hover:border-blue-400">
       {label}
     </span>
   );
@@ -236,9 +236,9 @@ function FeatureCard({
   bullets: string[];
 }) {
   return (
-    <div className="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm hover:shadow-xl transition-all">
+    <div className="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm transition-all hover:shadow-xl">
       <div className="text-lg font-black text-slate-900">{title}</div>
-      <p className="mt-2 text-slate-600 leading-relaxed">{desc}</p>
+      <p className="mt-2 leading-relaxed text-slate-600">{desc}</p>
       <ul className="mt-4 space-y-2 text-sm text-slate-700">
         {bullets.map((b) => (
           <li key={b}>✓ {b}</li>
@@ -258,13 +258,13 @@ function StackChip({ children }: { children: React.ReactNode }) {
 
 function DemoCard({ d }: { d: DemoItem }) {
   return (
-    <div className="bg-white rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl transition-all p-7">
+    <div className="rounded-3xl border border-slate-100 bg-white p-7 shadow-sm transition-all hover:shadow-xl">
       <div className="flex items-start justify-between gap-3">
         <div>
           <div className="text-xs font-black uppercase tracking-widest text-blue-600">
             {d.category}
           </div>
-          <h3 className="mt-2 text-xl font-black text-slate-900 leading-snug">
+          <h3 className="mt-2 text-xl font-black leading-snug text-slate-900">
             {d.title}
           </h3>
         </div>
@@ -274,13 +274,13 @@ function DemoCard({ d }: { d: DemoItem }) {
         </div>
       </div>
 
-      <p className="mt-4 text-slate-600 leading-relaxed">{d.description}</p>
+      <p className="mt-4 leading-relaxed text-slate-600">{d.description}</p>
 
       <div className="mt-4 flex flex-wrap gap-2">
         {d.tags.map((t) => (
           <span
             key={t}
-            className="text-[11px] font-bold px-2.5 py-1 rounded-full bg-slate-100 text-slate-700"
+            className="rounded-full bg-slate-100 px-2.5 py-1 text-[11px] font-bold text-slate-700"
           >
             {t}
           </span>
@@ -296,19 +296,19 @@ function DemoCard({ d }: { d: DemoItem }) {
       <div className="mt-7 grid grid-cols-2 gap-3">
         <Link
           href={d.demoHref}
-          className="text-center px-4 py-3 rounded-2xl bg-blue-600 text-white font-black hover:bg-blue-700 transition"
+          className="rounded-2xl bg-blue-600 px-4 py-3 text-center font-black text-white transition hover:bg-blue-700"
         >
           Open Demo
         </Link>
         <Link
           href={d.quoteHref}
-          className="text-center px-4 py-3 rounded-2xl border-2 border-slate-200 bg-white font-black hover:bg-slate-50 transition"
+          className="rounded-2xl border-2 border-slate-200 bg-white px-4 py-3 text-center font-black transition hover:bg-slate-50"
         >
           Get Quote
         </Link>
       </div>
 
-      <div className="mt-4 text-xs text-slate-500 font-semibold">
+      <div className="mt-4 text-xs font-semibold text-slate-500">
         Starting ₹5,000 + GST • Billing Free • SEO Free
       </div>
     </div>
@@ -319,18 +319,18 @@ export default function ProjectsPage() {
   const groupedCategories = categories.filter((c) => c.id !== "All");
 
   return (
-    <main className="max-w-7xl mx-auto px-6 py-14">
+    <main id="top" className="mx-auto max-w-7xl px-6 py-14">
       <section className="relative overflow-hidden rounded-3xl border border-slate-200 bg-gradient-to-b from-blue-50 to-white p-10 md:p-14">
         <div className="max-w-4xl">
-          <div className="inline-flex items-center gap-2 mb-5 px-4 py-1.5 text-sm font-black bg-blue-100 text-blue-700 rounded-full">
+          <div className="mb-5 inline-flex items-center gap-2 rounded-full bg-blue-100 px-4 py-1.5 text-sm font-black text-blue-700">
             ✅ Static Demos + Custom Projects (PAN India)
           </div>
 
-          <h1 className="text-4xl md:text-5xl font-black tracking-tight leading-tight">
+          <h1 className="text-4xl font-black tracking-tight leading-tight md:text-5xl">
             Projects, Demos & Capabilities
           </h1>
 
-          <p className="mt-5 text-lg text-slate-700 leading-relaxed">
+          <p className="mt-5 text-lg leading-relaxed text-slate-700">
             Browse demos and request a quote. We build any kind of{" "}
             <span className="font-extrabold text-slate-900">
               website, software application, ERP, billing, attendance, asset system
@@ -346,46 +346,46 @@ export default function ProjectsPage() {
             <Badge>PSU & Enterprise Ready</Badge>
           </div>
 
-          <div className="mt-8 flex flex-col sm:flex-row gap-4">
+          <div className="mt-8 flex flex-col gap-4 sm:flex-row">
             <Link
               href="/contact-us"
-              className="px-8 py-4 bg-blue-600 text-white rounded-2xl font-black shadow-lg shadow-blue-200 hover:bg-blue-700 hover:-translate-y-0.5 transition-all text-center"
+              className="rounded-2xl bg-blue-600 px-8 py-4 text-center font-black text-white shadow-lg shadow-blue-200 transition-all hover:-translate-y-0.5 hover:bg-blue-700"
             >
               Get Free Consultation
             </Link>
 
             <Link
               href="/contact-us"
-              className="px-8 py-4 bg-white border-2 border-slate-200 rounded-2xl font-black hover:bg-slate-50 transition-all text-center"
+              className="rounded-2xl border-2 border-slate-200 bg-white px-8 py-4 text-center font-black transition-all hover:bg-slate-50"
             >
               Request Demo Access
             </Link>
           </div>
 
-          <p className="mt-4 text-sm text-slate-500 font-semibold">
+          <p className="mt-4 text-sm font-semibold text-slate-500">
             {PRICING_NOTE}
           </p>
         </div>
       </section>
 
       <section className="mt-14">
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+        <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
             <h2 className="text-3xl font-black">What we build</h2>
-            <p className="mt-2 text-slate-600 max-w-3xl leading-relaxed">
+            <p className="mt-2 max-w-3xl leading-relaxed text-slate-600">
               We deliver complete systems — from demo website to final deployment and support.
               This includes website + software + integrations + training + AMC.
             </p>
           </div>
           <Link
             href="/contact-us"
-            className="inline-flex items-center justify-center px-6 py-3 rounded-2xl bg-slate-900 text-white font-black hover:bg-slate-800 transition"
+            className="inline-flex items-center justify-center rounded-2xl bg-slate-900 px-6 py-3 font-black text-white transition hover:bg-slate-800"
           >
             Request Quote →
           </Link>
         </div>
 
-        <div className="mt-7 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="mt-7 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           <FeatureCard
             title="Image Search + Asset Management"
             desc="Manage assets like computers, printers, networking devices, inventory & documents. Powerful search with images and tagging."
@@ -423,12 +423,12 @@ export default function ProjectsPage() {
 
       <section className="mt-14 rounded-3xl border border-slate-200 bg-white p-10">
         <h2 className="text-3xl font-black">Tech stacks we work with</h2>
-        <p className="mt-3 text-slate-600 max-w-4xl leading-relaxed">
+        <p className="mt-3 max-w-4xl leading-relaxed text-slate-600">
           We choose tech based on your deployment type (on-premise / cloud), security policy, performance,
           integrations, and future scalability.
         </p>
 
-        <div className="mt-6 grid md:grid-cols-2 gap-8">
+        <div className="mt-6 grid gap-8 md:grid-cols-2">
           <div>
             <div className="text-sm font-black uppercase tracking-widest text-slate-500">
               Backend / Web Apps
@@ -483,7 +483,7 @@ export default function ProjectsPage() {
           <div className="text-sm font-black text-slate-900">
             Integrations (we can connect everything)
           </div>
-          <p className="mt-2 text-sm text-slate-600 leading-relaxed">
+          <p className="mt-2 text-sm leading-relaxed text-slate-600">
             Shopify, Google Sheets, Google Drive, SMS/Email, WhatsApp, Payment gateways, API integrations,
             barcode scanners, printers, biometric devices, CCTV, and custom 3rd party systems.
           </p>
@@ -506,11 +506,11 @@ export default function ProjectsPage() {
         </div>
       </section>
 
-      <section className="mt-14 bg-slate-900 text-white rounded-3xl p-10 md:p-14 border border-slate-800">
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+      <section className="mt-14 rounded-3xl border border-slate-800 bg-slate-900 p-10 text-white md:p-14">
+        <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
-            <h2 className="text-3xl md:text-4xl font-black">PSU / Enterprise Deployment</h2>
-            <p className="mt-3 text-slate-200 max-w-4xl leading-relaxed">
+            <h2 className="text-3xl font-black md:text-4xl">PSU / Enterprise Deployment</h2>
+            <p className="mt-3 max-w-4xl leading-relaxed text-slate-200">
               For PSU and large organizations, we provide full options:
               <span className="font-extrabold"> On-Premise</span>,{" "}
               <span className="font-extrabold">Cloud</span>, and{" "}
@@ -521,33 +521,33 @@ export default function ProjectsPage() {
 
           <Link
             href="/contact-us"
-            className="inline-flex items-center justify-center px-7 py-3 rounded-2xl bg-white text-slate-900 font-black hover:scale-[1.02] transition"
+            className="inline-flex items-center justify-center rounded-2xl bg-white px-7 py-3 font-black text-slate-900 transition hover:scale-[1.02]"
           >
             PSU Quote / Proposal →
           </Link>
         </div>
 
-        <div className="mt-10 grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           {[
             { t: "On-Premise Software", d: "Local servers, internal network, complete control." },
             { t: "Cloud Deployment", d: "Secure cloud hosting with scalability and backups." },
             { t: "Hybrid Setup", d: "Mix of cloud + on-prem as per policy." },
             { t: "Support & AMC", d: "SLA-based support, upgrades, and monitoring." },
           ].map((x) => (
-            <div key={x.t} className="rounded-2xl bg-white/10 border border-white/10 p-6">
-              <div className="font-black text-lg">{x.t}</div>
+            <div key={x.t} className="rounded-2xl border border-white/10 bg-white/10 p-6">
+              <div className="text-lg font-black">{x.t}</div>
               <div className="mt-2 text-sm text-slate-200">{x.d}</div>
             </div>
           ))}
         </div>
 
-        <div className="mt-8 text-sm text-slate-200 font-semibold">
+        <div className="mt-8 text-sm font-semibold text-slate-200">
           We can provide documentation, training, knowledge transfer, and compliance-friendly reporting.
         </div>
       </section>
 
       <section className="mt-14">
-        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+        <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
             <h2 className="text-3xl font-black">Browse demos by category</h2>
             <p className="mt-2 text-slate-600">
@@ -557,7 +557,7 @@ export default function ProjectsPage() {
 
           <Link
             href="/contact-us"
-            className="inline-flex items-center justify-center px-6 py-3 rounded-2xl bg-slate-900 text-white font-black hover:bg-slate-800 transition"
+            className="inline-flex items-center justify-center rounded-2xl bg-slate-900 px-6 py-3 font-black text-white transition hover:bg-slate-800"
           >
             Need Custom App? Request Quote →
           </Link>
@@ -573,7 +573,7 @@ export default function ProjectsPage() {
       </section>
 
       <section className="mt-10">
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-7">
+        <div className="grid gap-7 md:grid-cols-2 lg:grid-cols-3">
           {demos.map((d) => (
             <DemoCard key={d.title} d={d} />
           ))}
@@ -599,13 +599,13 @@ export default function ProjectsPage() {
               </div>
               <a
                 href="#top"
-                className="inline-flex items-center justify-center px-5 py-3 rounded-2xl border border-slate-200 bg-white font-black hover:bg-slate-50 transition"
+                className="inline-flex items-center justify-center rounded-2xl border border-slate-200 bg-white px-5 py-3 font-black transition hover:bg-slate-50"
               >
                 Back to top
               </a>
             </div>
 
-            <div className="mt-8 grid md:grid-cols-2 lg:grid-cols-3 gap-7">
+            <div className="mt-8 grid gap-7 md:grid-cols-2 lg:grid-cols-3">
               {items.map((d) => (
                 <DemoCard key={`${category.id}-${d.title}`} d={d} />
               ))}
@@ -616,42 +616,42 @@ export default function ProjectsPage() {
 
       <section className="mt-16 rounded-3xl border border-slate-200 bg-white p-10 md:p-14">
         <h2 className="text-3xl font-black">How it works (fast delivery)</h2>
-        <div className="mt-8 grid md:grid-cols-4 gap-4">
+        <div className="mt-8 grid gap-4 md:grid-cols-4">
           {[
             { s: "01", t: "Pick Demo", d: "Choose category and demo template." },
             { s: "02", t: "Share Details", d: "Send your name, services, logo, photos." },
             { s: "03", t: "We Customize", d: "Design + content + SEO setup + forms." },
             { s: "04", t: "Go Live", d: "Deploy, train, support (AMC available)." },
           ].map((x) => (
-            <div key={x.s} className="rounded-2xl bg-slate-50 border border-slate-200 p-6">
-              <div className="text-blue-600 font-black text-lg">{x.s}</div>
+            <div key={x.s} className="rounded-2xl border border-slate-200 bg-slate-50 p-6">
+              <div className="text-lg font-black text-blue-600">{x.s}</div>
               <div className="mt-2 font-black text-slate-900">{x.t}</div>
               <div className="mt-2 text-sm text-slate-600">{x.d}</div>
             </div>
           ))}
         </div>
 
-        <div className="mt-10 flex flex-col sm:flex-row gap-4">
+        <div className="mt-10 flex flex-col gap-4 sm:flex-row">
           <Link
             href="/contact-us"
-            className="px-8 py-4 rounded-2xl bg-blue-600 text-white font-black hover:bg-blue-700 transition text-center"
+            className="rounded-2xl bg-blue-600 px-8 py-4 text-center font-black text-white transition hover:bg-blue-700"
           >
             Start Now
           </Link>
           <Link
             href="/contact-us"
-            className="px-8 py-4 rounded-2xl border-2 border-slate-200 bg-white font-black hover:bg-slate-50 transition text-center"
+            className="rounded-2xl border-2 border-slate-200 bg-white px-8 py-4 text-center font-black transition hover:bg-slate-50"
           >
             Request Demo
           </Link>
         </div>
 
-        <p className="mt-4 text-sm text-slate-500 font-semibold">{PRICING_NOTE}</p>
+        <p className="mt-4 text-sm font-semibold text-slate-500">{PRICING_NOTE}</p>
       </section>
 
       <section className="mt-16">
         <h2 className="text-3xl font-black">FAQ</h2>
-        <div className="mt-6 grid md:grid-cols-2 gap-6">
+        <div className="mt-6 grid gap-6 md:grid-cols-2">
           {[
             {
               q: "Do you provide on-premise software for PSU?",
@@ -672,7 +672,7 @@ export default function ProjectsPage() {
           ].map((x) => (
             <div key={x.q} className="rounded-3xl border border-slate-200 bg-white p-7">
               <div className="font-black text-slate-900">{x.q}</div>
-              <div className="mt-2 text-sm text-slate-600 leading-relaxed">{x.a}</div>
+              <div className="mt-2 text-sm leading-relaxed text-slate-600">{x.a}</div>
             </div>
           ))}
         </div>
@@ -680,32 +680,32 @@ export default function ProjectsPage() {
 
       <section className="mt-16">
         <h2 className="text-2xl font-black">Confidentiality & References</h2>
-        <p className="mt-4 text-slate-600 max-w-5xl leading-relaxed">
+        <p className="mt-4 max-w-5xl leading-relaxed text-slate-600">
           Certain PSU/enterprise project details are subject to confidentiality agreements.
           Work orders, completion certificates, and references can be shared during
           evaluation stages on request.
         </p>
       </section>
 
-      <section className="mt-16 rounded-3xl bg-blue-600 text-white p-10 md:p-14">
-        <h2 className="text-3xl md:text-4xl font-black">
+      <section className="mt-16 rounded-3xl bg-blue-600 p-10 text-white md:p-14">
+        <h2 className="text-3xl font-black md:text-4xl">
           Want a demo for your exact business?
         </h2>
-        <p className="mt-3 text-blue-100 max-w-3xl leading-relaxed">
+        <p className="mt-3 max-w-3xl leading-relaxed text-blue-100">
           Share your business details and we’ll show the best demo, pricing, and timeline.
           Websites from ₹5,000 + GST, billing software free, and SEO setup free.
         </p>
 
-        <div className="mt-8 flex flex-col sm:flex-row gap-4">
+        <div className="mt-8 flex flex-col gap-4 sm:flex-row">
           <Link
             href="/contact-us"
-            className="px-8 py-4 rounded-2xl bg-white text-blue-700 font-black hover:scale-[1.02] transition text-center"
+            className="rounded-2xl bg-white px-8 py-4 text-center font-black text-blue-700 transition hover:scale-[1.02]"
           >
             Get Free Consultation
           </Link>
           <Link
             href="/contact-us"
-            className="px-8 py-4 rounded-2xl bg-blue-900 text-white font-black hover:bg-blue-950 transition text-center border border-blue-300"
+            className="rounded-2xl border border-blue-300 bg-blue-900 px-8 py-4 text-center font-black text-white transition hover:bg-blue-950"
           >
             Request Quote
           </Link>
