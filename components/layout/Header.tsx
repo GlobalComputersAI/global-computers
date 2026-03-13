@@ -5,6 +5,8 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
 
+const BASE_PATH = '/global-computers'
+
 const SOFTWARE_PHONE = '+919752422686'
 const HARDWARE_PHONE = '+919827164811'
 const EMAIL = 'info@globalcomputers.net'
@@ -58,7 +60,6 @@ export default function Header() {
 
   return (
     <>
-      {/* ================= TOP INFO BAR ================= */}
       <div className="bg-slate-900 text-white hidden lg:block">
         <div className="max-w-7xl mx-auto px-0 py-2 flex items-center justify-between text-[12px] font-semibold">
           <div className="flex items-center gap-6">
@@ -93,18 +94,16 @@ export default function Header() {
         </div>
       </div>
 
-      {/* ================= MAIN HEADER ================= */}
       <motion.header
         initial={{ y: -14, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         className={`sticky top-0 z-50 transition-all duration-300 ${headerClass} border-b border-slate-100`}
       >
         <div className="max-w-7xl mx-auto flex items-center justify-between px-0">
-          {/* LOGO */}
           <Link href="/" className="flex items-center" aria-label="Homepage">
             <div className="relative h-12 w-[220px] md:h-14 md:w-[300px]">
               <Image
-                src="/logo_header_svr.png"
+                src={`${BASE_PATH}/logo_header_svr.png`}
                 alt="Global Computers & IT Solutions"
                 fill
                 priority
@@ -113,11 +112,14 @@ export default function Header() {
             </div>
           </Link>
 
-          {/* DESKTOP NAV */}
           <div className="hidden lg:flex items-center gap-8">
             <nav className="flex items-center gap-7 text-[13px] font-extrabold text-slate-700 uppercase">
               {navLinks.map((item) => (
-                <Link key={item.name} href={item.href} className="hover:text-blue-600">
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className="hover:text-blue-600"
+                >
                   {item.name}
                 </Link>
               ))}
@@ -131,7 +133,6 @@ export default function Header() {
             </Link>
           </div>
 
-          {/* MOBILE TOGGLE */}
           <button
             className="lg:hidden p-2"
             onClick={() => setIsOpen(true)}
@@ -146,7 +147,6 @@ export default function Header() {
         </div>
       </motion.header>
 
-      {/* ================= MOBILE DRAWER ================= */}
       <AnimatePresence>
         {isOpen && (
           <>
@@ -209,7 +209,6 @@ export default function Header() {
         )}
       </AnimatePresence>
 
-      {/* ================= MOBILE STICKY CTA ================= */}
       <div className="fixed bottom-0 inset-x-0 z-[55] lg:hidden">
         <div className="bg-white border-t px-3 py-3">
           <a
