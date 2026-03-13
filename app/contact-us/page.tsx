@@ -8,6 +8,8 @@ export const metadata = {
     "Request a demo or quote for websites, billing software, IT hardware supply, AMC, workforce, and PSU/enterprise projects. Get a response within 24 hours.",
 };
 
+const BASE_PATH = "/global-computers";
+
 const SOFTWARE_PHONE_DISPLAY = "+91 97524 22686";
 const SOFTWARE_PHONE_TEL = "+919752422686";
 const WHATSAPP_PHONE = "919752422686";
@@ -45,7 +47,7 @@ function InfoCard({
       <div className="text-sm font-black uppercase tracking-widest text-slate-500">
         {title}
       </div>
-      <div className="mt-2 text-slate-700 font-semibold leading-relaxed">
+      <div className="mt-2 font-semibold leading-relaxed text-slate-700">
         {desc}
       </div>
       <div className="mt-4 inline-flex items-center gap-2 font-black text-blue-600">
@@ -60,30 +62,34 @@ export default function ContactUsPage() {
     <main className="bg-slate-50 text-slate-900">
       <Script id="contact-whatsapp-handler" strategy="afterInteractive">
         {`
-          document.addEventListener("DOMContentLoaded", function () {
-            const form = document.getElementById("contact-whatsapp-form");
-            if (!form) return;
+          (function () {
+            function attachHandler() {
+              var form = document.getElementById("contact-whatsapp-form");
+              if (!form || form.dataset.whatsappBound === "true") return;
 
-            form.addEventListener("submit", function (event) {
-              event.preventDefault();
+              form.dataset.whatsappBound = "true";
 
-              const formData = new FormData(form);
+              form.addEventListener("submit", function (event) {
+                event.preventDefault();
 
-              const name = (formData.get("name") || "").toString().trim();
-              const phone = (formData.get("phone") || "").toString().trim();
-              const email = (formData.get("email") || "").toString().trim();
-              const category = (formData.get("category") || "").toString().trim();
-              const requirement = (formData.get("requirement") || "").toString().trim();
-              const budget = (formData.get("budget") || "").toString().trim();
-              const deployment = (formData.get("deployment") || "").toString().trim();
-              const city = (formData.get("city") || "").toString().trim();
+                var formData = new FormData(form);
 
-              if (!name || !phone || !category || !requirement) {
-                alert("Please fill required fields: Name, Phone, Category, Requirement.");
-                return;
-              }
+                var name = (formData.get("name") || "").toString().trim();
+                var phone = (formData.get("phone") || "").toString().trim();
+                var email = (formData.get("email") || "").toString().trim();
+                var category = (formData.get("category") || "").toString().trim();
+                var requirement = (formData.get("requirement") || "").toString().trim();
+                var budget = (formData.get("budget") || "").toString().trim();
+                var deployment = (formData.get("deployment") || "").toString().trim();
+                var city = (formData.get("city") || "").toString().trim();
 
-              const message = \`Hello Global Computers,
+                if (!name || !phone || !category || !requirement) {
+                  alert("Please fill required fields: Name, Phone, Category, Requirement.");
+                  return;
+                }
+
+                var message =
+\`Hello Global Computers,
 
 I want to request a demo / quote.
 
@@ -100,26 +106,37 @@ Requirement:
 
 Please contact me regarding this inquiry.\`;
 
-              const whatsappUrl = "https://wa.me/${WHATSAPP_PHONE}?text=" + encodeURIComponent(message);
-              window.open(whatsappUrl, "_blank");
-            });
-          });
+                var whatsappUrl =
+                  "https://wa.me/${WHATSAPP_PHONE}?text=" + encodeURIComponent(message);
+
+                window.location.href = whatsappUrl;
+              });
+            }
+
+            if (document.readyState === "loading") {
+              document.addEventListener("DOMContentLoaded", attachHandler);
+            } else {
+              attachHandler();
+            }
+
+            setTimeout(attachHandler, 300);
+          })();
         `}
       </Script>
 
       <section className="border-b bg-gradient-to-b from-blue-50 to-white">
-        <div className="max-w-7xl mx-auto px-6 py-14 md:py-20 grid lg:grid-cols-2 gap-10 items-start">
+        <div className="mx-auto grid max-w-7xl items-start gap-10 px-6 py-14 md:py-20 lg:grid-cols-2">
           <div>
-            <div className="inline-flex items-center gap-2 mb-5 px-4 py-1.5 text-sm font-black bg-blue-100 text-blue-700 rounded-full">
+            <div className="mb-5 inline-flex items-center gap-2 rounded-full bg-blue-100 px-4 py-1.5 text-sm font-black text-blue-700">
               ✅ Direct WhatsApp Response
             </div>
 
-            <h1 className="text-4xl md:text-5xl font-black leading-tight tracking-tight">
+            <h1 className="text-4xl font-black leading-tight tracking-tight md:text-5xl">
               Contact Us
               <span className="block text-blue-600">Get Demo + Best Price</span>
             </h1>
 
-            <p className="mt-5 text-lg text-slate-700 leading-relaxed max-w-xl">
+            <p className="mt-5 max-w-xl text-lg leading-relaxed text-slate-700">
               Websites starting from{" "}
               <span className="font-black text-slate-900">₹5,000 + GST</span>.
               Billing software{" "}
@@ -138,29 +155,29 @@ Please contact me regarding this inquiry.\`;
               <Badge>PAN India Support</Badge>
             </div>
 
-            <div className="mt-8 grid sm:grid-cols-2 gap-4">
+            <div className="mt-8 grid gap-4 sm:grid-cols-2">
               <a
                 href={`tel:${SOFTWARE_PHONE_TEL}`}
-                className="rounded-2xl bg-blue-600 text-white p-5 font-black text-center shadow-xl shadow-blue-200 hover:bg-blue-700 transition"
+                className="rounded-2xl bg-blue-600 p-5 text-center font-black text-white shadow-xl shadow-blue-200 transition hover:bg-blue-700"
               >
                 💻 Call for Software
-                <div className="mt-1 text-sm text-blue-100 font-semibold">
+                <div className="mt-1 text-sm font-semibold text-blue-100">
                   {SOFTWARE_PHONE_DISPLAY}
                 </div>
               </a>
 
               <a
                 href={`tel:${HARDWARE_PHONE_TEL}`}
-                className="rounded-2xl bg-emerald-600 text-white p-5 font-black text-center shadow-xl shadow-emerald-200 hover:bg-emerald-700 transition"
+                className="rounded-2xl bg-emerald-600 p-5 text-center font-black text-white shadow-xl shadow-emerald-200 transition hover:bg-emerald-700"
               >
                 🖥️ Call for Hardware
-                <div className="mt-1 text-sm text-emerald-100 font-semibold">
+                <div className="mt-1 text-sm font-semibold text-emerald-100">
                   {HARDWARE_PHONE_DISPLAY}
                 </div>
               </a>
             </div>
 
-            <div className="mt-6 grid md:grid-cols-3 gap-4">
+            <div className="mt-6 grid gap-4 md:grid-cols-3">
               <InfoCard
                 title="Email"
                 desc={EMAIL}
@@ -176,7 +193,7 @@ Please contact me regarding this inquiry.\`;
               <InfoCard
                 title="Projects"
                 desc="View demos & capabilities"
-                href="/global-computers/projects/"
+                href={`${BASE_PATH}/projects/`}
                 cta="View Projects"
               />
             </div>
@@ -194,21 +211,21 @@ Please contact me regarding this inquiry.\`;
             </div>
           </div>
 
-          <div className="rounded-3xl border border-slate-200 bg-white shadow-xl p-8 md:p-10">
+          <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-xl md:p-10">
             <div className="flex items-start justify-between gap-4">
               <div>
                 <h2 className="text-2xl font-black">Request a Demo / Quote</h2>
-                <p className="mt-2 text-sm text-slate-600 leading-relaxed">
+                <p className="mt-2 text-sm leading-relaxed text-slate-600">
                   Fill details below — your message will go directly to WhatsApp.
                 </p>
               </div>
-              <div className="hidden md:block text-xs font-black uppercase tracking-widest text-green-700 bg-green-50 border border-green-100 px-3 py-2 rounded-full">
+              <div className="hidden rounded-full border border-green-100 bg-green-50 px-3 py-2 text-xs font-black uppercase tracking-widest text-green-700 md:block">
                 WhatsApp Direct
               </div>
             </div>
 
             <form id="contact-whatsapp-form" className="mt-8 grid gap-5">
-              <div className="grid md:grid-cols-2 gap-4">
+              <div className="grid gap-4 md:grid-cols-2">
                 <div>
                   <label className="block text-sm font-black text-slate-700">
                     Name <span className="text-red-500">*</span>
@@ -218,7 +235,7 @@ Please contact me regarding this inquiry.\`;
                     name="name"
                     required
                     placeholder="Your full name"
-                    className="mt-2 w-full rounded-xl border border-slate-200 px-4 py-3 outline-none focus:ring-4 focus:ring-blue-100 focus:border-blue-400"
+                    className="mt-2 w-full rounded-xl border border-slate-200 px-4 py-3 outline-none focus:border-blue-400 focus:ring-4 focus:ring-blue-100"
                   />
                 </div>
 
@@ -231,15 +248,15 @@ Please contact me regarding this inquiry.\`;
                     name="phone"
                     required
                     placeholder="WhatsApp / Mobile number"
-                    className="mt-2 w-full rounded-xl border border-slate-200 px-4 py-3 outline-none focus:ring-4 focus:ring-blue-100 focus:border-blue-400"
+                    className="mt-2 w-full rounded-xl border border-slate-200 px-4 py-3 outline-none focus:border-blue-400 focus:ring-4 focus:ring-blue-100"
                   />
-                  <p className="mt-1 text-xs text-slate-500 font-semibold">
+                  <p className="mt-1 text-xs font-semibold text-slate-500">
                     We contact you faster on WhatsApp/call.
                   </p>
                 </div>
               </div>
 
-              <div className="grid md:grid-cols-2 gap-4">
+              <div className="grid gap-4 md:grid-cols-2">
                 <div>
                   <label className="block text-sm font-black text-slate-700">
                     Email (optional)
@@ -248,7 +265,7 @@ Please contact me regarding this inquiry.\`;
                     type="email"
                     name="email"
                     placeholder="name@company.com"
-                    className="mt-2 w-full rounded-xl border border-slate-200 px-4 py-3 outline-none focus:ring-4 focus:ring-blue-100 focus:border-blue-400"
+                    className="mt-2 w-full rounded-xl border border-slate-200 px-4 py-3 outline-none focus:border-blue-400 focus:ring-4 focus:ring-blue-100"
                   />
                 </div>
 
@@ -260,12 +277,12 @@ Please contact me regarding this inquiry.\`;
                     type="text"
                     name="city"
                     placeholder="e.g., Korba, Raipur, Bilaspur"
-                    className="mt-2 w-full rounded-xl border border-slate-200 px-4 py-3 outline-none focus:ring-4 focus:ring-blue-100 focus:border-blue-400"
+                    className="mt-2 w-full rounded-xl border border-slate-200 px-4 py-3 outline-none focus:border-blue-400 focus:ring-4 focus:ring-blue-100"
                   />
                 </div>
               </div>
 
-              <div className="grid md:grid-cols-2 gap-4">
+              <div className="grid gap-4 md:grid-cols-2">
                 <div>
                   <label className="block text-sm font-black text-slate-700">
                     Requirement Category <span className="text-red-500">*</span>
@@ -274,7 +291,7 @@ Please contact me regarding this inquiry.\`;
                     name="category"
                     required
                     defaultValue=""
-                    className="mt-2 w-full rounded-xl border border-slate-200 px-4 py-3 outline-none focus:ring-4 focus:ring-blue-100 focus:border-blue-400 bg-white"
+                    className="mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 outline-none focus:border-blue-400 focus:ring-4 focus:ring-blue-100"
                   >
                     <option value="" disabled>
                       Select
@@ -300,7 +317,7 @@ Please contact me regarding this inquiry.\`;
                   <select
                     name="deployment"
                     defaultValue=""
-                    className="mt-2 w-full rounded-xl border border-slate-200 px-4 py-3 outline-none focus:ring-4 focus:ring-blue-100 focus:border-blue-400 bg-white"
+                    className="mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 outline-none focus:border-blue-400 focus:ring-4 focus:ring-blue-100"
                   >
                     <option value="" disabled>
                       Select
@@ -322,11 +339,11 @@ Please contact me regarding this inquiry.\`;
                   rows={6}
                   required
                   placeholder="Example: I need a website + billing software for my shop. Also want WhatsApp inquiry and SEO..."
-                  className="mt-2 w-full rounded-xl border border-slate-200 px-4 py-3 outline-none focus:ring-4 focus:ring-blue-100 focus:border-blue-400"
+                  className="mt-2 w-full rounded-xl border border-slate-200 px-4 py-3 outline-none focus:border-blue-400 focus:ring-4 focus:ring-blue-100"
                 />
               </div>
 
-              <div className="grid md:grid-cols-2 gap-4">
+              <div className="grid gap-4 md:grid-cols-2">
                 <div>
                   <label className="block text-sm font-black text-slate-700">
                     Budget Range (optional)
@@ -334,7 +351,7 @@ Please contact me regarding this inquiry.\`;
                   <select
                     name="budget"
                     defaultValue=""
-                    className="mt-2 w-full rounded-xl border border-slate-200 px-4 py-3 outline-none focus:ring-4 focus:ring-blue-100 focus:border-blue-400 bg-white"
+                    className="mt-2 w-full rounded-xl border border-slate-200 bg-white px-4 py-3 outline-none focus:border-blue-400 focus:ring-4 focus:ring-blue-100"
                   >
                     <option value="" disabled>
                       Select
@@ -354,10 +371,10 @@ Please contact me regarding this inquiry.\`;
                   <div className="mt-2 font-black text-slate-900">
                     Website + Billing + SEO
                   </div>
-                  <div className="mt-1 text-sm text-slate-600 font-semibold">
+                  <div className="mt-1 text-sm font-semibold text-slate-600">
                     Starting ₹5,000 + GST
                   </div>
-                  <div className="mt-2 text-xs text-slate-500 font-semibold">
+                  <div className="mt-2 text-xs font-semibold text-slate-500">
                     Billing software & SEO setup included (as per package)
                   </div>
                 </div>
@@ -365,12 +382,12 @@ Please contact me regarding this inquiry.\`;
 
               <button
                 type="submit"
-                className="mt-2 w-full rounded-2xl bg-green-600 text-white py-4 font-black text-lg hover:bg-green-700 transition shadow-xl shadow-green-200"
+                className="mt-2 w-full rounded-2xl bg-green-600 py-4 text-lg font-black text-white shadow-xl shadow-green-200 transition hover:bg-green-700"
               >
                 Send on WhatsApp →
               </button>
 
-              <p className="text-center text-xs text-slate-500 font-semibold leading-relaxed">
+              <p className="text-center text-xs font-semibold leading-relaxed text-slate-500">
                 By submitting, your inquiry opens directly in WhatsApp for quick
                 project discussion.
               </p>
@@ -379,12 +396,12 @@ Please contact me regarding this inquiry.\`;
         </div>
       </section>
 
-      <section className="max-w-7xl mx-auto px-6 py-14">
-        <div className="rounded-3xl bg-white border border-slate-200 p-10 md:p-14 shadow-sm">
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+      <section className="mx-auto max-w-7xl px-6 py-14">
+        <div className="rounded-3xl border border-slate-200 bg-white p-10 shadow-sm md:p-14">
+          <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
             <div>
               <h2 className="text-3xl font-black">Why customers trust us</h2>
-              <p className="mt-3 text-slate-600 max-w-3xl leading-relaxed">
+              <p className="mt-3 max-w-3xl leading-relaxed text-slate-600">
                 20+ years of service delivery. We don’t just make a website—we
                 provide complete IT solutions: software, hardware, deployment,
                 training, and AMC support.
@@ -393,13 +410,13 @@ Please contact me regarding this inquiry.\`;
 
             <Link
               href="/projects"
-              className="inline-flex items-center justify-center px-6 py-3 rounded-2xl bg-slate-900 text-white font-black hover:bg-slate-800 transition"
+              className="inline-flex items-center justify-center rounded-2xl bg-slate-900 px-6 py-3 font-black text-white transition hover:bg-slate-800"
             >
               View Projects & Demos →
             </Link>
           </div>
 
-          <div className="mt-10 grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
             {[
               {
                 t: "Fast Demo First",
@@ -420,7 +437,7 @@ Please contact me regarding this inquiry.\`;
             ].map((x) => (
               <div
                 key={x.t}
-                className="rounded-2xl bg-slate-50 border border-slate-200 p-6"
+                className="rounded-2xl border border-slate-200 bg-slate-50 p-6"
               >
                 <div className="font-black text-slate-900">{x.t}</div>
                 <div className="mt-2 text-sm text-slate-600">{x.d}</div>
