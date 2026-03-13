@@ -4,15 +4,15 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "IT Workforce & AMC Services for PSUs and Enterprises",
   description:
-    "Global Computers & IT Solutions provides skilled IT manpower deployment and annual maintenance contract (AMC) services for PSUs and enterprises with SLA-based support, reporting, preventive maintenance, and audit-ready documentation.",
+    "Global Computers & IT Solutions provides skilled IT manpower deployment, GeM buyer assistance, and annual maintenance contract (AMC) services for PSUs and enterprises with SLA-based support, preventive maintenance, reporting, and audit-ready documentation.",
 };
 
 const projectsHref = "/projects";
+const GEM_ID = "GLOBAL@2024";
 
 export default function ITWorkforceAMCPage() {
   return (
     <main className="bg-white text-slate-900">
-      {/* ================= HERO ================= */}
       <section className="border-b bg-gradient-to-b from-white to-slate-50">
         <div className="max-w-7xl mx-auto px-6 py-16">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -28,7 +28,8 @@ export default function ITWorkforceAMCPage() {
 
               <p className="mt-6 text-lg md:text-xl text-slate-600 leading-relaxed max-w-2xl">
                 Global Computers & IT Solutions provides{" "}
-                <strong>skilled IT manpower</strong> and{" "}
+                <strong>skilled IT manpower</strong>,{" "}
+                <strong>GeM buyer support</strong>, and{" "}
                 <strong>Annual Maintenance Contracts (AMC)</strong> to ensure uninterrupted
                 operations for <strong>PSUs, government organizations, and enterprises</strong>.
                 We deliver structured deployments with documentation, reporting, and SLA-driven support.
@@ -66,11 +67,36 @@ export default function ITWorkforceAMCPage() {
             <div className="bg-white rounded-[2.5rem] border border-slate-100 shadow-xl p-8">
               <h3 className="text-xl font-black">What we manage</h3>
               <ul className="mt-5 space-y-3 text-slate-700">
-                <li className="flex gap-3"><span>✅</span><span><strong>End-user IT support</strong> (desktop, OS, apps, printers)</span></li>
-                <li className="flex gap-3"><span>✅</span><span><strong>Network & infrastructure</strong> (LAN, switches, Wi-Fi, server room basics)</span></li>
-                <li className="flex gap-3"><span>✅</span><span><strong>Helpdesk operations</strong> (ticketing, escalation, resolution tracking)</span></li>
-                <li className="flex gap-3"><span>✅</span><span><strong>AMC execution</strong> (preventive + corrective maintenance)</span></li>
-                <li className="flex gap-3"><span>✅</span><span><strong>OEM coordination</strong> (warranty calls, spares, vendor follow-up)</span></li>
+                <li className="flex gap-3">
+                  <span>✅</span>
+                  <span>
+                    <strong>End-user IT support</strong> (desktop, OS, apps, printers)
+                  </span>
+                </li>
+                <li className="flex gap-3">
+                  <span>✅</span>
+                  <span>
+                    <strong>Network & infrastructure</strong> (LAN, switches, Wi-Fi, server room basics)
+                  </span>
+                </li>
+                <li className="flex gap-3">
+                  <span>✅</span>
+                  <span>
+                    <strong>Helpdesk operations</strong> (ticketing, escalation, resolution tracking)
+                  </span>
+                </li>
+                <li className="flex gap-3">
+                  <span>✅</span>
+                  <span>
+                    <strong>AMC execution</strong> (preventive + corrective maintenance)
+                  </span>
+                </li>
+                <li className="flex gap-3">
+                  <span>✅</span>
+                  <span>
+                    <strong>OEM coordination</strong> (warranty calls, spares, vendor follow-up)
+                  </span>
+                </li>
               </ul>
 
               <div className="mt-8">
@@ -89,7 +115,65 @@ export default function ITWorkforceAMCPage() {
         </div>
       </section>
 
-      {/* ================= IT WORKFORCE ================= */}
+      <section className="bg-white border-b">
+        <div className="max-w-7xl mx-auto px-6 py-14">
+          <div className="rounded-[2rem] border border-blue-100 bg-blue-50 p-8 md:p-10">
+            <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
+              <div>
+                <h2 className="text-3xl md:text-4xl font-black">
+                  GeM Buyer Assistance & Service Execution
+                </h2>
+                <p className="mt-3 text-slate-700 max-w-4xl leading-relaxed">
+                  We support organizations not only in service delivery, but also in the
+                  practical process around <strong>GeM procurement, buyer coordination, scope understanding,
+                  execution planning, and post-award support</strong>.
+                </p>
+              </div>
+
+              <div className="rounded-2xl border border-blue-200 bg-white px-5 py-4">
+                <div className="text-xs uppercase tracking-widest font-black text-slate-500">
+                  GeM Registered ID
+                </div>
+                <div className="mt-1 text-xl font-black text-blue-700">{GEM_ID}</div>
+              </div>
+            </div>
+
+            <div className="mt-8 grid lg:grid-cols-3 gap-6">
+              <FeatureCard
+                title="Support for Buyers"
+                desc="We help buyers understand scope, manpower structure, AMC model, service coverage, and documentation expectations."
+                points={[
+                  "Clarification on service scope and deliverables",
+                  "Support in understanding AMC / workforce models",
+                  "Discussion on site count, hardware count, shift model",
+                  "Alignment of service expectations before execution",
+                ]}
+              />
+              <FeatureCard
+                title="GeM & Contract Support"
+                desc="We help coordinate requirements around GeM process, documentation, deployment planning, and contract-aligned service delivery."
+                points={[
+                  "GeM-ready communication and support",
+                  "Work scope understanding for buyers and departments",
+                  "Deployment planning after order / award",
+                  "Reporting structure aligned with contract requirements",
+                ]}
+              />
+              <FeatureCard
+                title="End-to-End Service Continuity"
+                desc="From buyer-side requirement discussion to workforce deployment and AMC support, we stay involved throughout the lifecycle."
+                points={[
+                  "Requirement discussion to execution planning",
+                  "Onboarding, registers, checklists, MIS",
+                  "Preventive and corrective support cycle",
+                  "Long-term AMC / support continuity",
+                ]}
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="bg-white">
         <div className="max-w-7xl mx-auto px-6 py-16">
           <SectionTitle
@@ -159,7 +243,6 @@ export default function ITWorkforceAMCPage() {
         </div>
       </section>
 
-      {/* ================= ENGAGEMENT MODEL ================= */}
       <section className="bg-slate-50 border-y">
         <div className="max-w-7xl mx-auto px-6 py-16">
           <SectionTitle
@@ -191,7 +274,6 @@ export default function ITWorkforceAMCPage() {
         </div>
       </section>
 
-      {/* ================= AMC SERVICES ================= */}
       <section className="bg-white">
         <div className="max-w-7xl mx-auto px-6 py-16">
           <SectionTitle
@@ -261,7 +343,6 @@ export default function ITWorkforceAMCPage() {
         </div>
       </section>
 
-      {/* ================= PSU READINESS ================= */}
       <section className="bg-slate-50 border-y">
         <div className="max-w-7xl mx-auto px-6 py-16">
           <SectionTitle
@@ -304,7 +385,46 @@ export default function ITWorkforceAMCPage() {
         </div>
       </section>
 
-      {/* ================= FINAL CTA ================= */}
+      <section className="bg-white">
+        <div className="max-w-7xl mx-auto px-6 py-16">
+          <SectionTitle
+            title="From Buyer Side to Final Service Delivery"
+            subtitle="We support the full journey — requirement discussion, scope understanding, execution planning, deployment, reporting, and long-term support."
+          />
+
+          <div className="mt-10 grid lg:grid-cols-4 gap-4">
+            <Step title="1. Buyer Discussion" desc="Understand service need, site size, hardware count, SLA and manpower expectation." />
+            <Step title="2. Scope Alignment" desc="Clarify deployment model, reporting format, support boundaries and documentation." />
+            <Step title="3. Service Execution" desc="Deploy workforce, start AMC activities, begin registers, logs and ticket handling." />
+            <Step title="4. Ongoing Support" desc="MIS reporting, preventive maintenance, escalations, review meetings and continuity support." />
+          </div>
+
+          <div className="mt-10 rounded-3xl border border-blue-100 bg-blue-50 p-8">
+            <h3 className="text-2xl font-black">Why this helps buyers</h3>
+            <p className="mt-4 text-slate-700 max-w-5xl">
+              Buyers often need a partner who not only provides manpower or AMC service, but also
+              understands documentation, reporting, coordination, and execution discipline.
+              We support this complete cycle in a structured and professional manner.
+            </p>
+
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link
+                href="/contact-us"
+                className="px-7 py-3 rounded-full bg-slate-900 text-white font-bold hover:bg-slate-800 transition"
+              >
+                Discuss Buyer Requirement
+              </Link>
+              <Link
+                href="/contact-us"
+                className="px-7 py-3 rounded-full bg-blue-600 text-white font-bold hover:bg-blue-500 transition"
+              >
+                Request GeM / Service Support
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="bg-white">
         <div className="max-w-7xl mx-auto px-6 py-16">
           <div className="text-center bg-blue-600 text-white p-12 md:p-16 rounded-[3rem]">
@@ -313,7 +433,7 @@ export default function ITWorkforceAMCPage() {
             </h2>
             <p className="text-blue-100 text-lg mb-8 max-w-3xl mx-auto">
               Share your locations, hardware count, SLA requirements, and scope — we will propose the best
-              workforce + AMC model with audit-ready reporting.
+              workforce + AMC model with audit-ready reporting, GeM support, and structured execution.
             </p>
 
             <div className="flex flex-wrap justify-center gap-4">
@@ -330,14 +450,16 @@ export default function ITWorkforceAMCPage() {
                 Request Site Survey
               </Link>
             </div>
+
+            <p className="mt-7 text-sm text-blue-100">
+              GeM ID: <strong>{GEM_ID}</strong>
+            </p>
           </div>
         </div>
       </section>
     </main>
   );
 }
-
-/* ================= Components ================= */
 
 function SectionTitle({ title, subtitle }: { title: string; subtitle: string }) {
   return (
