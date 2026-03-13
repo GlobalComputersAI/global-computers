@@ -8,6 +8,8 @@ export const metadata: Metadata = {
     "Complete digital transformation since 2004. Websites from ₹5,000, Billing Software, IT Hardware, & PSU Enterprise Solutions. Trusted by 10,000+ clients.",
 };
 
+const BASE_PATH = "/global-computers";
+
 const SOFTWARE_PHONE = "+919752422686";
 const HARDWARE_PHONE = "+919827164811";
 const WEBSITE = "globalcomputers.net";
@@ -44,12 +46,14 @@ function ServiceCard({
     accent === "green"
       ? "bg-green-100"
       : accent === "orange"
-      ? "bg-orange-100"
-      : "bg-blue-100";
+        ? "bg-orange-100"
+        : "bg-blue-100";
 
   return (
     <div className="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl transition-all">
-      <div className={`w-14 h-14 ${accentBg} rounded-2xl flex items-center justify-center text-3xl mb-6`}>
+      <div
+        className={`w-14 h-14 ${accentBg} rounded-2xl flex items-center justify-center text-3xl mb-6`}
+      >
         {icon}
       </div>
 
@@ -88,7 +92,12 @@ function IndustryCard({ label, emoji }: { label: string; emoji: string }) {
 function BrandLogo({ name, src }: { name: string; src: string }) {
   return (
     <div className="relative w-24 h-12 md:w-32 md:h-16 transition-transform duration-300 ease-in-out hover:scale-110">
-      <Image src={src} alt={`${name} official logo`} fill className="object-contain" />
+      <Image
+        src={src}
+        alt={`${name} official logo`}
+        fill
+        className="object-contain"
+      />
     </div>
   );
 }
@@ -96,7 +105,6 @@ function BrandLogo({ name, src }: { name: string; src: string }) {
 export default function HomePage() {
   return (
     <main className="bg-slate-50 text-slate-900">
-      {/* ================= TOP INFO STRIP ================= */}
       <div className="bg-slate-900 text-white">
         <div className="max-w-7xl mx-auto px-6 py-3 flex flex-col sm:flex-row items-center justify-between gap-2 text-sm">
           <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
@@ -104,7 +112,12 @@ export default function HomePage() {
             <span className="text-slate-300">•</span>
             <span className="text-slate-200">
               Website:{" "}
-              <a className="underline hover:text-white" href={`https://${WEBSITE}`} target="_blank" rel="noreferrer">
+              <a
+                className="underline hover:text-white"
+                href={`https://${WEBSITE}`}
+                target="_blank"
+                rel="noreferrer"
+              >
                 {WEBSITE}
               </a>
             </span>
@@ -127,7 +140,6 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* ================= HERO SECTION ================= */}
       <section className="relative overflow-hidden bg-gradient-to-b from-blue-50 to-white border-b">
         <div className="max-w-7xl mx-auto px-6 py-20 lg:py-28 grid lg:grid-cols-2 gap-14 items-center">
           <div className="relative z-10">
@@ -146,12 +158,15 @@ export default function HomePage() {
             </h1>
 
             <p className="mt-6 text-xl text-slate-600 max-w-xl leading-relaxed">
-              From <span className="font-bold text-slate-900">₹5,000 websites</span> for local businesses to{" "}
-              <span className="font-bold text-slate-900">turnkey IT infrastructure</span> for PSUs & enterprises.
-              Build, supply, deploy, and support—under one roof.
+              From <span className="font-bold text-slate-900">₹5,000 websites</span>{" "}
+              for local businesses to{" "}
+              <span className="font-bold text-slate-900">
+                turnkey IT infrastructure
+              </span>{" "}
+              for PSUs & enterprises. Build, supply, deploy, and support—under one
+              roof.
             </p>
 
-            {/* Primary conversion buttons */}
             <div className="mt-8 flex flex-col sm:flex-row gap-4">
               <Link
                 href="/contact-us"
@@ -168,7 +183,6 @@ export default function HomePage() {
               </Link>
             </div>
 
-            {/* Trust chips */}
             <div className="mt-6 flex flex-wrap gap-2">
               {[
                 "Fast Delivery",
@@ -195,7 +209,7 @@ export default function HomePage() {
             <div className="absolute -inset-4 bg-blue-100/50 rounded-full blur-3xl"></div>
             <div className="relative bg-white p-4 rounded-3xl shadow-2xl border border-slate-100">
               <Image
-                src="/images/hero-it-infrastructure.jpg"
+                src={`${BASE_PATH}/images/hero-it-infrastructure.jpg`}
                 alt="Complete IT solution"
                 width={700}
                 height={520}
@@ -221,7 +235,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ================= TRUST STATS ================= */}
       <section className="py-12 bg-white border-b">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
@@ -233,10 +246,11 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ================= CORE SERVICES ================= */}
       <section className="py-24 max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-black mb-4">Our 360° Digital Ecosystem</h2>
+          <h2 className="text-3xl md:text-5xl font-black mb-4">
+            Our 360° Digital Ecosystem
+          </h2>
           <p className="text-slate-600 text-lg">
             One team. One contract. One accountable partner for delivery + support.
           </p>
@@ -269,7 +283,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ================= INDUSTRIES GRID ================= */}
       <section className="bg-slate-900 py-24 text-white">
         <div className="max-w-7xl mx-auto px-6">
           <h2 className="text-3xl md:text-4xl font-black text-center mb-4">
@@ -305,7 +318,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ================= BRAND PARTNERS ================= */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <p className="text-blue-600 font-bold uppercase tracking-widest text-sm mb-4">
@@ -317,26 +329,26 @@ export default function HomePage() {
 
           <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16">
             {[
-              { name: "Dell", src: "/brands/Dell.png" },
-              { name: "HP", src: "/brands/hp.png" },
-              { name: "Lenovo", src: "/brands/lenovo.png" },
-              { name: "Acer", src: "/brands/acer.png" },
-              { name: "Asus", src: "/brands/asus.png" },
-              { name: "Samsung", src: "/brands/Samsung.png" },
-              { name: "Apple", src: "/brands/Apple.png" },
-              { name: "Microsoft", src: "/brands/Microsoft.png" },
-              { name: "Google", src: "/brands/google.png" },
-              { name: "AWS", src: "/brands/aws.png" },
-              { name: "Sony", src: "/brands/sony.png" },
-              { name: "Nvidia", src: "/brands/nvidia.png" },
-              { name: "Intel", src: "/brands/intel.png" },
-              { name: "Epson", src: "/brands/epson.png" },
-              { name: "Canon", src: "/brands/Canon.png" },
-              { name: "Zebronics", src: "/brands/zebronics.png" },
-              { name: "Crucial", src: "/brands/Crucial.png" },
-              { name: "Lapcare", src: "/brands/lapcare.png" },
-              { name: "Honeywell", src: "/brands/honeywell.png" },
-              { name: "CP Plus", src: "/brands/cp-plus.png" },
+              { name: "Dell", src: `${BASE_PATH}/brands/Dell.png` },
+              { name: "HP", src: `${BASE_PATH}/brands/hp.png` },
+              { name: "Lenovo", src: `${BASE_PATH}/brands/lenovo.png` },
+              { name: "Acer", src: `${BASE_PATH}/brands/acer.png` },
+              { name: "Asus", src: `${BASE_PATH}/brands/asus.png` },
+              { name: "Samsung", src: `${BASE_PATH}/brands/Samsung.png` },
+              { name: "Apple", src: `${BASE_PATH}/brands/Apple.png` },
+              { name: "Microsoft", src: `${BASE_PATH}/brands/Microsoft.png` },
+              { name: "Google", src: `${BASE_PATH}/brands/google.png` },
+              { name: "AWS", src: `${BASE_PATH}/brands/aws.png` },
+              { name: "Sony", src: `${BASE_PATH}/brands/sony.png` },
+              { name: "Nvidia", src: `${BASE_PATH}/brands/nvidia.png` },
+              { name: "Intel", src: `${BASE_PATH}/brands/intel.png` },
+              { name: "Epson", src: `${BASE_PATH}/brands/epson.png` },
+              { name: "Canon", src: `${BASE_PATH}/brands/Canon.png` },
+              { name: "Zebronics", src: `${BASE_PATH}/brands/zebronics.png` },
+              { name: "Crucial", src: `${BASE_PATH}/brands/Crucial.png` },
+              { name: "Lapcare", src: `${BASE_PATH}/brands/lapcare.png` },
+              { name: "Honeywell", src: `${BASE_PATH}/brands/honeywell.png` },
+              { name: "CP Plus", src: `${BASE_PATH}/brands/cp-plus.png` },
             ].map((brand) => (
               <BrandLogo key={brand.name} name={brand.name} src={brand.src} />
             ))}
@@ -344,7 +356,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ================= FINAL CTA ================= */}
       <section className="relative py-24 px-6 overflow-hidden">
         <div className="absolute inset-0 bg-blue-600"></div>
         <div className="relative max-w-4xl mx-auto text-center text-white">
@@ -383,7 +394,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ================= MOBILE STICKY CTA BAR ================= */}
       <div className="fixed bottom-0 inset-x-0 z-50 md:hidden">
         <div className="bg-white/95 backdrop-blur border-t border-slate-200 px-3 py-3">
           <div className="grid grid-cols-2 gap-3">
