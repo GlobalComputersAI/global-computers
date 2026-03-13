@@ -8,35 +8,32 @@ export const metadata: Metadata = {
     "Global Computers & IT Solutions designs, develops, and implements PSU & enterprise-grade on-premise and web-based software solutions with security, compliance, audit readiness, and long-term support. Android apps included.",
 };
 
+const BASE_PATH = "/global-computers";
 const projectsHref = "/projects";
 
 const techLogos = [
-  // Core
-  { name: "Google", src: "/tech/google.png" },
-  { name: "Microsoft", src: "/tech/microsoft.png" },
-  { name: "AWS", src: "/tech/aws.png" },
-  { name: "Oracle", src: "/tech/oracle.png" },
+  { name: "Google", src: `${BASE_PATH}/tech/google.png` },
+  { name: "Microsoft", src: `${BASE_PATH}/tech/Microsoft.png` },
+  { name: "AWS", src: `${BASE_PATH}/tech/aws.png` },
+  { name: "Oracle", src: `${BASE_PATH}/tech/oracle.png` },
 
-  // Databases / Infra
-  { name: "PostgreSQL", src: "/tech/postgresql.png" },
-  { name: "MySQL", src: "/tech/mysql.png" },
-  { name: "Docker", src: "/tech/docker.png" },
-  { name: "Linux", src: "/tech/linux.png" },
+  { name: "PostgreSQL", src: `${BASE_PATH}/tech/Postgresql.png` },
+  { name: "MySQL", src: `${BASE_PATH}/tech/mysql.png` },
+  { name: "Docker", src: `${BASE_PATH}/tech/docker.png` },
+  { name: "Linux", src: `${BASE_PATH}/tech/linux.png` },
 
-  // Suggested extra (optional)
-  { name: "Azure", src: "/tech/azure.png" },
-  { name: "IBM", src: "/tech/ibm.png" },
-  { name: "Red Hat", src: "/tech/red-hat.png" },
-  { name: "VMware", src: "/tech/vmware.png" },
-  { name: "MongoDB", src: "/tech/mongodb.png" },
-  { name: "Redis", src: "/tech/redis.png" },
-  { name: "Kubernetes", src: "/tech/kubernetes.png" },
-  { name: "NGINX", src: "/tech/nginx.png" },
-  { name: "GitHub", src: "/tech/github.png" },
-  { name: "GitLab", src: "/tech/gitlab.png" },
-  { name: "Jira", src: "/tech/jira.png" },
+  { name: "Azure", src: `${BASE_PATH}/tech/azure.png` },
+  { name: "IBM", src: `${BASE_PATH}/tech/ibm.png` },
+  { name: "Red Hat", src: `${BASE_PATH}/tech/red-hat.png` },
+  { name: "VMware", src: `${BASE_PATH}/tech/vmware.png` },
+  { name: "MongoDB", src: `${BASE_PATH}/tech/Mongodb.png` },
+  { name: "Redis", src: `${BASE_PATH}/tech/redis.png` },
+  { name: "Kubernetes", src: `${BASE_PATH}/tech/Kubernetes.png` },
+  { name: "NGINX", src: `${BASE_PATH}/tech/nginx.png` },
+  { name: "GitHub", src: `${BASE_PATH}/tech/github.png` },
+  { name: "GitLab", src: `${BASE_PATH}/tech/gitlab.png` },
+  { name: "Jira", src: `${BASE_PATH}/tech/jira.png` },
 ];
-
 
 const specialized = [
   { label: "Retail & Supermarket", emoji: "🛒", id: "retail" },
@@ -52,22 +49,21 @@ const specialized = [
 export default function SoftwareSolutionsPage() {
   return (
     <main className="bg-white text-slate-900">
-      {/* ================= HERO ================= */}
       <section className="border-b bg-gradient-to-b from-white to-slate-50">
         <div className="max-w-7xl mx-auto px-6 py-16">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid items-center gap-12 lg:grid-cols-2">
             <div>
-              <div className="inline-flex items-center gap-2 bg-blue-50 text-blue-700 border border-blue-100 px-4 py-2 rounded-full text-sm font-semibold">
+              <div className="inline-flex items-center gap-2 rounded-full border border-blue-100 bg-blue-50 px-4 py-2 text-sm font-semibold text-blue-700">
                 <span>✔</span>
                 <span>PSU & Enterprise-Grade • On-Premise / Web • Android Apps</span>
               </div>
 
-              <h1 className="mt-6 text-4xl md:text-6xl font-black tracking-tight leading-[1.05]">
+              <h1 className="mt-6 text-4xl font-black tracking-tight leading-[1.05] md:text-6xl">
                 PSU & Enterprise{" "}
                 <span className="text-blue-600">Software Solutions</span>
               </h1>
 
-              <p className="mt-6 text-lg md:text-xl text-slate-600 leading-relaxed max-w-2xl">
+              <p className="mt-6 max-w-2xl text-lg leading-relaxed text-slate-600 md:text-xl">
                 Global Computers & IT Solutions builds{" "}
                 <strong>secure, scalable, audit-ready</strong> software for
                 <strong> PSUs, government organizations, and enterprises</strong>.
@@ -79,62 +75,84 @@ export default function SoftwareSolutionsPage() {
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
                   href="/contact-us"
-                  className="px-7 py-3 rounded-full bg-blue-600 text-white font-bold shadow hover:bg-blue-500 transition"
+                  className="rounded-full bg-blue-600 px-7 py-3 font-bold text-white shadow transition hover:bg-blue-500"
                 >
                   Request Proposal
                 </Link>
                 <Link
                   href={projectsHref}
-                  className="px-7 py-3 rounded-full bg-white text-slate-900 font-bold border border-slate-200 hover:border-blue-400 transition"
+                  className="rounded-full border border-slate-200 bg-white px-7 py-3 font-bold text-slate-900 transition hover:border-blue-400"
                 >
                   View Demo Projects
                 </Link>
                 <Link
                   href="/contact-us"
-                  className="px-7 py-3 rounded-full bg-slate-900 text-white font-bold hover:bg-slate-800 transition"
+                  className="rounded-full bg-slate-900 px-7 py-3 font-bold text-white transition hover:bg-slate-800"
                 >
                   Discuss Requirement
                 </Link>
               </div>
 
-              <div className="mt-10 grid sm:grid-cols-2 gap-4">
-                <InfoPill title="PSU-Ready Compliance" desc="Audit logs, approvals, documentation & change control" />
-                <InfoPill title="Secure On-Prem Deployment" desc="Data stays inside your infrastructure & policies" />
-                <InfoPill title="Process Automation" desc="Reduce manual work with workflows & dashboards" />
-                <InfoPill title="Android + Web" desc="Mobile apps integrated with internal systems" />
+              <div className="mt-10 grid gap-4 sm:grid-cols-2">
+                <InfoPill
+                  title="PSU-Ready Compliance"
+                  desc="Audit logs, approvals, documentation & change control"
+                />
+                <InfoPill
+                  title="Secure On-Prem Deployment"
+                  desc="Data stays inside your infrastructure & policies"
+                />
+                <InfoPill
+                  title="Process Automation"
+                  desc="Reduce manual work with workflows & dashboards"
+                />
+                <InfoPill
+                  title="Android + Web"
+                  desc="Mobile apps integrated with internal systems"
+                />
               </div>
             </div>
 
-            <div className="bg-white rounded-[2.5rem] border border-slate-100 shadow-xl p-8">
+            <div className="rounded-[2.5rem] border border-slate-100 bg-white p-8 shadow-xl">
               <h3 className="text-xl font-black">What we deliver</h3>
 
               <ul className="mt-5 space-y-3 text-slate-700">
                 <li className="flex gap-3">
                   <span>✅</span>
-                  <span><strong>Requirement study</strong> + SRS documentation + approvals</span>
+                  <span>
+                    <strong>Requirement study</strong> + SRS documentation + approvals
+                  </span>
                 </li>
                 <li className="flex gap-3">
                   <span>✅</span>
-                  <span><strong>Role-based access</strong>, audit trails, and policy-driven security</span>
+                  <span>
+                    <strong>Role-based access</strong>, audit trails, and policy-driven security
+                  </span>
                 </li>
                 <li className="flex gap-3">
                   <span>✅</span>
-                  <span><strong>Dashboards & MIS</strong> reporting (export, filters, scheduled reports)</span>
+                  <span>
+                    <strong>Dashboards & MIS</strong> reporting (export, filters, scheduled reports)
+                  </span>
                 </li>
                 <li className="flex gap-3">
                   <span>✅</span>
-                  <span><strong>Integration</strong> with existing infrastructure & processes</span>
+                  <span>
+                    <strong>Integration</strong> with existing infrastructure & processes
+                  </span>
                 </li>
                 <li className="flex gap-3">
                   <span>✅</span>
-                  <span><strong>AMC support</strong>, upgrades, enhancements & long-term maintenance</span>
+                  <span>
+                    <strong>AMC support</strong>, upgrades, enhancements & long-term maintenance
+                  </span>
                 </li>
               </ul>
 
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
                   href={projectsHref}
-                  className="w-full text-center py-3 rounded-xl bg-blue-600 text-white font-black hover:bg-blue-500 transition"
+                  className="w-full rounded-xl bg-blue-600 py-3 text-center font-black text-white transition hover:bg-blue-500"
                 >
                   See Demo on Projects Page
                 </Link>
@@ -147,7 +165,6 @@ export default function SoftwareSolutionsPage() {
         </div>
       </section>
 
-      {/* ================= PSU / ENTERPRISE CAPABILITIES ================= */}
       <section className="bg-white">
         <div className="max-w-7xl mx-auto px-6 py-16">
           <SectionTitle
@@ -155,7 +172,7 @@ export default function SoftwareSolutionsPage() {
             subtitle="Built for scale, governance, security, approvals, and audit readiness."
           />
 
-          <div className="mt-10 grid lg:grid-cols-3 gap-6">
+          <div className="mt-10 grid gap-6 lg:grid-cols-3">
             <FeatureCard
               title="Security & Access Control"
               desc="RBAC (Role Based Access), strong authentication, password policy, secure sessions, IP restrictions, data validation and secure APIs."
@@ -188,9 +205,9 @@ export default function SoftwareSolutionsPage() {
             />
           </div>
 
-          <div className="mt-10 bg-slate-50 border border-slate-200 rounded-3xl p-8">
+          <div className="mt-10 rounded-3xl border border-slate-200 bg-slate-50 p-8">
             <h3 className="text-2xl font-black">Types of Software Solutions</h3>
-            <div className="mt-6 grid md:grid-cols-2 gap-4 text-slate-700">
+            <div className="mt-6 grid gap-4 text-slate-700 md:grid-cols-2">
               <li className="list-none">• Web-based internal applications & portals</li>
               <li className="list-none">• On-premise enterprise software systems</li>
               <li className="list-none">• Workflow automation & process management</li>
@@ -204,13 +221,13 @@ export default function SoftwareSolutionsPage() {
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
                 href={projectsHref}
-                className="px-7 py-3 rounded-full bg-slate-900 text-white font-bold hover:bg-slate-800 transition"
+                className="rounded-full bg-slate-900 px-7 py-3 font-bold text-white transition hover:bg-slate-800"
               >
                 View Projects / Demo
               </Link>
               <Link
                 href="/contact-us"
-                className="px-7 py-3 rounded-full bg-blue-600 text-white font-bold hover:bg-blue-500 transition"
+                className="rounded-full bg-blue-600 px-7 py-3 font-bold text-white transition hover:bg-blue-500"
               >
                 Get Consultation
               </Link>
@@ -219,21 +236,20 @@ export default function SoftwareSolutionsPage() {
         </div>
       </section>
 
-      {/* ================= SPECIALIZED SOLUTIONS FOR (YOUR DARK SECTION) ================= */}
       <section className="bg-slate-900 py-24 text-white">
         <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-black text-center mb-14">
+          <h2 className="mb-14 text-center text-3xl font-black md:text-4xl">
             Specialized Solutions For:
           </h2>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
             {specialized.map((item) => (
               <a
                 key={item.label}
                 href={`#${item.id}`}
-                className="bg-slate-800/50 border border-slate-700 p-6 rounded-2xl text-center hover:bg-blue-600 transition-colors cursor-pointer"
+                className="cursor-pointer rounded-2xl border border-slate-700 bg-slate-800/50 p-6 text-center transition-colors hover:bg-blue-600"
               >
-                <div className="text-3xl mb-3">{item.emoji}</div>
+                <div className="mb-3 text-3xl">{item.emoji}</div>
                 <div className="font-bold">{item.label}</div>
                 <div className="mt-2 text-xs text-slate-200/90">
                   Explore modules ↓
@@ -245,7 +261,7 @@ export default function SoftwareSolutionsPage() {
           <div className="mt-12 text-center">
             <Link
               href={projectsHref}
-              className="inline-flex items-center justify-center px-10 py-4 rounded-full bg-white text-slate-900 font-black hover:bg-slate-100 transition"
+              className="inline-flex items-center justify-center rounded-full bg-white px-10 py-4 font-black text-slate-900 transition hover:bg-slate-100"
             >
               Open Projects Page for Demos →
             </Link>
@@ -253,7 +269,6 @@ export default function SoftwareSolutionsPage() {
         </div>
       </section>
 
-      {/* ================= INDUSTRY SECTIONS (DETAILED) ================= */}
       <section className="bg-white">
         <div className="max-w-7xl mx-auto px-6 py-16">
           <SectionTitle
@@ -387,7 +402,7 @@ export default function SoftwareSolutionsPage() {
           <div className="mt-14 text-center">
             <Link
               href={projectsHref}
-              className="inline-flex items-center justify-center px-10 py-4 rounded-full bg-blue-600 text-white font-black hover:bg-blue-500 transition"
+              className="inline-flex items-center justify-center rounded-full bg-blue-600 px-10 py-4 font-black text-white transition hover:bg-blue-500"
             >
               See Demos on Projects Page →
             </Link>
@@ -395,15 +410,14 @@ export default function SoftwareSolutionsPage() {
         </div>
       </section>
 
-      {/* ================= ANDROID APPS ================= */}
-      <section className="bg-slate-50 border-y">
+      <section className="border-y bg-slate-50">
         <div className="max-w-7xl mx-auto px-6 py-16">
           <SectionTitle
             title="Android App Development & Integration"
             subtitle="Mobile apps that connect securely with your internal systems — online/offline support as required."
           />
 
-          <div className="mt-10 grid lg:grid-cols-3 gap-6">
+          <div className="mt-10 grid gap-6 lg:grid-cols-3">
             <FeatureCard
               title="Internal Field Apps"
               desc="Perfect for inspection, survey, attendance-like internal workflows (as per policy), and on-ground reporting."
@@ -439,13 +453,13 @@ export default function SoftwareSolutionsPage() {
           <div className="mt-10 flex flex-wrap gap-3">
             <Link
               href="/contact-us"
-              className="px-7 py-3 rounded-full bg-slate-900 text-white font-bold hover:bg-slate-800 transition"
+              className="rounded-full bg-slate-900 px-7 py-3 font-bold text-white transition hover:bg-slate-800"
             >
               Discuss Android App
             </Link>
             <Link
               href={projectsHref}
-              className="px-7 py-3 rounded-full bg-white text-slate-900 font-bold border border-slate-200 hover:border-blue-400 transition"
+              className="rounded-full border border-slate-200 bg-white px-7 py-3 font-bold text-slate-900 transition hover:border-blue-400"
             >
               View App Demos in Projects
             </Link>
@@ -453,8 +467,6 @@ export default function SoftwareSolutionsPage() {
         </div>
       </section>
 
-      {/* ================= TECH STACK + LOGOS ================= */}
-      {/* ================= TECH STACK + LOGOS ================= */}
       <section className="bg-white">
         <div className="max-w-7xl mx-auto px-6 py-16">
           <SectionTitle
@@ -462,15 +474,14 @@ export default function SoftwareSolutionsPage() {
             subtitle="Tech selection depends on your security policy, deployment type (on-prem / cloud), integrations, performance requirements, and long-term maintenance."
           />
 
-          <div className="mt-10 grid lg:grid-cols-2 gap-10 items-center">
-            {/* LEFT: STACK */}
-            <div className="bg-slate-50 border border-slate-200 rounded-3xl p-8">
+          <div className="mt-10 grid items-center gap-10 lg:grid-cols-2">
+            <div className="rounded-3xl border border-slate-200 bg-slate-50 p-8">
               <h3 className="text-2xl font-black">Typical Stack Options</h3>
               <p className="mt-2 text-slate-600">
                 We select the most suitable and future-proof stack based on your use-case and compliance needs.
               </p>
 
-              <div className="mt-6 grid sm:grid-cols-2 gap-4">
+              <div className="mt-6 grid gap-4 sm:grid-cols-2">
                 <StackItem title="Frontend" desc="Next.js / React — modern UI & fast dashboards" />
                 <StackItem title="Backend" desc="Secure APIs, modular architecture, scalable design" />
                 <StackItem title="Database" desc="PostgreSQL / MySQL / MS SQL / Oracle (as required)" />
@@ -482,43 +493,40 @@ export default function SoftwareSolutionsPage() {
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link
                   href="/contact-us"
-                  className="inline-flex items-center justify-center px-10 py-4 rounded-full bg-blue-600 text-white font-black hover:bg-blue-500 transition"
+                  className="inline-flex items-center justify-center rounded-full bg-blue-600 px-10 py-4 font-black text-white transition hover:bg-blue-500"
                 >
                   Get Tech Consultation
                 </Link>
                 <Link
                   href={projectsHref}
-                  className="inline-flex items-center justify-center px-10 py-4 rounded-full bg-white text-slate-900 font-black border border-slate-200 hover:border-blue-400 transition"
+                  className="inline-flex items-center justify-center rounded-full border border-slate-200 bg-white px-10 py-4 font-black text-slate-900 transition hover:border-blue-400"
                 >
                   View Demos
                 </Link>
               </div>
             </div>
 
-            {/* RIGHT: LOGOS */}
-            <div className="bg-white border border-slate-200 rounded-3xl p-8 shadow-sm">
-              <h3 className="text-xl font-black mb-6">
+            <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
+              <h3 className="mb-6 text-xl font-black">
                 Technology Partners & Tools
               </h3>
 
-              {/* Core */}
               <div>
-                <div className="font-black text-slate-900 mb-4">
+                <div className="mb-4 font-black text-slate-900">
                   Core Technology Partners
                 </div>
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
                   {techLogos.slice(0, 8).map((t) => (
                     <LogoTile key={t.name} name={t.name} src={t.src} />
                   ))}
                 </div>
               </div>
 
-              {/* Optional */}
               <div className="mt-8">
-                <div className="font-black text-slate-900 mb-4">
+                <div className="mb-4 font-black text-slate-900">
                   Additional Platforms & Tools
                 </div>
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
                   {techLogos.slice(8).map((t) => (
                     <LogoTile key={t.name} name={t.name} src={t.src} />
                   ))}
@@ -538,16 +546,14 @@ export default function SoftwareSolutionsPage() {
         </div>
       </section>
 
-
-      {/* ================= PROCESS ================= */}
-      <section className="bg-slate-50 border-y">
+      <section className="border-y bg-slate-50">
         <div className="max-w-7xl mx-auto px-6 py-16">
           <SectionTitle
             title="Development & Implementation Approach"
             subtitle="Structured lifecycle designed for stability, approvals, documentation, and smooth rollout."
           />
 
-          <div className="mt-10 grid lg:grid-cols-5 gap-4">
+          <div className="mt-10 grid gap-4 lg:grid-cols-5">
             <Step title="1. Requirement Study" desc="SRS, workflows, user roles, approvals, scope finalization." />
             <Step title="2. System Design" desc="Architecture, database design, UI/UX, security controls." />
             <Step title="3. Development" desc="Module-by-module build, reviews, controlled iterations." />
@@ -555,15 +561,15 @@ export default function SoftwareSolutionsPage() {
             <Step title="5. Deployment & Support" desc="On-prem deployment, training, AMC and upgrades." />
           </div>
 
-          <div className="mt-10 bg-white border border-slate-200 rounded-3xl p-8">
+          <div className="mt-10 rounded-3xl border border-slate-200 bg-white p-8">
             <h3 className="text-2xl font-black">Security & Compliance Focus</h3>
-            <p className="mt-4 text-slate-600 max-w-5xl">
+            <p className="mt-4 max-w-5xl text-slate-600">
               We follow secure development practices including role-based access control, input validation,
               secure authentication, logging, and controlled deployments. On-premise deployment ensures data
               remains within your infrastructure, aligning with PSU/Govt policies.
             </p>
 
-            <p className="mt-4 text-slate-600 max-w-5xl">
+            <p className="mt-4 max-w-5xl text-slate-600">
               Documentation, approval workflows, audit readiness, and change control are included throughout
               the project lifecycle.
             </p>
@@ -571,13 +577,13 @@ export default function SoftwareSolutionsPage() {
             <div className="mt-8 flex flex-wrap gap-3">
               <Link
                 href="/contact-us"
-                className="px-7 py-3 rounded-full bg-blue-600 text-white font-bold hover:bg-blue-500 transition"
+                className="rounded-full bg-blue-600 px-7 py-3 font-bold text-white transition hover:bg-blue-500"
               >
                 Request Security-First Proposal
               </Link>
               <Link
                 href={projectsHref}
-                className="px-7 py-3 rounded-full bg-white text-slate-900 font-bold border border-slate-200 hover:border-blue-400 transition"
+                className="rounded-full border border-slate-200 bg-white px-7 py-3 font-bold text-slate-900 transition hover:border-blue-400"
               >
                 View Compliance-style Demos
               </Link>
@@ -586,7 +592,6 @@ export default function SoftwareSolutionsPage() {
         </div>
       </section>
 
-      {/* ================= SUPPORT ================= */}
       <section className="bg-white">
         <div className="max-w-7xl mx-auto px-6 py-16">
           <SectionTitle
@@ -594,7 +599,7 @@ export default function SoftwareSolutionsPage() {
             subtitle="We stay with you after delivery — upgrades, enhancements, audits, and ongoing improvements."
           />
 
-          <div className="mt-10 grid lg:grid-cols-3 gap-6">
+          <div className="mt-10 grid gap-6 lg:grid-cols-3">
             <FeatureCard
               title="AMC Support Models"
               desc="Annual support contracts with defined response, enhancements, and version upgrades."
@@ -629,14 +634,13 @@ export default function SoftwareSolutionsPage() {
         </div>
       </section>
 
-      {/* ================= FINAL CTA ================= */}
       <section className="bg-white">
         <div className="max-w-7xl mx-auto px-6 pb-20">
-          <div className="text-center bg-blue-600 text-white p-12 md:p-16 rounded-[3rem]">
-            <h2 className="text-3xl md:text-5xl font-black mb-4">
+          <div className="rounded-[3rem] bg-blue-600 p-12 text-center text-white md:p-16">
+            <h2 className="mb-4 text-3xl font-black md:text-5xl">
               Want a Secure, PSU-Ready System?
             </h2>
-            <p className="text-blue-100 text-lg mb-8 max-w-3xl mx-auto">
+            <p className="mx-auto mb-8 max-w-3xl text-lg text-blue-100">
               Tell us your workflow, approvals, and reporting needs — we will propose a compliant, secure,
               and scalable software solution with long-term support. View demos anytime on Projects page.
             </p>
@@ -644,13 +648,13 @@ export default function SoftwareSolutionsPage() {
             <div className="flex flex-wrap justify-center gap-4">
               <Link
                 href="/contact-us"
-                className="bg-white text-blue-600 px-10 py-4 rounded-full font-black shadow-lg hover:bg-blue-50 transition"
+                className="rounded-full bg-white px-10 py-4 font-black text-blue-600 shadow-lg transition hover:bg-blue-50"
               >
                 Get Proposal
               </Link>
               <Link
                 href={projectsHref}
-                className="bg-blue-800 text-white px-10 py-4 rounded-full font-black border border-blue-400 hover:bg-blue-700 transition"
+                className="rounded-full border border-blue-400 bg-blue-800 px-10 py-4 font-black text-white transition hover:bg-blue-700"
               >
                 Open Projects / Demos
               </Link>
@@ -666,22 +670,20 @@ export default function SoftwareSolutionsPage() {
   );
 }
 
-/* ================= Components ================= */
-
 function SectionTitle({ title, subtitle }: { title: string; subtitle: string }) {
   return (
     <div>
-      <h2 className="text-3xl md:text-4xl font-black">{title}</h2>
-      <p className="mt-3 text-slate-600 text-lg max-w-4xl">{subtitle}</p>
+      <h2 className="text-3xl font-black md:text-4xl">{title}</h2>
+      <p className="mt-3 max-w-4xl text-lg text-slate-600">{subtitle}</p>
     </div>
   );
 }
 
 function InfoPill({ title, desc }: { title: string; desc: string }) {
   return (
-    <div className="p-4 rounded-2xl border border-slate-200 bg-white">
+    <div className="rounded-2xl border border-slate-200 bg-white p-4">
       <div className="font-black">{title}</div>
-      <div className="text-sm text-slate-600 mt-1">{desc}</div>
+      <div className="mt-1 text-sm text-slate-600">{desc}</div>
     </div>
   );
 }
@@ -696,10 +698,10 @@ function FeatureCard({
   points: string[];
 }) {
   return (
-    <div className="p-7 rounded-3xl border border-slate-200 bg-white shadow-sm hover:border-blue-300 transition">
+    <div className="rounded-3xl border border-slate-200 bg-white p-7 shadow-sm transition hover:border-blue-300">
       <h3 className="text-xl font-black">{title}</h3>
       <p className="mt-3 text-slate-600">{desc}</p>
-      <ul className="mt-5 space-y-2 text-slate-700 text-sm">
+      <ul className="mt-5 space-y-2 text-sm text-slate-700">
         {points.map((p) => (
           <li key={p} className="flex gap-2">
             <span className="text-blue-600">•</span>
@@ -736,40 +738,38 @@ function IndustryBlock({
       id={id}
       className={[
         "rounded-[2.25rem] border p-8 md:p-10",
-        highlight
-          ? "border-blue-200 bg-blue-50"
-          : "border-slate-200 bg-white",
+        highlight ? "border-blue-200 bg-blue-50" : "border-slate-200 bg-white",
       ].join(" ")}
     >
       <div className="flex flex-wrap items-center justify-between gap-4">
         <div className="flex items-start gap-4">
           <div className="text-3xl">{emoji}</div>
           <div>
-            <h3 className="text-2xl md:text-3xl font-black">{title}</h3>
-            <p className="mt-3 text-slate-600 max-w-4xl">{intro}</p>
+            <h3 className="text-2xl font-black md:text-3xl">{title}</h3>
+            <p className="mt-3 max-w-4xl text-slate-600">{intro}</p>
           </div>
         </div>
 
-        <div className="flex gap-3 flex-wrap">
+        <div className="flex flex-wrap gap-3">
           <Link
             href="/contact-us"
-            className="px-6 py-3 rounded-full bg-slate-900 text-white font-bold hover:bg-slate-800 transition"
+            className="rounded-full bg-slate-900 px-6 py-3 font-bold text-white transition hover:bg-slate-800"
           >
             Request Quote
           </Link>
           <Link
             href="/projects"
-            className="px-6 py-3 rounded-full bg-white text-slate-900 font-bold border border-slate-200 hover:border-blue-400 transition"
+            className="rounded-full border border-slate-200 bg-white px-6 py-3 font-bold text-slate-900 transition hover:border-blue-400"
           >
             Demo / Projects
           </Link>
         </div>
       </div>
 
-      <div className="mt-8 grid lg:grid-cols-2 gap-6">
-        <div className="bg-white/70 rounded-3xl border border-slate-200 p-6">
+      <div className="mt-8 grid gap-6 lg:grid-cols-2">
+        <div className="rounded-3xl border border-slate-200 bg-white/70 p-6">
           <div className="font-black text-slate-900">Typical Modules</div>
-          <ul className="mt-4 space-y-2 text-slate-700 text-sm">
+          <ul className="mt-4 space-y-2 text-sm text-slate-700">
             {modules.map((m) => (
               <li key={m} className="flex gap-2">
                 <span className="text-blue-600">•</span>
@@ -779,9 +779,9 @@ function IndustryBlock({
           </ul>
         </div>
 
-        <div className="rounded-3xl border border-slate-200 p-6 bg-slate-50">
+        <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6">
           <div className="font-black text-slate-900">Built-in Enterprise Practices</div>
-          <ul className="mt-4 space-y-2 text-slate-700 text-sm">
+          <ul className="mt-4 space-y-2 text-sm text-slate-700">
             {[
               "Role-based access (module-wise)",
               "Approval workflow and remarks",
@@ -810,7 +810,7 @@ function IndustryBlock({
 
 function Step({ title, desc }: { title: string; desc: string }) {
   return (
-    <div className="p-5 rounded-2xl border border-slate-200 bg-white">
+    <div className="rounded-2xl border border-slate-200 bg-white p-5">
       <div className="font-black">{title}</div>
       <div className="mt-2 text-sm text-slate-600">{desc}</div>
     </div>
@@ -819,7 +819,7 @@ function Step({ title, desc }: { title: string; desc: string }) {
 
 function StackItem({ title, desc }: { title: string; desc: string }) {
   return (
-    <div className="p-4 rounded-2xl bg-white border border-slate-200">
+    <div className="rounded-2xl border border-slate-200 bg-white p-4">
       <div className="font-black">{title}</div>
       <div className="mt-1 text-sm text-slate-600">{desc}</div>
     </div>
@@ -828,7 +828,7 @@ function StackItem({ title, desc }: { title: string; desc: string }) {
 
 function LogoTile({ name, src }: { name: string; src: string }) {
   return (
-    <div className="relative h-14 rounded-2xl border border-slate-200 bg-white flex items-center justify-center hover:border-blue-400 transition">
+    <div className="relative flex h-14 items-center justify-center rounded-2xl border border-slate-200 bg-white transition hover:border-blue-400">
       <Image src={src} alt={name} fill className="object-contain p-3" />
     </div>
   );
