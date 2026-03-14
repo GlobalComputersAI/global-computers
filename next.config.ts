@@ -1,18 +1,11 @@
 import type { NextConfig } from "next";
 
-const repo = "global-computers";
-
 const nextConfig: NextConfig = {
-  output: "export", // required for GitHub Pages static hosting
-
+  output: "export",
   images: {
-    unoptimized: true, // GitHub Pages cannot use Next image optimization server
+    unoptimized: true,
   },
-
-  basePath: `/${repo}`, // repo name
-  assetPrefix: `/${repo}/`, // fix CSS/JS loading
-
-  trailingSlash: true, // prevents routing issues in static hosting
+  trailingSlash: true,
 };
 
 export default nextConfig;
