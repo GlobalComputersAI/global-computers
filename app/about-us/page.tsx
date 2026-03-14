@@ -2,9 +2,39 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "About Us | Global Computers & IT Solutions",
+  title: "About Us",
   description:
-    "Learn about Global Computers & IT Solutions — 20+ years of trusted IT hardware supply, software development, AMC, and workforce services for businesses, PSUs, and enterprises across India.",
+    "Learn about Global Computers & IT Solutions — a trusted IT company in India delivering website development, software solutions, IT hardware supply, AMC, manpower services, and turnkey IT support for businesses, PSUs, and enterprises.",
+  keywords: [
+    "About Global Computers",
+    "Global Computers IT Solutions",
+    "IT company in Korba",
+    "IT company in Chhattisgarh",
+    "website development company India",
+    "software development company",
+    "IT hardware supplier India",
+    "AMC services",
+    "PSU IT vendor",
+    "enterprise IT solutions",
+  ],
+  alternates: {
+    canonical: "https://globalcomputers.net/about-us",
+  },
+  openGraph: {
+    title: "About Us | Global Computers & IT Solutions",
+    description:
+      "Trusted IT partner for hardware, software, AMC, workforce services, and enterprise IT delivery across India.",
+    url: "https://globalcomputers.net/about-us",
+    siteName: "Global Computers & IT Solutions",
+    type: "website",
+    locale: "en_IN",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "About Us | Global Computers & IT Solutions",
+    description:
+      "Trusted IT partner for hardware, software, AMC, workforce services, and enterprise IT delivery across India.",
+  },
 };
 
 const WEBSITE = "globalcomputers.net";
@@ -37,8 +67,8 @@ function Card({
       <h3 className="text-xl font-black text-slate-900">{title}</h3>
       <p className="mt-3 text-slate-600 leading-relaxed">{desc}</p>
       <ul className="mt-5 space-y-2 text-sm text-slate-700">
-        {bullets.map((b) => (
-          <li key={b}>✓ {b}</li>
+        {bullets.map((bullet) => (
+          <li key={bullet}>✓ {bullet}</li>
         ))}
       </ul>
     </div>
@@ -53,10 +83,51 @@ function Chip({ children }: { children: React.ReactNode }) {
   );
 }
 
+const aboutPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  name: "About Us | Global Computers & IT Solutions",
+  url: "https://globalcomputers.net/about-us",
+  description:
+    "About Global Computers & IT Solutions, a trusted IT company delivering website development, software solutions, IT hardware, AMC, manpower services, and enterprise IT support in India.",
+  publisher: {
+    "@type": "Organization",
+    name: "Global Computers & IT Solutions",
+    url: "https://globalcomputers.net",
+  },
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: "https://globalcomputers.net",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "About Us",
+      item: "https://globalcomputers.net/about-us",
+    },
+  ],
+};
+
 export default function AboutUsPage() {
   return (
     <main className="max-w-7xl mx-auto px-6 py-14">
-      {/* ================= HERO ================= */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutPageSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+
       <section className="relative overflow-hidden rounded-3xl border border-slate-200 bg-gradient-to-b from-blue-50 to-white p-10 md:p-14">
         <div className="max-w-4xl">
           <div className="inline-flex items-center gap-2 mb-5 px-4 py-1.5 text-sm font-black bg-blue-100 text-blue-700 rounded-full">
@@ -64,25 +135,29 @@ export default function AboutUsPage() {
           </div>
 
           <h1 className="text-4xl md:text-5xl font-black tracking-tight leading-tight">
-            About Global Computers & IT Solutions
+            About Global Computers &amp; IT Solutions
           </h1>
 
           <p className="mt-5 text-lg text-slate-700 leading-relaxed">
             We are a one-stop IT partner for{" "}
             <span className="font-extrabold text-slate-900">hardware supply</span>,{" "}
-            <span className="font-extrabold text-slate-900">custom software development</span>,{" "}
-            <span className="font-extrabold text-slate-900">AMC & maintenance</span>, and{" "}
-            <span className="font-extrabold text-slate-900">IT workforce services</span>.
-            Our strength is reliable delivery, documentation, and long-term support—especially
-            for PSU and enterprise environments.
+            <span className="font-extrabold text-slate-900">
+              custom software development
+            </span>
+            , <span className="font-extrabold text-slate-900">AMC &amp; maintenance</span>, and{" "}
+            <span className="font-extrabold text-slate-900">
+              IT workforce services
+            </span>
+            . Our strength is reliable delivery, documentation, and long-term support—
+            especially for PSU and enterprise environments.
           </p>
 
           <div className="mt-6 flex flex-wrap gap-2">
             <Chip>On-Premise + Cloud + Hybrid</Chip>
             <Chip>PSU / Tender Experience</Chip>
             <Chip>Implementation + Training</Chip>
-            <Chip>AMC & SLA Support</Chip>
-            <Chip>Security & Documentation</Chip>
+            <Chip>AMC &amp; SLA Support</Chip>
+            <Chip>Security &amp; Documentation</Chip>
           </div>
 
           <div className="mt-8 flex flex-col sm:flex-row gap-4">
@@ -90,7 +165,7 @@ export default function AboutUsPage() {
               href="/projects"
               className="px-8 py-4 bg-blue-600 text-white rounded-2xl font-black shadow-lg shadow-blue-200 hover:bg-blue-700 hover:-translate-y-0.5 transition-all text-center"
             >
-              View Projects & Demos
+              View Projects &amp; Demos
             </Link>
 
             <Link
@@ -127,22 +202,24 @@ export default function AboutUsPage() {
               href={`mailto:${EMAIL}`}
             >
               📧 Email Us
-              <div className="text-xs text-slate-500 font-semibold mt-1">
-                {EMAIL}
-              </div>
+              <div className="text-xs text-slate-500 font-semibold mt-1">{EMAIL}</div>
             </a>
           </div>
 
           <p className="mt-4 text-sm text-slate-500 font-semibold">
             Website:{" "}
-            <a className="underline hover:text-slate-800" href={`https://${WEBSITE}`} target="_blank" rel="noreferrer">
+            <a
+              className="underline hover:text-slate-800"
+              href={`https://${WEBSITE}`}
+              target="_blank"
+              rel="noreferrer"
+            >
               {WEBSITE}
             </a>
           </p>
         </div>
       </section>
 
-      {/* ================= STATS ================= */}
       <section className="mt-12">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
           <Stat value="20+" label="Years of Trust" />
@@ -152,15 +229,15 @@ export default function AboutUsPage() {
         </div>
       </section>
 
-      {/* ================= COMPANY OVERVIEW ================= */}
       <section className="mt-14">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
           <div>
             <h2 className="text-3xl font-black">Company Overview</h2>
             <p className="mt-3 text-slate-600 max-w-4xl leading-relaxed">
-              Global Computers & IT Solutions delivers dependable, scalable, and audit-friendly IT solutions.
-              We focus on system stability, security, documentation, and long-term support—ideal for PSU,
-              government, and enterprise operational environments.
+              Global Computers &amp; IT Solutions delivers dependable, scalable, and
+              audit-friendly IT solutions. We focus on system stability, security,
+              documentation, and long-term support—ideal for PSU, government, and
+              enterprise operational environments.
             </p>
           </div>
           <Link
@@ -185,7 +262,7 @@ export default function AboutUsPage() {
 
           <Card
             title="How we work"
-            desc="We follow a structured method aligned with PSU/enterprise expectations."
+            desc="We follow a structured method aligned with PSU and enterprise expectations."
             bullets={[
               "Documentation-first approach (SRS, SOPs, manuals)",
               "Security-aware design for internal networks & roles",
@@ -196,11 +273,11 @@ export default function AboutUsPage() {
         </div>
       </section>
 
-      {/* ================= CORE CAPABILITIES ================= */}
       <section className="mt-14">
         <h2 className="text-3xl font-black">Core Capabilities</h2>
         <p className="mt-3 text-slate-600 max-w-4xl leading-relaxed">
-          Whether it’s a small business website or a PSU on-premise application, we provide end-to-end execution.
+          Whether it’s a small business website or a PSU on-premise application, we
+          provide end-to-end execution.
         </p>
 
         <div className="mt-8 grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -249,56 +326,67 @@ export default function AboutUsPage() {
           />
 
           <Card
-            title="Image Search + Asset Management"
-            desc="Asset management solutions with image-based tracking and fast search."
+            title="Asset Management Solutions"
+            desc="Asset management solutions with image-based tracking and searchable records."
             bullets={[
-              "Asset inventory with serial/warranty/vendor",
-              "Image uploads for assets & invoices",
-              "Service/maintenance history + reminders",
-              "Reports, export and role-based access",
+              "Asset inventory with serial, warranty, and vendor data",
+              "Image uploads for assets and invoices",
+              "Service history with reminders and logs",
+              "Reports, exports, and role-based access",
             ]}
           />
 
           <Card
             title="Attendance Android + Integrations"
-            desc="Attendance solutions with Android app and system integration options."
+            desc="Attendance solutions with Android app and integration options."
             bullets={[
-              "Android attendance app (location/shift rules)",
+              "Android attendance app with location and shift rules",
               "Integration with HR/payroll systems",
-              "Integration with CLIMS workflow (as applicable)",
-              "Monthly reports, approvals, exports",
+              "Workflow integration as applicable",
+              "Monthly reports, approvals, and exports",
             ]}
           />
         </div>
       </section>
 
-      {/* ================= DEPLOYMENT OPTIONS ================= */}
       <section className="mt-14 rounded-3xl border border-slate-200 bg-white p-10 md:p-14">
         <h2 className="text-3xl font-black">Deployment Options</h2>
         <p className="mt-3 text-slate-600 max-w-4xl leading-relaxed">
           We support deployments based on your policy—on-premise, cloud, or hybrid.
-          PSU and enterprise setups can include role-based access, audit logs, backups, and documentation.
+          PSU and enterprise setups can include role-based access, audit logs, backups,
+          and documentation.
         </p>
 
         <div className="mt-8 grid md:grid-cols-2 lg:grid-cols-4 gap-4">
           {[
-            { t: "On-Premise", d: "Internal server + LAN, full control, policy friendly." },
-            { t: "Cloud", d: "Fast deployment, scalability, managed backups." },
-            { t: "Hybrid", d: "Mix of on-prem + cloud as per security policy." },
-            { t: "SLA Support", d: "AMC, upgrades, monitoring, and long-term support." },
-          ].map((x) => (
+            {
+              t: "On-Premise",
+              d: "Internal server + LAN, full control, policy-friendly deployment.",
+            },
+            {
+              t: "Cloud",
+              d: "Fast deployment, scalability, and managed backup support.",
+            },
+            {
+              t: "Hybrid",
+              d: "Mix of on-premise and cloud as per security policy.",
+            },
+            {
+              t: "SLA Support",
+              d: "AMC, upgrades, monitoring, and long-term support.",
+            },
+          ].map((item) => (
             <div
-              key={x.t}
+              key={item.t}
               className="rounded-2xl border border-slate-200 bg-slate-50 p-6"
             >
-              <div className="font-black text-slate-900">{x.t}</div>
-              <div className="mt-2 text-sm text-slate-600">{x.d}</div>
+              <div className="font-black text-slate-900">{item.t}</div>
+              <div className="mt-2 text-sm text-slate-600">{item.d}</div>
             </div>
           ))}
         </div>
       </section>
 
-      {/* ================= TECH STACKS ================= */}
       <section className="mt-14 bg-slate-900 text-white rounded-3xl p-10 md:p-14 border border-slate-800">
         <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
           <div>
@@ -323,12 +411,19 @@ export default function AboutUsPage() {
               Backend / Platforms
             </div>
             <div className="mt-3 flex flex-wrap gap-2">
-              {["Python", "ASP.NET / .NET Core", "Java", "Node.js", "REST APIs", "SQL"].map((x) => (
+              {[
+                "Python",
+                ".NET Core",
+                "Java",
+                "Node.js",
+                "REST APIs",
+                "SQL",
+              ].map((tech) => (
                 <span
-                  key={x}
+                  key={tech}
                   className="px-3 py-1 rounded-full bg-white/10 border border-white/10 text-xs font-extrabold"
                 >
-                  {x}
+                  {tech}
                 </span>
               ))}
             </div>
@@ -336,7 +431,7 @@ export default function AboutUsPage() {
 
           <div className="rounded-2xl bg-white/10 border border-white/10 p-7">
             <div className="text-xs font-black uppercase tracking-widest text-slate-300">
-              AI / ML & Integrations
+              AI / Automation & Integrations
             </div>
             <div className="mt-3 flex flex-wrap gap-2">
               {[
@@ -348,12 +443,12 @@ export default function AboutUsPage() {
                 "WhatsApp",
                 "Payments",
                 "SMS / Email",
-              ].map((x) => (
+              ].map((tech) => (
                 <span
-                  key={x}
+                  key={tech}
                   className="px-3 py-1 rounded-full bg-white/10 border border-white/10 text-xs font-extrabold"
                 >
-                  {x}
+                  {tech}
                 </span>
               ))}
             </div>
@@ -361,52 +456,70 @@ export default function AboutUsPage() {
         </div>
 
         <p className="mt-8 text-sm text-slate-200 font-semibold">
-          We also integrate barcode scanners, printers, biometrics, CCTV, and custom APIs as required.
+          We also integrate barcode scanners, printers, biometrics, CCTV, and custom
+          APIs as required.
         </p>
       </section>
 
-      {/* ================= DELIVERY APPROACH ================= */}
       <section className="mt-14">
         <h2 className="text-3xl font-black">Delivery Approach</h2>
         <p className="mt-3 text-slate-600 max-w-4xl leading-relaxed">
-          Our delivery methodology is structured to meet PSU and enterprise expectations with clear milestones,
-          documentation, training, and post-go-live support.
+          Our delivery methodology is structured to meet PSU and enterprise expectations
+          with clear milestones, documentation, training, and post-go-live support.
         </p>
 
         <div className="mt-8 grid md:grid-cols-4 gap-4">
           {[
-            { s: "01", t: "Requirement", d: "Understand scope, workflow, compliance needs." },
-            { s: "02", t: "Demo / Prototype", d: "Show static demo first. Confirm changes." },
-            { s: "03", t: "Build & Deploy", d: "Development, testing, installation, go-live." },
-            { s: "04", t: "Support (AMC)", d: "Training, upgrades, long-term support." },
-          ].map((x) => (
-            <div key={x.s} className="rounded-2xl bg-slate-50 border border-slate-200 p-6">
-              <div className="text-blue-600 font-black text-lg">{x.s}</div>
-              <div className="mt-2 font-black text-slate-900">{x.t}</div>
-              <div className="mt-2 text-sm text-slate-600">{x.d}</div>
+            {
+              s: "01",
+              t: "Requirement",
+              d: "Understand scope, workflow, and compliance needs.",
+            },
+            {
+              s: "02",
+              t: "Demo / Prototype",
+              d: "Show a working direction first and confirm revisions.",
+            },
+            {
+              s: "03",
+              t: "Build & Deploy",
+              d: "Development, testing, installation, and go-live.",
+            },
+            {
+              s: "04",
+              t: "Support (AMC)",
+              d: "Training, upgrades, and long-term support.",
+            },
+          ].map((step) => (
+            <div
+              key={step.s}
+              className="rounded-2xl bg-slate-50 border border-slate-200 p-6"
+            >
+              <div className="text-blue-600 font-black text-lg">{step.s}</div>
+              <div className="mt-2 font-black text-slate-900">{step.t}</div>
+              <div className="mt-2 text-sm text-slate-600">{step.d}</div>
             </div>
           ))}
         </div>
       </section>
 
-      {/* ================= LONG-TERM VISION ================= */}
       <section className="mt-14">
         <h2 className="text-3xl font-black">Long-Term Vision</h2>
         <p className="mt-3 text-slate-600 max-w-5xl leading-relaxed">
-          We build long-term partnerships based on trust, transparency, and consistent service delivery.
-          Our goal is to grow with our clients by continuously improving technical capability, support quality,
-          and system reliability across PSUs and enterprises.
+          We build long-term partnerships based on trust, transparency, and consistent
+          service delivery. Our goal is to grow with our clients by continuously
+          improving technical capability, support quality, and system reliability across
+          businesses, PSUs, and enterprises.
         </p>
       </section>
 
-      {/* ================= FINAL CTA ================= */}
       <section className="mt-16 rounded-3xl bg-blue-600 text-white p-10 md:p-14">
         <h2 className="text-3xl md:text-4xl font-black">
           Ready to work with a trusted IT partner?
         </h2>
         <p className="mt-3 text-blue-100 max-w-3xl leading-relaxed">
-          Share your requirement and we’ll recommend the best solution: website, software, hardware supply,
-          AMC, workforce, or full turnkey project.
+          Share your requirement and we’ll recommend the best solution: website,
+          software, hardware supply, AMC, workforce, or a full turnkey project.
         </p>
 
         <div className="mt-8 flex flex-col sm:flex-row gap-4">
@@ -420,7 +533,7 @@ export default function AboutUsPage() {
             href="/projects"
             className="px-8 py-4 rounded-2xl bg-blue-900 text-white font-black hover:bg-blue-950 transition text-center border border-blue-300"
           >
-            View Projects & Demos
+            View Projects &amp; Demos
           </Link>
         </div>
       </section>

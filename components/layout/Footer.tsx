@@ -27,6 +27,8 @@ export default function Footer() {
     { label: "IT Hardware Supply", href: "/it-hardware-supply" },
   ];
 
+  const trustTags = ["ISO Process", "PAN India", "On-site Support", "AMC", "Multi-Brand"];
+
   return (
     <footer className="bg-slate-950 text-slate-200">
       <div className="bg-gradient-to-r from-blue-700 via-blue-600 to-indigo-600">
@@ -44,13 +46,15 @@ export default function Footer() {
           <div>
             <h3 className="font-black text-xl tracking-tight text-white leading-tight">
               GLOBAL COMPUTERS <br />
-              <span className="text-blue-400 text-sm">& IT SOLUTIONS</span>
+              <span className="text-blue-400 text-sm">&amp; IT SOLUTIONS</span>
             </h3>
+
             <a
               href={`https://${WEBSITE}`}
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center gap-2 mt-3 text-sm font-bold text-slate-300 hover:text-white transition"
+              aria-label="Visit Global Computers website"
             >
               <span className="text-blue-400">🌐</span> {WEBSITE}
             </a>
@@ -59,26 +63,38 @@ export default function Footer() {
           <p className="text-sm text-slate-400 leading-relaxed">
             One-stop IT partner for{" "}
             <span className="text-slate-200 font-semibold">hardware supply</span>,{" "}
-            <span className="text-slate-200 font-semibold">custom software</span>, AMC, workforce, and{" "}
-            <span className="text-slate-200 font-semibold">turnkey PSU/enterprise projects</span>.
+            <span className="text-slate-200 font-semibold">custom software</span>, AMC,
+            workforce, and{" "}
+            <span className="text-slate-200 font-semibold">
+              turnkey PSU/enterprise projects
+            </span>
+            .
           </p>
 
           <div className="flex flex-wrap gap-2">
-            {["ISO Process", "PAN India", "On-site Support", "AMC", "Multi-Brand"].map((t) => (
+            {trustTags.map((tag) => (
               <span
-                key={t}
+                key={tag}
                 className="px-3 py-1 text-[11px] font-bold rounded-full bg-slate-900 border border-slate-800 text-slate-300"
               >
-                {t}
+                {tag}
               </span>
             ))}
           </div>
 
           <div className="flex gap-3 pt-2">
-            <span className="w-9 h-9 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center text-xs font-black text-slate-300">
+            <span
+              className="w-9 h-9 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center text-xs font-black text-slate-300"
+              aria-label="LinkedIn"
+              title="LinkedIn"
+            >
               in
             </span>
-            <span className="w-9 h-9 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center text-xs font-black text-slate-300">
+            <span
+              className="w-9 h-9 rounded-full bg-slate-900 border border-slate-800 flex items-center justify-center text-xs font-black text-slate-300"
+              aria-label="Facebook"
+              title="Facebook"
+            >
               f
             </span>
           </div>
@@ -90,13 +106,13 @@ export default function Footer() {
           </h4>
 
           <ul className="space-y-3 text-sm text-slate-400">
-            {serviceLinks.map((l) => (
-              <li key={l.label}>
+            {serviceLinks.map((link) => (
+              <li key={link.label}>
                 <Link
-                  href={l.href}
+                  href={link.href}
                   className="hover:text-blue-300 transition-colors"
                 >
-                  {l.label}
+                  {link.label}
                 </Link>
               </li>
             ))}
@@ -153,7 +169,7 @@ export default function Footer() {
 
             <li className="flex items-start gap-3">
               <span className="text-blue-400">📧</span>
-              <a href={`mailto:${EMAIL}`} className="hover:text-white">
+              <a href={`mailto:${EMAIL}`} className="hover:text-white transition-colors">
                 {EMAIL}
               </a>
             </li>
@@ -173,9 +189,10 @@ export default function Footer() {
           <h4 className="font-black text-white mb-2 text-sm">
             Business / PSU Inquiry
           </h4>
+
           <p className="text-xs text-slate-400 mb-5 leading-relaxed">
-            Get a tailored quote for website, software, hardware supply, AMC, or tender-based projects.
-            Response within 24 hours.
+            Get a tailored quote for website, software, hardware supply, AMC, or
+            tender-based projects. Response within 24 hours.
           </p>
 
           <div className="grid gap-3">
@@ -215,12 +232,16 @@ export default function Footer() {
 
       <div className="border-t border-slate-800 bg-black/30">
         <div className="max-w-7xl mx-auto px-6 py-6 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-500">
-          <p>© {currentYear} Global Computers & IT Solutions. All rights reserved.</p>
+          <p>© {currentYear} Global Computers &amp; IT Solutions. All rights reserved.</p>
 
           <div className="flex flex-wrap justify-center gap-6">
-            {quickLinks.map((l) => (
-              <Link key={l.label} href={l.href} className="hover:text-slate-300 transition">
-                {l.label}
+            {quickLinks.map((link) => (
+              <Link
+                key={link.label}
+                href={link.href}
+                className="hover:text-slate-300 transition"
+              >
+                {link.label}
               </Link>
             ))}
           </div>

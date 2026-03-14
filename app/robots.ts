@@ -8,8 +8,18 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: "*",
         allow: "/",
+        disallow: [
+          "/api/",
+          "/_next/",
+          "/admin/",
+        ],
+      },
+      {
+        userAgent: "Googlebot",
+        allow: "/",
       },
     ],
-    sitemap: "https://github.com/GlobalComputersAI/global-computers.git",
+    sitemap: "https://globalcomputers.net/sitemap.xml",
+    host: "https://globalcomputers.net",
   };
 }

@@ -4,15 +4,92 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "IT Workforce & AMC Services for PSUs and Enterprises",
   description:
-    "Global Computers & IT Solutions provides skilled IT manpower deployment, GeM buyer assistance, and annual maintenance contract (AMC) services for PSUs and enterprises with SLA-based support, preventive maintenance, reporting, and audit-ready documentation.",
+    "Global Computers & IT Solutions provides skilled IT manpower deployment, annual maintenance contract (AMC) services, helpdesk support, preventive maintenance, SLA-based support, reporting, and PSU or enterprise IT service execution across India.",
+  keywords: [
+    "IT workforce services",
+    "AMC services India",
+    "IT manpower deployment",
+    "annual maintenance contract",
+    "PSU IT support services",
+    "enterprise AMC support",
+    "helpdesk support services",
+    "IT support engineers",
+    "GeM service provider",
+    "Global Computers AMC",
+  ],
+  alternates: {
+    canonical: "https://globalcomputers.net/it-workforce-amc",
+  },
+  openGraph: {
+    title: "IT Workforce & AMC Services for PSUs and Enterprises",
+    description:
+      "Skilled IT manpower deployment, SLA-based AMC support, preventive maintenance, reporting, and PSU or enterprise service execution.",
+    url: "https://globalcomputers.net/it-workforce-amc",
+    siteName: "Global Computers & IT Solutions",
+    type: "website",
+    locale: "en_IN",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "IT Workforce & AMC Services for PSUs and Enterprises",
+    description:
+      "IT manpower deployment, SLA-based AMC services, preventive maintenance, reporting, and enterprise IT support.",
+  },
 };
 
 const projectsHref = "/projects";
 const GEM_ID = "GLOBAL@2024";
 
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "IT Workforce & AMC Services",
+  serviceType: "IT Workforce Deployment and Annual Maintenance Contract Services",
+  provider: {
+    "@type": "Organization",
+    name: "Global Computers & IT Solutions",
+    url: "https://globalcomputers.net",
+  },
+  areaServed: {
+    "@type": "Country",
+    name: "India",
+  },
+  url: "https://globalcomputers.net/it-workforce-amc",
+  description:
+    "Skilled IT manpower deployment, helpdesk support, preventive maintenance, AMC execution, reporting, SLA management, and PSU or enterprise IT support services.",
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: "https://globalcomputers.net",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "IT Workforce & AMC",
+      item: "https://globalcomputers.net/it-workforce-amc",
+    },
+  ],
+};
+
 export default function ITWorkforceAMCPage() {
   return (
     <main className="bg-white text-slate-900">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+
       <section className="border-b bg-gradient-to-b from-white to-slate-50">
         <div className="max-w-7xl mx-auto px-6 py-16">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -23,11 +100,11 @@ export default function ITWorkforceAMCPage() {
               </div>
 
               <h1 className="mt-6 text-4xl md:text-6xl font-black tracking-tight leading-[1.05]">
-                IT Workforce & <span className="text-blue-600">AMC Services</span>
+                IT Workforce &amp; <span className="text-blue-600">AMC Services</span>
               </h1>
 
               <p className="mt-6 text-lg md:text-xl text-slate-600 leading-relaxed max-w-2xl">
-                Global Computers & IT Solutions provides{" "}
+                Global Computers &amp; IT Solutions provides{" "}
                 <strong>skilled IT manpower</strong>,{" "}
                 <strong>GeM buyer support</strong>, and{" "}
                 <strong>Annual Maintenance Contracts (AMC)</strong> to ensure uninterrupted
@@ -57,10 +134,10 @@ export default function ITWorkforceAMCPage() {
               </div>
 
               <div className="mt-10 grid sm:grid-cols-2 gap-4">
-                <InfoPill title="SLA Commitments" desc="Response / resolution timelines & escalation" />
-                <InfoPill title="Preventive Maintenance" desc="Health checks, updates & planned activities" />
-                <InfoPill title="Audit-Ready Reporting" desc="Registers, logs, checklists & monthly MIS" />
-                <InfoPill title="Replacement Support" desc="Backup resources & continuity planning" />
+                <InfoPill title="SLA Commitments" desc="Response and resolution timelines with escalation support" />
+                <InfoPill title="Preventive Maintenance" desc="Health checks, updates, and planned activities" />
+                <InfoPill title="Audit-Ready Reporting" desc="Registers, logs, checklists, and monthly MIS" />
+                <InfoPill title="Replacement Support" desc="Backup resources and continuity planning" />
               </div>
             </div>
 
@@ -70,31 +147,31 @@ export default function ITWorkforceAMCPage() {
                 <li className="flex gap-3">
                   <span>✅</span>
                   <span>
-                    <strong>End-user IT support</strong> (desktop, OS, apps, printers)
+                    <strong>End-user IT support</strong> (desktop, OS, applications, printers)
                   </span>
                 </li>
                 <li className="flex gap-3">
                   <span>✅</span>
                   <span>
-                    <strong>Network & infrastructure</strong> (LAN, switches, Wi-Fi, server room basics)
+                    <strong>Network &amp; infrastructure</strong> (LAN, switches, Wi-Fi, and server room basics)
                   </span>
                 </li>
                 <li className="flex gap-3">
                   <span>✅</span>
                   <span>
-                    <strong>Helpdesk operations</strong> (ticketing, escalation, resolution tracking)
+                    <strong>Helpdesk operations</strong> (ticketing, escalation, and resolution tracking)
                   </span>
                 </li>
                 <li className="flex gap-3">
                   <span>✅</span>
                   <span>
-                    <strong>AMC execution</strong> (preventive + corrective maintenance)
+                    <strong>AMC execution</strong> (preventive and corrective maintenance)
                   </span>
                 </li>
                 <li className="flex gap-3">
                   <span>✅</span>
                   <span>
-                    <strong>OEM coordination</strong> (warranty calls, spares, vendor follow-up)
+                    <strong>OEM coordination</strong> (warranty calls, spares, and vendor follow-up)
                   </span>
                 </li>
               </ul>
@@ -107,7 +184,7 @@ export default function ITWorkforceAMCPage() {
                   Get Workforce / AMC Quote
                 </Link>
                 <p className="mt-3 text-xs text-slate-500">
-                  Scope varies by site size, locations, hardware count and SLA requirements.
+                  Scope varies by site size, locations, hardware count, and SLA requirements.
                 </p>
               </div>
             </div>
@@ -121,7 +198,7 @@ export default function ITWorkforceAMCPage() {
             <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
               <div>
                 <h2 className="text-3xl md:text-4xl font-black">
-                  GeM Buyer Assistance & Service Execution
+                  GeM Buyer Assistance &amp; Service Execution
                 </h2>
                 <p className="mt-3 text-slate-700 max-w-4xl leading-relaxed">
                   We support organizations not only in service delivery, but also in the
@@ -144,8 +221,8 @@ export default function ITWorkforceAMCPage() {
                 desc="We help buyers understand scope, manpower structure, AMC model, service coverage, and documentation expectations."
                 points={[
                   "Clarification on service scope and deliverables",
-                  "Support in understanding AMC / workforce models",
-                  "Discussion on site count, hardware count, shift model",
+                  "Support in understanding AMC and workforce models",
+                  "Discussion on site count, hardware count, and shift model",
                   "Alignment of service expectations before execution",
                 ]}
               />
@@ -155,7 +232,7 @@ export default function ITWorkforceAMCPage() {
                 points={[
                   "GeM-ready communication and support",
                   "Work scope understanding for buyers and departments",
-                  "Deployment planning after order / award",
+                  "Deployment planning after order or award",
                   "Reporting structure aligned with contract requirements",
                 ]}
               />
@@ -164,9 +241,9 @@ export default function ITWorkforceAMCPage() {
                 desc="From buyer-side requirement discussion to workforce deployment and AMC support, we stay involved throughout the lifecycle."
                 points={[
                   "Requirement discussion to execution planning",
-                  "Onboarding, registers, checklists, MIS",
+                  "Onboarding, registers, checklists, and MIS",
                   "Preventive and corrective support cycle",
-                  "Long-term AMC / support continuity",
+                  "Long-term AMC and support continuity",
                 ]}
               />
             </div>
@@ -186,30 +263,30 @@ export default function ITWorkforceAMCPage() {
               title="On-Site Support Engineers"
               desc="End-user support, device health checks, issue resolution, and coordination with departments."
               points={[
-                "Desktop/laptop OS & software support",
-                "Printer & peripheral support",
+                "Desktop and laptop OS support",
+                "Printer and peripheral support",
                 "Basic network troubleshooting",
-                "User coordination & documentation",
+                "User coordination and documentation",
               ]}
             />
             <FeatureCard
               title="Helpdesk & Operations"
               desc="Structured ticketing, tracking, escalation, and closure with reporting."
               points={[
-                "Incident logging & tracking",
-                "SLA-based response & escalation",
-                "Daily/weekly status reports",
-                "Root cause tagging (where applicable)",
+                "Incident logging and tracking",
+                "SLA-based response and escalation",
+                "Daily and weekly status reports",
+                "Root cause tagging where applicable",
               ]}
             />
             <FeatureCard
               title="Network / Infrastructure Support"
-              desc="LAN/Wi-Fi support, switch configurations support (as per access), monitoring and coordination."
+              desc="LAN, Wi-Fi, monitoring, and coordination support as per access and scope."
               points={[
-                "LAN & Wi-Fi issue handling",
+                "LAN and Wi-Fi issue handling",
                 "Basic server-room coordination",
                 "Structured cabling supervision",
-                "Vendor/OEM coordination support",
+                "Vendor and OEM coordination support",
               ]}
             />
           </div>
@@ -253,22 +330,22 @@ export default function ITWorkforceAMCPage() {
           <div className="mt-10 grid lg:grid-cols-4 gap-4">
             <Step title="Site-Based Deployment" desc="Dedicated on-site engineers as per shifts and site count." />
             <Step title="Centralized Support" desc="Central helpdesk with escalation to field engineers." />
-            <Step title="Project-Specific Team" desc="Defined scope team for upgrades, rollout, migrations or audits." />
+            <Step title="Project-Specific Team" desc="Defined scope team for upgrades, rollout, migrations, or audits." />
             <Step title="Hybrid Model" desc="On-site + remote + periodic visits with SLA and reporting." />
           </div>
 
           <div className="mt-10 bg-white border border-slate-200 rounded-3xl p-8">
-            <h3 className="text-2xl font-black">Onboarding & Control</h3>
+            <h3 className="text-2xl font-black">Onboarding &amp; Control</h3>
             <p className="mt-4 text-slate-600 max-w-5xl">
-              Deployment is executed through structured onboarding: scope confirmation, site survey (if required),
-              asset baseline, reporting lines, escalation matrix, and documentation formats.
+              Deployment is executed through structured onboarding: scope confirmation, site survey
+              where required, asset baseline, reporting lines, escalation matrix, and documentation formats.
             </p>
 
             <div className="mt-6 grid md:grid-cols-2 gap-4 text-slate-700">
-              <li className="list-none">• Scope & SLA sign-off (response / resolution)</li>
-              <li className="list-none">• Asset baseline & register creation</li>
-              <li className="list-none">• Ticketing / reporting format finalization</li>
-              <li className="list-none">• Escalation matrix & SPOC identification</li>
+              <li className="list-none">• Scope and SLA sign-off (response / resolution)</li>
+              <li className="list-none">• Asset baseline and register creation</li>
+              <li className="list-none">• Ticketing and reporting format finalization</li>
+              <li className="list-none">• Escalation matrix and SPOC identification</li>
             </div>
           </div>
         </div>
@@ -278,7 +355,7 @@ export default function ITWorkforceAMCPage() {
         <div className="max-w-7xl mx-auto px-6 py-16">
           <SectionTitle
             title="Annual Maintenance Contract (AMC) Services"
-            subtitle="Preventive + corrective maintenance for IT hardware, software systems, and integrated infrastructure to ensure uptime and predictable operational costs."
+            subtitle="Preventive and corrective maintenance for IT hardware, software systems, and integrated infrastructure to ensure uptime and predictable operational costs."
           />
 
           <div className="mt-10 grid lg:grid-cols-3 gap-6">
@@ -286,30 +363,30 @@ export default function ITWorkforceAMCPage() {
               title="Preventive Maintenance"
               desc="Planned visits and checklists to reduce downtime and catch issues early."
               points={[
-                "Health checks & cleaning",
-                "Patch/update planning (as per policy)",
-                "UPS / power checks",
-                "Preventive checklists & sign-off",
+                "Health checks and cleaning",
+                "Patch or update planning as per policy",
+                "UPS and power checks",
+                "Preventive checklists and sign-off",
               ]}
             />
             <FeatureCard
               title="Corrective Maintenance"
-              desc="Incident handling, troubleshooting, coordination and repair planning."
+              desc="Incident handling, troubleshooting, coordination, and repair planning."
               points={[
-                "Issue diagnosis & resolution",
-                "Replacement coordination (if required)",
+                "Issue diagnosis and resolution",
+                "Replacement coordination where required",
                 "OEM warranty call coordination",
-                "Closure notes & documentation",
+                "Closure notes and documentation",
               ]}
             />
             <FeatureCard
               title="Reporting & MIS"
-              desc="Transparent reporting aligned with PSU requirements."
+              desc="Transparent reporting aligned with PSU and enterprise requirements."
               points={[
-                "Monthly service report & summary",
-                "Incident register & resolution time",
+                "Monthly service report and summary",
+                "Incident register and resolution time",
                 "Preventive visit logs",
-                "Recommendations & improvement plan",
+                "Recommendations and improvement plan",
               ]}
             />
           </div>
@@ -317,12 +394,12 @@ export default function ITWorkforceAMCPage() {
           <div className="mt-10 bg-slate-50 border border-slate-200 rounded-3xl p-8">
             <h3 className="text-2xl font-black">Typical AMC Scope Includes</h3>
             <div className="mt-6 grid md:grid-cols-2 gap-4 text-slate-700">
-              <li className="list-none">• Preventive & corrective maintenance</li>
+              <li className="list-none">• Preventive and corrective maintenance</li>
               <li className="list-none">• Incident management and issue resolution</li>
-              <li className="list-none">• Software updates & minor enhancements (as agreed)</li>
+              <li className="list-none">• Software updates and minor enhancements as agreed</li>
               <li className="list-none">• Hardware coordination and OEM support</li>
               <li className="list-none">• Performance monitoring and reporting</li>
-              <li className="list-none">• Asset lifecycle guidance & replacement planning</li>
+              <li className="list-none">• Asset lifecycle guidance and replacement planning</li>
             </div>
 
             <div className="mt-8 flex flex-wrap gap-3">
@@ -355,19 +432,19 @@ export default function ITWorkforceAMCPage() {
               title="Documentation & Registers"
               desc="All service activities supported by documentation and logs."
               points={[
-                "Ticket registers & closure notes",
+                "Ticket registers and closure notes",
                 "Preventive checklists",
-                "Asset registers & mapping",
-                "Replacement/repair records",
+                "Asset registers and mapping",
+                "Replacement and repair records",
               ]}
             />
             <FeatureCard
               title="SLA & Escalation"
               desc="Clearly defined SLA with escalation matrix and reporting."
               points={[
-                "Response & resolution targets",
-                "Escalation points & SPOC",
-                "Weekly/monthly review",
+                "Response and resolution targets",
+                "Escalation points and SPOC",
+                "Weekly or monthly review",
                 "Corrective action reporting",
               ]}
             />
@@ -393,17 +470,17 @@ export default function ITWorkforceAMCPage() {
           />
 
           <div className="mt-10 grid lg:grid-cols-4 gap-4">
-            <Step title="1. Buyer Discussion" desc="Understand service need, site size, hardware count, SLA and manpower expectation." />
-            <Step title="2. Scope Alignment" desc="Clarify deployment model, reporting format, support boundaries and documentation." />
-            <Step title="3. Service Execution" desc="Deploy workforce, start AMC activities, begin registers, logs and ticket handling." />
-            <Step title="4. Ongoing Support" desc="MIS reporting, preventive maintenance, escalations, review meetings and continuity support." />
+            <Step title="1. Buyer Discussion" desc="Understand service need, site size, hardware count, SLA, and manpower expectation." />
+            <Step title="2. Scope Alignment" desc="Clarify deployment model, reporting format, support boundaries, and documentation." />
+            <Step title="3. Service Execution" desc="Deploy workforce, start AMC activities, and begin registers, logs, and ticket handling." />
+            <Step title="4. Ongoing Support" desc="MIS reporting, preventive maintenance, escalations, review meetings, and continuity support." />
           </div>
 
           <div className="mt-10 rounded-3xl border border-blue-100 bg-blue-50 p-8">
             <h3 className="text-2xl font-black">Why this helps buyers</h3>
             <p className="mt-4 text-slate-700 max-w-5xl">
-              Buyers often need a partner who not only provides manpower or AMC service, but also
-              understands documentation, reporting, coordination, and execution discipline.
+              Buyers often need a partner who not only provides manpower or AMC service,
+              but also understands documentation, reporting, coordination, and execution discipline.
               We support this complete cycle in a structured and professional manner.
             </p>
 
@@ -493,10 +570,10 @@ function FeatureCard({
       <h3 className="text-xl font-black">{title}</h3>
       <p className="mt-3 text-slate-600">{desc}</p>
       <ul className="mt-5 space-y-2 text-slate-700 text-sm">
-        {points.map((p) => (
-          <li key={p} className="flex gap-2">
+        {points.map((point) => (
+          <li key={point} className="flex gap-2">
             <span className="text-blue-600">•</span>
-            <span>{p}</span>
+            <span>{point}</span>
           </li>
         ))}
       </ul>

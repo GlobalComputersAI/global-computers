@@ -1,14 +1,43 @@
+import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import Link from "next/link";
 import Script from "next/script";
 
-export const metadata = {
-  title: "Contact Us | Global Computers & IT Solutions",
+export const metadata: Metadata = {
+  title: "Contact Us",
   description:
-    "Request a demo or quote for websites, billing software, IT hardware supply, AMC, workforce, and PSU/enterprise projects. Get a response within 24 hours.",
+    "Contact Global Computers & IT Solutions for website development, billing software, custom software, IT hardware supply, AMC, manpower, networking, CCTV, biometrics, and PSU or enterprise projects. Get a demo or quote quickly on WhatsApp.",
+  keywords: [
+    "contact Global Computers",
+    "Global Computers contact",
+    "website development inquiry",
+    "billing software demo",
+    "IT hardware supplier contact",
+    "AMC services contact",
+    "PSU IT project inquiry",
+    "software development quote",
+    "Korba IT company contact",
+    "Chhattisgarh IT company",
+  ],
+  alternates: {
+    canonical: "https://globalcomputers.net/contact-us",
+  },
+  openGraph: {
+    title: "Contact Us | Global Computers & IT Solutions",
+    description:
+      "Request a demo or quote for websites, software, IT hardware, AMC, manpower, and PSU or enterprise projects.",
+    url: "https://globalcomputers.net/contact-us",
+    siteName: "Global Computers & IT Solutions",
+    type: "website",
+    locale: "en_IN",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Contact Us | Global Computers & IT Solutions",
+    description:
+      "Request a demo or quote for websites, software, IT hardware, AMC, manpower, and PSU or enterprise projects.",
+  },
 };
-
-const BASE_PATH = "/global-computers";
 
 const SOFTWARE_PHONE_DISPLAY = "+91 97524 22686";
 const SOFTWARE_PHONE_TEL = "+919752422686";
@@ -33,12 +62,35 @@ function InfoCard({
   desc,
   href,
   cta,
+  external = false,
 }: {
   title: string;
   desc: string;
   href: string;
   cta: string;
+  external?: boolean;
 }) {
+  if (external) {
+    return (
+      <a
+        href={href}
+        target="_blank"
+        rel="noreferrer"
+        className="block rounded-3xl border border-slate-200 bg-white p-6 shadow-sm transition-all hover:shadow-xl"
+      >
+        <div className="text-sm font-black uppercase tracking-widest text-slate-500">
+          {title}
+        </div>
+        <div className="mt-2 font-semibold leading-relaxed text-slate-700">
+          {desc}
+        </div>
+        <div className="mt-4 inline-flex items-center gap-2 font-black text-blue-600">
+          {cta} <span aria-hidden>→</span>
+        </div>
+      </a>
+    );
+  }
+
   return (
     <a
       href={href}
@@ -57,9 +109,76 @@ function InfoCard({
   );
 }
 
+const contactPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  name: "Contact Us | Global Computers & IT Solutions",
+  url: "https://globalcomputers.net/contact-us",
+  description:
+    "Contact Global Computers & IT Solutions for website development, software, IT hardware, AMC, manpower services, and enterprise IT solutions.",
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: "https://globalcomputers.net",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "Contact Us",
+      item: "https://globalcomputers.net/contact-us",
+    },
+  ],
+};
+
+const organizationContactSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Global Computers & IT Solutions",
+  url: "https://globalcomputers.net",
+  email: EMAIL,
+  contactPoint: [
+    {
+      "@type": "ContactPoint",
+      telephone: SOFTWARE_PHONE_TEL,
+      contactType: "sales",
+      areaServed: "IN",
+      availableLanguage: ["English", "Hindi"],
+    },
+    {
+      "@type": "ContactPoint",
+      telephone: HARDWARE_PHONE_TEL,
+      contactType: "customer support",
+      areaServed: "IN",
+      availableLanguage: ["English", "Hindi"],
+    },
+  ],
+};
+
 export default function ContactUsPage() {
   return (
     <main className="bg-slate-50 text-slate-900">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(contactPageSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(organizationContactSchema),
+        }}
+      />
+
       <Script id="contact-whatsapp-handler" strategy="afterInteractive">
         {`
           (function () {
@@ -139,12 +258,10 @@ Please contact me regarding this inquiry.\`;
             <p className="mt-5 max-w-xl text-lg leading-relaxed text-slate-700">
               Websites starting from{" "}
               <span className="font-black text-slate-900">₹5,000 + GST</span>.
-              Billing software{" "}
-              <span className="font-black text-slate-900">FREE</span> and basic
-              SEO setup{" "}
-              <span className="font-black text-slate-900">FREE</span>. Also
-              available: IT hardware supply, AMC, IT workforce, and
-              PSU/enterprise on-premise & cloud solutions.
+              Billing software <span className="font-black text-slate-900">FREE</span> and
+              basic SEO setup <span className="font-black text-slate-900">FREE</span>.
+              Also available: custom software, IT hardware supply, AMC, IT workforce,
+              CCTV, biometrics, networking, and PSU or enterprise on-premise and cloud solutions.
             </p>
 
             <div className="mt-6 flex flex-wrap gap-2">
@@ -189,13 +306,22 @@ Please contact me regarding this inquiry.\`;
                 desc={WEBSITE}
                 href={`https://${WEBSITE}`}
                 cta="Open Website"
+                external
               />
-              <InfoCard
-                title="Projects"
-                desc="View demos & capabilities"
-                href={`${BASE_PATH}/projects/`}
-                cta="View Projects"
-              />
+              <Link
+                href="/projects"
+                className="block rounded-3xl border border-slate-200 bg-white p-6 shadow-sm transition-all hover:shadow-xl"
+              >
+                <div className="text-sm font-black uppercase tracking-widest text-slate-500">
+                  Projects
+                </div>
+                <div className="mt-2 font-semibold leading-relaxed text-slate-700">
+                  View demos & capabilities
+                </div>
+                <div className="mt-4 inline-flex items-center gap-2 font-black text-blue-600">
+                  View Projects <span aria-hidden>→</span>
+                </div>
+              </Link>
             </div>
 
             <div className="mt-8 rounded-3xl border border-slate-200 bg-white p-6">
@@ -251,7 +377,7 @@ Please contact me regarding this inquiry.\`;
                     className="mt-2 w-full rounded-xl border border-slate-200 px-4 py-3 outline-none focus:border-blue-400 focus:ring-4 focus:ring-blue-100"
                   />
                   <p className="mt-1 text-xs font-semibold text-slate-500">
-                    We contact you faster on WhatsApp/call.
+                    We contact you faster on WhatsApp or call.
                   </p>
                 </div>
               </div>
@@ -434,13 +560,13 @@ Please contact me regarding this inquiry.\`;
                 t: "One Stop IT",
                 d: "Website + software + hardware + workforce.",
               },
-            ].map((x) => (
+            ].map((item) => (
               <div
-                key={x.t}
+                key={item.t}
                 className="rounded-2xl border border-slate-200 bg-slate-50 p-6"
               >
-                <div className="font-black text-slate-900">{x.t}</div>
-                <div className="mt-2 text-sm text-slate-600">{x.d}</div>
+                <div className="font-black text-slate-900">{item.t}</div>
+                <div className="mt-2 text-sm text-slate-600">{item.d}</div>
               </div>
             ))}
           </div>

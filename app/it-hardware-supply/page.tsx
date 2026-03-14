@@ -3,40 +3,117 @@ import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "IT Hardware | Professional Gaming, 4K Editing & PSU GeM Supply",
+  title: "IT Hardware Supply, CCTV, Printers & GeM Procurement",
   description:
-    "Authorized OEM partner for high-end gaming PCs, 4K video editing workstations, enterprise printer solutions, and CCTV surveillance. Registered GeM supplier for PSUs.",
+    "Global Computers & IT Solutions provides IT hardware supply, laptops, desktops, workstations, printers, CCTV surveillance, accessories, AMC, and GeM procurement support for businesses, institutions, PSUs, and enterprises across India.",
+  keywords: [
+    "IT hardware supplier India",
+    "computer supplier Chhattisgarh",
+    "GeM hardware supplier",
+    "PSU IT vendor",
+    "laptop supplier",
+    "desktop supplier",
+    "workstation supplier",
+    "printer supplier",
+    "CCTV installation",
+    "IT accessories supplier",
+    "AMC support",
+    "Global Computers hardware",
+  ],
+  alternates: {
+    canonical: "https://globalcomputers.net/it-hardware-supply",
+  },
+  openGraph: {
+    title: "IT Hardware Supply, CCTV, Printers & GeM Procurement | Global Computers",
+    description:
+      "Authorized OEM partner for desktops, laptops, custom workstations, printer solutions, CCTV systems, and GeM procurement support.",
+    url: "https://globalcomputers.net/it-hardware-supply",
+    siteName: "Global Computers & IT Solutions",
+    type: "website",
+    locale: "en_IN",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "IT Hardware Supply, CCTV, Printers & GeM Procurement",
+    description:
+      "Supply of desktops, laptops, workstations, printers, CCTV, accessories, and GeM procurement support across India.",
+  },
 };
 
-const BASE_PATH = "/global-computers";
-
 const brands = [
-  { name: "Dell", src: `${BASE_PATH}/brands/Dell.png` },
-  { name: "HP", src: `${BASE_PATH}/brands/hp.png` },
-  { name: "Lenovo", src: `${BASE_PATH}/brands/lenovo.png` },
-  { name: "Acer", src: `${BASE_PATH}/brands/acer.png` },
-  { name: "Asus", src: `${BASE_PATH}/brands/asus.png` },
-  { name: "Apple", src: `${BASE_PATH}/brands/Apple.png` },
-  { name: "Microsoft", src: `${BASE_PATH}/brands/Microsoft.png` },
-  { name: "Google", src: `${BASE_PATH}/brands/google.png` },
-  { name: "AWS", src: `${BASE_PATH}/brands/aws.png` },
-  { name: "Sony", src: `${BASE_PATH}/brands/sony.png` },
-  { name: "Nvidia", src: `${BASE_PATH}/brands/nvidia.png` },
-  { name: "Intel", src: `${BASE_PATH}/brands/intel.png` },
-  { name: "Epson", src: `${BASE_PATH}/brands/epson.png` },
-  { name: "Canon", src: `${BASE_PATH}/brands/Canon.png` },
-  { name: "Zebronics", src: `${BASE_PATH}/brands/zebronics.png` },
-  { name: "Crucial", src: `${BASE_PATH}/brands/Crucial.png` },
-  { name: "Lapcare", src: `${BASE_PATH}/brands/lapcare.png` },
-  { name: "Honeywell", src: `${BASE_PATH}/brands/honeywell.png` },
-  { name: "CP Plus", src: `${BASE_PATH}/brands/cp-plus.png` },
+  { name: "Dell", src: "/brands/Dell.png" },
+  { name: "HP", src: "/brands/hp.png" },
+  { name: "Lenovo", src: "/brands/lenovo.png" },
+  { name: "Acer", src: "/brands/acer.png" },
+  { name: "Asus", src: "/brands/asus.png" },
+  { name: "Apple", src: "/brands/Apple.png" },
+  { name: "Microsoft", src: "/brands/Microsoft.png" },
+  { name: "Google", src: "/brands/google.png" },
+  { name: "AWS", src: "/brands/aws.png" },
+  { name: "Sony", src: "/brands/sony.png" },
+  { name: "Nvidia", src: "/brands/nvidia.png" },
+  { name: "Intel", src: "/brands/intel.png" },
+  { name: "Epson", src: "/brands/epson.png" },
+  { name: "Canon", src: "/brands/Canon.png" },
+  { name: "Zebronics", src: "/brands/zebronics.png" },
+  { name: "Crucial", src: "/brands/Crucial.png" },
+  { name: "Lapcare", src: "/brands/lapcare.png" },
+  { name: "Honeywell", src: "/brands/honeywell.png" },
+  { name: "CP Plus", src: "/brands/cp-plus.png" },
 ];
 
 const site = "globalcomputers.net";
 
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "IT Hardware Supply",
+  serviceType: "IT Hardware Supply and Enterprise Procurement",
+  provider: {
+    "@type": "Organization",
+    name: "Global Computers & IT Solutions",
+    url: "https://globalcomputers.net",
+  },
+  areaServed: {
+    "@type": "Country",
+    name: "India",
+  },
+  url: "https://globalcomputers.net/it-hardware-supply",
+  description:
+    "Supply of desktops, laptops, workstations, printers, CCTV surveillance systems, accessories, and GeM procurement support for businesses, institutions, PSUs, and enterprises.",
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Home",
+      item: "https://globalcomputers.net",
+    },
+    {
+      "@type": "ListItem",
+      position: 2,
+      name: "IT Hardware Supply",
+      item: "https://globalcomputers.net/it-hardware-supply",
+    },
+  ],
+};
+
 export default function ITHardwareSupplyPage() {
   return (
     <main className="bg-white text-slate-900">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+
       <section className="relative overflow-hidden border-b bg-gradient-to-b from-white to-slate-50">
         <div className="max-w-7xl mx-auto grid items-center gap-12 px-6 pt-14 pb-16 lg:grid-cols-2">
           <div>
@@ -46,13 +123,14 @@ export default function ITHardwareSupplyPage() {
             </div>
 
             <h1 className="mt-6 text-4xl font-black tracking-tight leading-[1.05] md:text-6xl">
-              Enterprise <span className="text-blue-600">IT Hardware</span> & Custom Solutions
+              Enterprise <span className="text-blue-600">IT Hardware</span> Supply &amp; Custom Solutions
             </h1>
 
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-slate-600 md:text-xl">
-              Global Computers & IT Solutions delivers <strong>PSU / GeM supplies</strong>,
-              <strong> custom PCs</strong>, <strong>workstations</strong>, printers, and end-to-end support
-              for offices, professionals, and institutions across India.
+              Global Computers &amp; IT Solutions delivers <strong>PSU / GeM supplies</strong>,
+              <strong> custom PCs</strong>, <strong>workstations</strong>, laptops, printers,
+              CCTV systems, and end-to-end support for offices, professionals, institutions,
+              and enterprise buyers across India.
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">
@@ -89,7 +167,7 @@ export default function ITHardwareSupplyPage() {
           <div className="relative">
             <div className="relative aspect-[16/10] w-full overflow-hidden rounded-[2.5rem] border border-slate-100 shadow-xl">
               <Image
-                src={`${BASE_PATH}/it-hardware/hero-it-hardware.jpg`}
+                src="/it-hardware/hero-it-hardware.jpg"
                 alt="Enterprise IT hardware supply and custom workstation solutions"
                 fill
                 className="object-cover"
@@ -155,7 +233,7 @@ export default function ITHardwareSupplyPage() {
                 Order Basic PC
               </Link>
               <p className="mt-3 text-xs text-slate-500">
-                *Pricing may vary based on brand / availability / GST.
+                *Pricing may vary based on brand, availability, and GST.
               </p>
             </div>
 
@@ -165,13 +243,13 @@ export default function ITHardwareSupplyPage() {
               </div>
               <h3 className="text-2xl font-black">Pro Gaming Build</h3>
               <p className="mt-2 text-sm text-slate-300">
-                Engineered for AAA titles, ray tracing, streaming, and max FPS.
+                Engineered for AAA titles, ray tracing, streaming, and maximum FPS.
               </p>
 
               <ul className="mt-6 flex-grow space-y-3 text-sm text-slate-200">
                 <li>• Latest Gen Intel / Ryzen</li>
                 <li>• NVIDIA RTX Series GPU</li>
-                <li>• 16GB/32GB DDR5 RAM</li>
+                <li>• 16GB / 32GB DDR5 RAM</li>
                 <li>• Liquid Cooling (optional)</li>
               </ul>
 
@@ -182,14 +260,14 @@ export default function ITHardwareSupplyPage() {
                 Configure Gaming Rig
               </Link>
               <p className="mt-3 text-xs text-slate-400">
-                *Exact parts depend on your games, budget and stock.
+                *Exact parts depend on your games, budget, and stock.
               </p>
             </div>
 
             <div className="flex flex-col rounded-3xl border bg-white p-8 shadow-sm">
               <h3 className="text-2xl font-black">Creative Workstation</h3>
               <p className="mt-2 text-sm text-slate-500">
-                Best for 4K/8K rendering, AutoCAD, Revit, 3D, and AI workloads.
+                Best for 4K or 8K rendering, AutoCAD, Revit, 3D, and AI workloads.
               </p>
 
               <ul className="mt-6 flex-grow space-y-3 text-sm text-slate-600">
@@ -218,11 +296,12 @@ export default function ITHardwareSupplyPage() {
           <div className="flex flex-wrap items-end justify-between gap-6">
             <div>
               <h2 className="text-3xl font-black md:text-4xl">
-                Laptops for <span className="text-blue-600">Professionals</span>, Creators & Gamers
+                Laptops for <span className="text-blue-600">Professionals</span>, Creators &amp; Gamers
               </h2>
               <p className="mt-3 max-w-3xl text-lg text-slate-600">
-                Get the right laptop for your work — office productivity, video editing, gaming, or Apple MacBook
-                setups. We also support bulk supply for institutions and PSU requirements.
+                Get the right laptop for your work — office productivity, video editing,
+                gaming, or Apple MacBook workflows. We also support bulk supply for
+                institutions and PSU requirements.
               </p>
             </div>
             <Link href="/contact-us" className="font-bold text-blue-700 hover:text-blue-600">
@@ -237,7 +316,7 @@ export default function ITHardwareSupplyPage() {
               desc="Perfect for MS Office, browsing, accounting, and daily business tasks."
               bullets={[
                 "Intel i5 / Ryzen 5 (recommended)",
-                "8GB/16GB RAM options",
+                "8GB / 16GB RAM options",
                 "512GB SSD performance",
                 '14" / 15.6" Full HD display',
               ]}
@@ -248,11 +327,11 @@ export default function ITHardwareSupplyPage() {
             <LaptopCard
               badge="Creator Choice"
               title="Video Editing Laptop"
-              desc="Optimized for Premiere Pro, After Effects, DaVinci Resolve, 4K workflows."
+              desc="Optimized for Premiere Pro, After Effects, DaVinci Resolve, and 4K workflows."
               bullets={[
-                "High-core CPU (i7/i9, Ryzen 7/9)",
+                "High-core CPU (i7 / i9, Ryzen 7 / 9)",
                 "Dedicated GPU (RTX series preferred)",
-                "16GB/32GB RAM for smooth timeline",
+                "16GB / 32GB RAM for smooth timeline",
                 "Fast NVMe SSD + external storage",
               ]}
               cta="Get Configuration"
@@ -264,8 +343,8 @@ export default function ITHardwareSupplyPage() {
               title="Gaming Laptop"
               desc="High FPS gaming, streaming, and competitive esports performance."
               bullets={[
-                "RTX GPU (3060/4050/4060+)",
-                "High refresh display (144Hz/165Hz)",
+                "RTX GPU (3060 / 4050 / 4060+)",
+                "High refresh display (144Hz / 165Hz)",
                 "Advanced cooling & performance mode",
                 "RGB keyboard (optional)",
               ]}
@@ -276,10 +355,10 @@ export default function ITHardwareSupplyPage() {
             <LaptopCard
               badge="Apple Ecosystem"
               title="MacBook"
-              desc="Best for creators, business owners, and premium long battery performance."
+              desc="Best for creators, business owners, and premium battery performance."
               bullets={[
                 "MacBook Air / Pro options",
-                "M-series performance (M1/M2/M3)",
+                "M-series performance (M1 / M2 / M3)",
                 "Excellent battery & display",
                 "Setup + data transfer support",
               ]}
@@ -291,7 +370,7 @@ export default function ITHardwareSupplyPage() {
           <div className="mt-10 grid gap-4 md:grid-cols-3">
             <InfoPill title="Genuine Warranty" desc="OEM warranty + invoice support" />
             <InfoPill title="Bulk Supply" desc="Schools, offices, institutions & PSUs" />
-            <InfoPill title="Setup Support" desc="OS, software, antivirus, data transfer" />
+            <InfoPill title="Setup Support" desc="OS, software, antivirus, and data transfer" />
           </div>
 
           <div className="mt-10 flex flex-wrap gap-3">
@@ -315,11 +394,11 @@ export default function ITHardwareSupplyPage() {
         <div className="max-w-7xl mx-auto grid items-center gap-12 px-6 py-16 lg:grid-cols-2">
           <div>
             <h2 className="text-3xl font-black md:text-4xl">
-              Camera & <span className="text-blue-600">CCTV Surveillance</span> Solutions
+              Camera &amp; <span className="text-blue-600">CCTV Surveillance</span> Solutions
             </h2>
             <p className="mt-4 text-lg leading-relaxed text-slate-600">
-              Secure your office, shop, school, warehouse, or campus with complete CCTV solutions —
-              from site survey to installation, remote viewing setup, and AMC support.
+              Secure your office, shop, school, warehouse, or campus with complete CCTV
+              solutions — from site survey to installation, remote viewing setup, and AMC support.
             </p>
 
             <div className="mt-6 grid gap-4 sm:grid-cols-2">
@@ -349,7 +428,7 @@ export default function ITHardwareSupplyPage() {
 
           <div className="relative aspect-[16/11] w-full overflow-hidden rounded-[2.5rem] border border-slate-100 shadow-lg">
             <Image
-              src={`${BASE_PATH}/it-hardware/section-cctv.jpg`}
+              src="/it-hardware/section-cctv.jpg"
               alt="CCTV camera surveillance installation and support"
               fill
               className="object-cover"
@@ -362,18 +441,18 @@ export default function ITHardwareSupplyPage() {
         <div className="max-w-7xl mx-auto grid items-center gap-12 px-6 py-16 lg:grid-cols-2">
           <div className="relative aspect-[16/11] w-full overflow-hidden rounded-[2.5rem] border border-slate-100 shadow-lg">
             <Image
-              src={`${BASE_PATH}/it-hardware/section-printers.jpg`}
-              alt="Enterprise printer supply, cartridges and AMC support"
+              src="/it-hardware/section-printers.jpg"
+              alt="Enterprise printer supply, cartridges, and AMC support"
               fill
               className="object-cover"
             />
           </div>
 
           <div>
-            <h2 className="text-3xl font-black md:text-4xl">Printer Solutions & Service</h2>
+            <h2 className="text-3xl font-black md:text-4xl">Printer Solutions &amp; Service</h2>
             <p className="mt-4 text-lg leading-relaxed text-slate-600">
-              From heavy-duty office printing to billing counters and POS, we supply, install, and maintain
-              all types of printers with reliable service support.
+              From heavy-duty office printing to billing counters and POS, we supply,
+              install, and maintain all types of printers with reliable service support.
             </p>
 
             <div className="mt-6 grid grid-cols-2 gap-4">
@@ -384,7 +463,7 @@ export default function ITHardwareSupplyPage() {
             </div>
 
             <div className="mt-8 rounded-2xl border border-blue-100 bg-white p-7 shadow-sm">
-              <h3 className="mb-4 text-xl font-black">Support & AMC</h3>
+              <h3 className="mb-4 text-xl font-black">Support &amp; AMC</h3>
               <ul className="space-y-3 text-slate-700">
                 <li className="flex gap-3">
                   <span>✔</span>
@@ -400,7 +479,7 @@ export default function ITHardwareSupplyPage() {
                 </li>
                 <li className="flex gap-3">
                   <span>✔</span>
-                  <span><strong>Consumables</strong> (cartridges/ink/toner) with guidance.</span>
+                  <span><strong>Consumables</strong> (cartridges, ink, toner) with guidance.</span>
                 </li>
               </ul>
             </div>
@@ -442,7 +521,7 @@ export default function ITHardwareSupplyPage() {
       <section className="border-y bg-white">
         <div className="max-w-7xl mx-auto px-6 py-14">
           <p className="mb-10 text-center text-xs font-black uppercase tracking-widest text-slate-400">
-            Authorized Partner & Trusted Brands
+            Authorized Partner &amp; Trusted Brands
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-10 md:gap-16">
@@ -452,13 +531,13 @@ export default function ITHardwareSupplyPage() {
                 className="relative h-12 w-24 transition-transform hover:scale-110 md:h-16 md:w-32"
                 title={brand.name}
               >
-                <Image src={brand.src} alt={brand.name} fill className="object-contain" />
+                <Image src={brand.src} alt={`${brand.name} logo`} fill className="object-contain" />
               </div>
             ))}
           </div>
 
           <p className="mt-10 text-center text-sm text-slate-500">
-            Need a specific make/model for GeM or Tender? Share your BOQ — we’ll respond with the right options.
+            Need a specific make or model for GeM or tender? Share your BOQ — we’ll respond with the right options.
           </p>
         </div>
       </section>
@@ -572,8 +651,8 @@ function LaptopCard({
       </p>
 
       <ul className={["mt-4 space-y-2 text-sm", dark ? "text-slate-200" : "text-slate-600"].join(" ")}>
-        {bullets.map((b) => (
-          <li key={b}>• {b}</li>
+        {bullets.map((bullet) => (
+          <li key={bullet}>• {bullet}</li>
         ))}
       </ul>
 
