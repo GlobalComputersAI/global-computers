@@ -78,6 +78,12 @@ export const metadata: Metadata = {
 
   category: "technology",
 
+  icons: {
+    icon: "/icon.png",
+    shortcut: "/icon.png",
+    apple: "/icon.png",
+  },
+
   openGraph: {
     type: "website",
     url: "https://globalcomputers.net",
@@ -175,7 +181,8 @@ const localBusinessSchema = {
   email: "info@globalcomputers.net",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "Main Road, Jamnipali Road, near HDFC Bank, SVBP Nagar, Jamnipali",
+    streetAddress:
+      "Main Road, Jamnipali Road, near HDFC Bank, SVBP Nagar, Jamnipali",
     addressLocality: "Korba",
     addressRegion: "Chhattisgarh",
     postalCode: "495450",
@@ -186,7 +193,14 @@ const localBusinessSchema = {
   openingHoursSpecification: [
     {
       "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      dayOfWeek: [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+      ],
       opens: "10:00",
       closes: "19:00",
     },
