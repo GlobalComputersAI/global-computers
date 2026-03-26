@@ -1,0 +1,262 @@
+/* =========================
+   Builder Route Global Theme
+========================= */
+
+:root {
+  --builder-bg: #07111f;
+  --builder-bg-soft: #0b1728;
+  --builder-surface: rgba(255, 255, 255, 0.06);
+  --builder-surface-strong: rgba(255, 255, 255, 0.1);
+  --builder-border: rgba(255, 255, 255, 0.1);
+  --builder-text: #e8edf5;
+  --builder-text-soft: rgba(232, 237, 245, 0.72);
+  --builder-heading: #ffffff;
+  --builder-gold: #fbbf24;
+  --builder-gold-soft: #fde68a;
+  --builder-shadow: 0 24px 80px rgba(0, 0, 0, 0.28);
+  --builder-radius-xl: 32px;
+  --builder-radius-lg: 24px;
+  --builder-radius-md: 18px;
+}
+
+/* =========================
+   Base
+========================= */
+
+.builder-shell {
+  background:
+    radial-gradient(circle at top left, rgba(251, 191, 36, 0.1), transparent 28%),
+    radial-gradient(circle at top right, rgba(255, 255, 255, 0.04), transparent 22%),
+    linear-gradient(180deg, #07111f 0%, #091320 45%, #08101b 100%);
+}
+
+.builder-page-wrap {
+  position: relative;
+}
+
+.builder-page-wrap::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 12% 10%, rgba(251, 191, 36, 0.08), transparent 18%),
+    radial-gradient(circle at 88% 20%, rgba(255, 255, 255, 0.03), transparent 16%),
+    radial-gradient(circle at 50% 100%, rgba(251, 191, 36, 0.04), transparent 22%);
+  z-index: 0;
+}
+
+/* =========================
+   Typography Helpers
+========================= */
+
+.builder-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 999px;
+  border: 1px solid rgba(251, 191, 36, 0.25);
+  background: rgba(251, 191, 36, 0.08);
+  padding: 0.55rem 1rem;
+  font-size: 0.75rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--builder-gold-soft);
+}
+
+.builder-title {
+  color: var(--builder-heading);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+}
+
+.builder-text {
+  color: var(--builder-text-soft);
+  font-weight: 600;
+  line-height: 1.85;
+}
+
+.builder-gold-text {
+  color: var(--builder-gold);
+}
+
+/* =========================
+   Section Utilities
+========================= */
+
+.builder-section {
+  position: relative;
+  z-index: 1;
+}
+
+.builder-card {
+  border: 1px solid var(--builder-border);
+  background: var(--builder-surface);
+  backdrop-filter: blur(14px);
+  box-shadow: var(--builder-shadow);
+  border-radius: var(--builder-radius-xl);
+}
+
+.builder-card-soft {
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(12px);
+  border-radius: var(--builder-radius-lg);
+}
+
+.builder-outline-card {
+  border: 1px solid rgba(251, 191, 36, 0.2);
+  background: linear-gradient(
+    180deg,
+    rgba(251, 191, 36, 0.08) 0%,
+    rgba(255, 255, 255, 0.03) 100%
+  );
+  border-radius: var(--builder-radius-xl);
+}
+
+.builder-gold-line {
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(251, 191, 36, 0.25) 18%,
+    rgba(251, 191, 36, 0.85) 50%,
+    rgba(251, 191, 36, 0.25) 82%,
+    transparent 100%
+  );
+}
+
+/* =========================
+   Buttons
+========================= */
+
+.builder-btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+  padding: 0.95rem 1.4rem;
+  font-size: 0.95rem;
+  font-weight: 900;
+  color: #111827;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+  box-shadow: 0 16px 40px rgba(245, 158, 11, 0.22);
+}
+
+.builder-btn-primary:hover {
+  transform: translateY(-1px);
+  opacity: 0.96;
+}
+
+.builder-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.06);
+  padding: 0.95rem 1.4rem;
+  font-size: 0.95rem;
+  font-weight: 900;
+  color: #ffffff;
+  transition: background 0.2s ease, transform 0.2s ease;
+  backdrop-filter: blur(10px);
+}
+
+.builder-btn-secondary:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.builder-btn-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px;
+  background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+  padding: 0.95rem 1.4rem;
+  font-size: 0.95rem;
+  font-weight: 900;
+  color: #ffffff;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  box-shadow: 0 16px 40px rgba(34, 197, 94, 0.2);
+}
+
+.builder-btn-whatsapp:hover {
+  transform: translateY(-1px);
+  opacity: 0.97;
+}
+
+/* =========================
+   Footer / Header helpers
+========================= */
+
+.builder-footer a,
+.builder-header a {
+  text-decoration: none;
+}
+
+.builder-footer a:focus-visible,
+.builder-header a:focus-visible,
+.builder-footer button:focus-visible,
+.builder-header button:focus-visible {
+  outline: 2px solid rgba(251, 191, 36, 0.85);
+  outline-offset: 2px;
+  border-radius: 16px;
+}
+
+/* =========================
+   Scrollbar (optional premium look)
+========================= */
+
+.builder-shell ::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+.builder-shell ::-webkit-scrollbar-track {
+  background: #08101b;
+}
+
+.builder-shell ::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: linear-gradient(180deg, #fbbf24 0%, #d97706 100%);
+}
+
+/* =========================
+   Selection
+========================= */
+
+.builder-shell ::selection {
+  background: rgba(251, 191, 36, 0.28);
+  color: #ffffff;
+}
+
+/* =========================
+   Image polish
+========================= */
+
+.builder-shell img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* =========================
+   Responsive polish
+========================= */
+
+@media (max-width: 767px) {
+  .builder-title {
+    letter-spacing: -0.02em;
+  }
+
+  .builder-card,
+  .builder-outline-card {
+    border-radius: 24px;
+  }
+
+  .builder-card-soft {
+    border-radius: 20px;
+  }
+}

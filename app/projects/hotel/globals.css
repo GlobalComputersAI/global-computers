@@ -1,0 +1,192 @@
+@import "tailwindcss";
+
+/* =========================
+   THEME TOKENS (Hotel UI)
+========================= */
+:root {
+  --background: #020617; /* deep luxury black */
+  --foreground: #f8fafc; /* soft white */
+
+  --muted: #94a3b8;
+  --border: rgba(255, 255, 255, 0.08);
+
+  --glass-bg: rgba(255, 255, 255, 0.08);
+  --glass-border: rgba(255, 255, 255, 0.12);
+
+  --accent: #22c55e; /* WhatsApp green */
+}
+
+/* Tailwind theme bridge */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+/* =========================
+   GLOBAL RESET + BASE
+========================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+
+  font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* =========================
+   SCROLLBAR (Premium Feel)
+========================= */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #020617;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+/* =========================
+   SELECTION
+========================= */
+::selection {
+  background: rgba(34, 197, 94, 0.35);
+  color: #ffffff;
+}
+
+/* =========================
+   GLASS SYSTEM (Reusable)
+========================= */
+.glass {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+}
+
+/* =========================
+   BUTTON SYSTEM
+========================= */
+.btn {
+  border-radius: 1rem;
+  font-weight: 800;
+  transition: all 0.25s ease;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #16a34a;
+}
+
+.btn-outline {
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.btn-outline:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* =========================
+   INPUTS (Booking Form)
+========================= */
+input,
+select {
+  transition: all 0.2s ease;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.15);
+}
+
+/* =========================
+   IMAGE OPTIMIZATION
+========================= */
+img {
+  object-fit: cover;
+}
+
+/* =========================
+   TEXT UTILITIES
+========================= */
+.text-muted {
+  color: var(--muted);
+}
+
+/* =========================
+   SECTION SPACING
+========================= */
+.section {
+  padding-top: 3.5rem;
+  padding-bottom: 3.5rem;
+}
+
+/* =========================
+   ANIMATIONS (Light, Smooth)
+========================= */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade {
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+/* =========================
+   MOBILE OPTIMIZATION
+========================= */
+@media (max-width: 640px) {
+  h1 {
+    line-height: 1.15;
+  }
+
+  .section {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+}
+
+/* =========================
+   REDUCE MOTION (Accessibility)
+========================= */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
