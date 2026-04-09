@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import DemoVideoPopup from "@/components/DemoVideoPopup";
 
 const WHATSAPP_URL =
   "https://wa.me/919752422686?text=Hi%20I%20want%20a%20mobile%20shop%20website%20for%20my%20business.%20Please%20share%20demo%2C%20price%20and%20details.";
@@ -544,6 +545,17 @@ export default function MobileHomePage() {
           </div>
         </div>
       </section>
+
+      <DemoVideoPopup
+        videoSrc="/videos/mobile_final.mp4"
+        title="Mobile Shop Website Demo"
+        buttonLabel="See Demo"
+        autoOpen={true}
+        autoOpenDelay={300}
+        showButton={true}
+        storageKey="mobile-demo-popup-v1"
+        poster="/images/hero-it-infrastructure.jpg"
+      />
     </>
   );
 }

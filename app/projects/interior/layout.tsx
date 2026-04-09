@@ -105,13 +105,7 @@ const jsonLd = {
   url: pageUrl,
   image: `${siteUrl}/icon.png`,
   telephone: "+91-9752422686",
-  areaServed: [
-    "Korba",
-    "Bilaspur",
-    "Raipur",
-    "Chhattisgarh",
-    "India",
-  ],
+  areaServed: ["Korba", "Bilaspur", "Raipur", "Chhattisgarh", "India"],
   address: {
     "@type": "PostalAddress",
     addressLocality: "Korba",
@@ -128,19 +122,17 @@ export default function InteriorLayout({
   children,
 }: Readonly<{ children: ReactNode }>) {
   return (
-    <html lang="en">
-      <body>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-        <div className="interior-shell">
-          <div className="interior-bg" aria-hidden="true" />
-          <Header />
-          <main className="interior-main">{children}</main>
-          <Footer />
-        </div>
-      </body>
-    </html>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <div className="interior-shell">
+        <div className="interior-bg" aria-hidden="true" />
+        <Header />
+        <main className="interior-main">{children}</main>
+        <Footer />
+      </div>
+    </>
   );
 }

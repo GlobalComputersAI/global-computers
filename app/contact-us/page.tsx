@@ -3,41 +3,8 @@ import type { ReactNode } from "react";
 import Link from "next/link";
 import Script from "next/script";
 
-export const metadata: Metadata = {
-  title: "Contact Us",
-  description:
-    "Contact Global Computers & IT Solutions for website development, billing software, custom software, IT hardware supply, AMC, manpower, networking, CCTV, biometrics, and PSU or enterprise projects. Get a demo or quote quickly on WhatsApp.",
-  keywords: [
-    "contact Global Computers",
-    "Global Computers contact",
-    "website development inquiry",
-    "billing software demo",
-    "IT hardware supplier contact",
-    "AMC services contact",
-    "PSU IT project inquiry",
-    "software development quote",
-    "Korba IT company contact",
-    "Chhattisgarh IT company",
-  ],
-  alternates: {
-    canonical: "https://globalcomputers.net/contact-us",
-  },
-  openGraph: {
-    title: "Contact Us | Global Computers & IT Solutions",
-    description:
-      "Request a demo or quote for websites, software, IT hardware, AMC, manpower, and PSU or enterprise projects.",
-    url: "https://globalcomputers.net/contact-us",
-    siteName: "Global Computers & IT Solutions",
-    type: "website",
-    locale: "en_IN",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Contact Us | Global Computers & IT Solutions",
-    description:
-      "Request a demo or quote for websites, software, IT hardware, AMC, manpower, and PSU or enterprise projects.",
-  },
-};
+const SITE_URL = "https://globalcomputers.net";
+const PAGE_URL = `${SITE_URL}/contact-us`;
 
 const SOFTWARE_PHONE_DISPLAY = "+91 97524 22686";
 const SOFTWARE_PHONE_TEL = "+919752422686";
@@ -46,8 +13,53 @@ const WHATSAPP_PHONE = "919752422686";
 const HARDWARE_PHONE_DISPLAY = "+91 9827164811";
 const HARDWARE_PHONE_TEL = "+919827164811";
 
-const EMAIL = "info@globalcomputers.net";
+const EMAIL = "infoglobalcomputersit@gmail.com";
 const WEBSITE = "globalcomputers.net";
+
+export const metadata: Metadata = {
+  title: "Contact Us | Global Computers & IT Solutions",
+  description:
+    "Contact Global Computers & IT Solutions for website development, billing software, custom software, IT hardware supply, AMC, IT workforce, networking, CCTV and business IT solutions. Get a demo or quote quickly on WhatsApp.",
+  keywords: [
+    "contact Global Computers",
+    "Global Computers contact",
+    "website development inquiry",
+    "billing software demo",
+    "IT hardware supplier contact",
+    "AMC services contact",
+    "software development quote",
+    "Korba IT company contact",
+    "Chhattisgarh IT company",
+    "business IT support contact",
+  ],
+  alternates: {
+    canonical: PAGE_URL,
+  },
+  openGraph: {
+    title: "Contact Us | Global Computers & IT Solutions",
+    description:
+      "Request a demo or quote for websites, software, IT hardware, AMC, workforce and business IT solutions.",
+    url: PAGE_URL,
+    siteName: "Global Computers & IT Solutions",
+    type: "website",
+    locale: "en_IN",
+    images: [
+      {
+        url: `${SITE_URL}/logo_header_svr.png`,
+        width: 1200,
+        height: 630,
+        alt: "Contact Global Computers & IT Solutions",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Contact Us | Global Computers & IT Solutions",
+    description:
+      "Request a demo or quote for websites, software, IT hardware, AMC, workforce and business IT solutions.",
+    images: [`${SITE_URL}/logo_header_svr.png`],
+  },
+};
 
 function Badge({ children }: { children: ReactNode }) {
   return (
@@ -78,10 +90,10 @@ function InfoCard({
         rel="noreferrer"
         className="block rounded-3xl border border-slate-200 bg-white p-6 shadow-sm transition-all hover:shadow-xl"
       >
-        <div className="text-sm font-black uppercase tracking-widest text-slate-500">
+        <div className="text-sm font-black uppercase tracking-[0.18em] text-slate-500">
           {title}
         </div>
-        <div className="mt-2 font-semibold leading-relaxed text-slate-700">
+        <div className="mt-2 break-all font-semibold leading-relaxed text-slate-700">
           {desc}
         </div>
         <div className="mt-4 inline-flex items-center gap-2 font-black text-blue-600">
@@ -96,10 +108,10 @@ function InfoCard({
       href={href}
       className="block rounded-3xl border border-slate-200 bg-white p-6 shadow-sm transition-all hover:shadow-xl"
     >
-      <div className="text-sm font-black uppercase tracking-widest text-slate-500">
+      <div className="text-sm font-black uppercase tracking-[0.18em] text-slate-500">
         {title}
       </div>
-      <div className="mt-2 font-semibold leading-relaxed text-slate-700">
+      <div className="mt-2 break-all font-semibold leading-relaxed text-slate-700">
         {desc}
       </div>
       <div className="mt-4 inline-flex items-center gap-2 font-black text-blue-600">
@@ -109,54 +121,110 @@ function InfoCard({
   );
 }
 
+function FaqCard({
+  question,
+  answer,
+}: {
+  question: string;
+  answer: string;
+}) {
+  return (
+    <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+      <h3 className="text-lg font-black text-slate-900">{question}</h3>
+      <p className="mt-3 text-sm leading-relaxed text-slate-600">{answer}</p>
+    </div>
+  );
+}
+
 const contactPageSchema = {
   "@context": "https://schema.org",
-  "@type": "ContactPage",
-  name: "Contact Us | Global Computers & IT Solutions",
-  url: "https://globalcomputers.net/contact-us",
-  description:
-    "Contact Global Computers & IT Solutions for website development, software, IT hardware, AMC, manpower services, and enterprise IT solutions.",
-};
-
-const breadcrumbSchema = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
+  "@graph": [
     {
-      "@type": "ListItem",
-      position: 1,
-      name: "Home",
-      item: "https://globalcomputers.net",
+      "@type": "ContactPage",
+      "@id": `${PAGE_URL}#contactpage`,
+      name: "Contact Us | Global Computers & IT Solutions",
+      url: PAGE_URL,
+      description:
+        "Contact Global Computers & IT Solutions for website development, software, IT hardware, AMC, manpower services and enterprise IT solutions.",
     },
     {
-      "@type": "ListItem",
-      position: 2,
-      name: "Contact Us",
-      item: "https://globalcomputers.net/contact-us",
-    },
-  ],
-};
-
-const organizationContactSchema = {
-  "@context": "https://schema.org",
-  "@type": "Organization",
-  name: "Global Computers & IT Solutions",
-  url: "https://globalcomputers.net",
-  email: EMAIL,
-  contactPoint: [
-    {
-      "@type": "ContactPoint",
-      telephone: SOFTWARE_PHONE_TEL,
-      contactType: "sales",
-      areaServed: "IN",
-      availableLanguage: ["English", "Hindi"],
+      "@type": "BreadcrumbList",
+      "@id": `${PAGE_URL}#breadcrumb`,
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: SITE_URL,
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Contact Us",
+          item: PAGE_URL,
+        },
+      ],
     },
     {
-      "@type": "ContactPoint",
-      telephone: HARDWARE_PHONE_TEL,
-      contactType: "customer support",
-      areaServed: "IN",
-      availableLanguage: ["English", "Hindi"],
+      "@type": "Organization",
+      "@id": `${SITE_URL}/#organization-contact`,
+      name: "Global Computers & IT Solutions",
+      url: SITE_URL,
+      email: EMAIL,
+      contactPoint: [
+        {
+          "@type": "ContactPoint",
+          telephone: SOFTWARE_PHONE_TEL,
+          contactType: "sales",
+          areaServed: "IN",
+          availableLanguage: ["English", "Hindi"],
+        },
+        {
+          "@type": "ContactPoint",
+          telephone: HARDWARE_PHONE_TEL,
+          contactType: "customer support",
+          areaServed: "IN",
+          availableLanguage: ["English", "Hindi"],
+        },
+      ],
+    },
+    {
+      "@type": "FAQPage",
+      "@id": `${PAGE_URL}#faq`,
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "How can I contact Global Computers quickly?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "You can contact Global Computers quickly by phone, email or direct WhatsApp inquiry from the contact form.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Can I request a website or software demo?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Yes. You can request a website, billing software or business software demo using the contact form or WhatsApp.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Do you handle hardware, AMC and CCTV inquiries too?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Yes. We handle inquiries for IT hardware, upgrades, printers, CCTV, networking, AMC and support services.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Do you support businesses outside Korba?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Yes. We support businesses in Korba, Chhattisgarh and also handle wider support requirements depending on the service type.",
+          },
+        },
+      ],
     },
   ],
 };
@@ -167,16 +235,6 @@ export default function ContactUsPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(contactPageSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(organizationContactSchema),
-        }}
       />
 
       <Script id="contact-whatsapp-handler" strategy="afterInteractive">
@@ -243,6 +301,7 @@ Please contact me regarding this inquiry.\`;
         `}
       </Script>
 
+      {/* Hero */}
       <section className="border-b bg-gradient-to-b from-blue-50 to-white">
         <div className="mx-auto grid max-w-7xl items-start gap-10 px-6 py-14 md:py-20 lg:grid-cols-2">
           <div>
@@ -258,16 +317,14 @@ Please contact me regarding this inquiry.\`;
             <p className="mt-5 max-w-xl text-lg leading-relaxed text-slate-700">
               Websites starting from{" "}
               <span className="font-black text-slate-900">₹5,000 + GST</span>.
-              Billing software <span className="font-black text-slate-900">FREE</span> and
-              basic SEO setup <span className="font-black text-slate-900">FREE</span>.
-              Also available: custom software, IT hardware supply, AMC, IT workforce,
-              CCTV, biometrics, networking, and PSU or enterprise on-premise and cloud solutions.
+              Billing software support, business setup, custom software, IT hardware supply,
+              AMC, IT workforce, CCTV, networking and practical business IT solutions.
             </p>
 
             <div className="mt-6 flex flex-wrap gap-2">
               <Badge>₹5,000 + GST Starting</Badge>
-              <Badge>Billing Software FREE</Badge>
-              <Badge>SEO Setup FREE</Badge>
+              <Badge>Website + Billing</Badge>
+              <Badge>Hardware + AMC</Badge>
               <Badge>On-Premise + Cloud</Badge>
               <Badge>PAN India Support</Badge>
             </div>
@@ -312,7 +369,7 @@ Please contact me regarding this inquiry.\`;
                 href="/projects"
                 className="block rounded-3xl border border-slate-200 bg-white p-6 shadow-sm transition-all hover:shadow-xl"
               >
-                <div className="text-sm font-black uppercase tracking-widest text-slate-500">
+                <div className="text-sm font-black uppercase tracking-[0.18em] text-slate-500">
                   Projects
                 </div>
                 <div className="mt-2 font-semibold leading-relaxed text-slate-700">
@@ -330,13 +387,14 @@ Please contact me regarding this inquiry.\`;
               </div>
               <ul className="mt-3 space-y-2 text-sm text-slate-700">
                 <li>✓ Your details open directly in WhatsApp</li>
-                <li>✓ Ready-made inquiry message</li>
+                <li>✓ Ready-made inquiry message gets created</li>
                 <li>✓ Faster business discussion</li>
-                <li>✓ Easy follow-up for demo / pricing</li>
+                <li>✓ Easy follow-up for demo and pricing</li>
               </ul>
             </div>
           </div>
 
+          {/* Form */}
           <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-xl md:p-10">
             <div className="flex items-start justify-between gap-4">
               <div>
@@ -345,7 +403,7 @@ Please contact me regarding this inquiry.\`;
                   Fill details below — your message will go directly to WhatsApp.
                 </p>
               </div>
-              <div className="hidden rounded-full border border-green-100 bg-green-50 px-3 py-2 text-xs font-black uppercase tracking-widest text-green-700 md:block">
+              <div className="hidden rounded-full border border-green-100 bg-green-50 px-3 py-2 text-xs font-black uppercase tracking-[0.18em] text-green-700 md:block">
                 WhatsApp Direct
               </div>
             </div>
@@ -425,12 +483,13 @@ Please contact me regarding this inquiry.\`;
                     <option>Website (Business / Portfolio)</option>
                     <option>E-commerce Website</option>
                     <option>Billing / Inventory Software</option>
+                    <option>Custom Software</option>
                     <option>ERP / HR / Payroll</option>
-                    <option>Attendance Android / Biometrics</option>
-                    <option>Asset Management / Image Search</option>
+                    <option>Attendance / Biometrics</option>
                     <option>IT Hardware Supply</option>
                     <option>AMC / Maintenance</option>
                     <option>IT Workforce / Manpower</option>
+                    <option>CCTV / Networking</option>
                     <option>PSU / Enterprise Project</option>
                     <option>Other</option>
                   </select>
@@ -449,7 +508,7 @@ Please contact me regarding this inquiry.\`;
                       Select
                     </option>
                     <option>Cloud</option>
-                    <option>On-Premise (Server)</option>
+                    <option>On-Premise</option>
                     <option>Hybrid</option>
                     <option>Not Sure</option>
                   </select>
@@ -491,17 +550,17 @@ Please contact me regarding this inquiry.\`;
                 </div>
 
                 <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-                  <div className="text-xs font-black uppercase tracking-widest text-slate-500">
+                  <div className="text-xs font-black uppercase tracking-[0.18em] text-slate-500">
                     Offer
                   </div>
                   <div className="mt-2 font-black text-slate-900">
-                    Website + Billing + SEO
+                    Website + Billing + Business Setup
                   </div>
                   <div className="mt-1 text-sm font-semibold text-slate-600">
                     Starting ₹5,000 + GST
                   </div>
                   <div className="mt-2 text-xs font-semibold text-slate-500">
-                    Billing software & SEO setup included (as per package)
+                    Best for local businesses and quick setup requirements
                   </div>
                 </div>
               </div>
@@ -514,23 +573,22 @@ Please contact me regarding this inquiry.\`;
               </button>
 
               <p className="text-center text-xs font-semibold leading-relaxed text-slate-500">
-                By submitting, your inquiry opens directly in WhatsApp for quick
-                project discussion.
+                By submitting, your inquiry opens directly in WhatsApp for quick discussion.
               </p>
             </form>
           </div>
         </div>
       </section>
 
+      {/* Trust section */}
       <section className="mx-auto max-w-7xl px-6 py-14">
         <div className="rounded-3xl border border-slate-200 bg-white p-10 shadow-sm md:p-14">
           <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
             <div>
               <h2 className="text-3xl font-black">Why customers trust us</h2>
               <p className="mt-3 max-w-3xl leading-relaxed text-slate-600">
-                20+ years of service delivery. We don’t just make a website—we
-                provide complete IT solutions: software, hardware, deployment,
-                training, and AMC support.
+                20+ years of service mindset. We don’t just make a website — we help with complete IT solutions:
+                software, hardware, deployment, training and support.
               </p>
             </div>
 
@@ -549,16 +607,16 @@ Please contact me regarding this inquiry.\`;
                 d: "Demo shown quickly before final delivery.",
               },
               {
-                t: "PSU Ready",
-                d: "On-premise, documentation, compliance-friendly.",
+                t: "Business Ready",
+                d: "Useful for local business and structured requirements.",
               },
               {
                 t: "Long-Term Support",
-                d: "AMC, upgrades, troubleshooting & SLA.",
+                d: "AMC, upgrades, troubleshooting and continuity.",
               },
               {
                 t: "One Stop IT",
-                d: "Website + software + hardware + workforce.",
+                d: "Website + software + hardware + support.",
               },
             ].map((item) => (
               <div
@@ -570,6 +628,40 @@ Please contact me regarding this inquiry.\`;
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="mx-auto max-w-7xl px-6 pb-16">
+        <div className="max-w-4xl">
+          <div className="inline-flex items-center rounded-full border border-blue-200 bg-blue-50 px-4 py-1.5 text-xs font-extrabold uppercase tracking-[0.18em] text-blue-700">
+            FAQ
+          </div>
+          <h2 className="mt-5 text-3xl font-black tracking-tight text-slate-950 md:text-5xl">
+            Common contact questions
+          </h2>
+          <p className="mt-5 text-lg leading-relaxed text-slate-600">
+            Quick answers before you contact us.
+          </p>
+        </div>
+
+        <div className="mt-10 grid gap-6 md:grid-cols-2">
+          <FaqCard
+            question="How do I get a quick response?"
+            answer="The fastest way is to submit the form, which opens your inquiry directly in WhatsApp with all details."
+          />
+          <FaqCard
+            question="Can I request a website or software demo?"
+            answer="Yes. You can request a demo for websites, billing software or custom business software."
+          />
+          <FaqCard
+            question="Can I contact you for hardware, CCTV or AMC?"
+            answer="Yes. We handle inquiries for hardware supply, upgrades, printers, CCTV, networking, AMC and support."
+          />
+          <FaqCard
+            question="Do you support businesses outside Korba?"
+            answer="Yes. We support wider requirements depending on service type and project scope."
+          />
         </div>
       </section>
     </main>

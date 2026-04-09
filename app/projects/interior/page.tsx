@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import DemoVideoPopup from "@/components/DemoVideoPopup";
 
 const WHATSAPP =
   "https://wa.me/919752422686?text=Hi%20I%20want%20interior%20design%20for%20my%20space.%20Please%20share%20design%20ideas%2C%20pricing%2C%20and%20timeline.";
@@ -605,9 +606,7 @@ export default function InteriorHomePage() {
           <div className="grid-auto-3 mt-12">
             {testimonials.map((item) => (
               <article key={item.name} className="feature-card">
-                <p className="text-muted">
-                  “{item.text}”
-                </p>
+                <p className="text-muted">“{item.text}”</p>
                 <div className="mt-6">
                   <div className="font-extrabold">{item.name}</div>
                   <div className="text-soft mt-1">{item.role}</div>
@@ -646,6 +645,17 @@ export default function InteriorHomePage() {
           </div>
         </div>
       </section>
+
+      <DemoVideoPopup
+        videoSrc="/videos/interior_final.mp4"
+        title="Interior Design Website Demo"
+        buttonLabel="See Demo"
+        autoOpen={true}
+        autoOpenDelay={300}
+        showButton={true}
+        storageKey="interior-demo-popup-v1"
+        poster="/images/hero-it-infrastructure.jpg"
+      />
     </>
   );
 }

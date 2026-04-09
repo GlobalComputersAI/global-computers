@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import DemoVideoPopup from "@/components/DemoVideoPopup";
 
 export const metadata: Metadata = {
   title:
@@ -36,12 +37,21 @@ export const metadata: Metadata = {
     url: "https://globalcomputers.net/projects/showroom/",
     siteName: "Global Computers & IT Solutions",
     type: "website",
+    images: [
+      {
+        url: "/icon.png",
+        width: 512,
+        height: 512,
+        alt: "Premium Showroom Website Demo",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Premium Showroom Website Demo",
     description:
       "Luxury showroom website demo with premium UI, offers, product pages, billing page, and direct WhatsApp enquiry flow.",
+    images: ["/icon.png"],
   },
 };
 
@@ -163,19 +173,39 @@ const processSteps = [
 export default function ShowroomPage() {
   return (
     <>
+      <DemoVideoPopup
+        videoSrc="/videos/final_showrrom.mp4"
+        title="Premium Showroom Demo Video"
+        buttonLabel="Watch Demo"
+        poster="/images/hero-it-infrastructure.jpg"
+        autoOpen
+        autoOpenDelay={900}
+        showButton
+        storageKey="showroom-demo-video"
+        rememberAutoOpen
+      />
+
       <section className="section page-hero">
         <div className="container">
           <div className="page-hero-card">
-            <div className="eyebrow">Premium Showroom Demo • Better Leads • Luxury UI</div>
+            <div className="eyebrow">
+              Premium Showroom Demo • Better Leads • Luxury UI
+            </div>
+
             <h1>
               Premium showroom website demo built to
-              <span className="gold-text"> impress customers and increase enquiries</span>
+              <span className="gold-text">
+                {" "}
+                impress customers and increase enquiries
+              </span>
             </h1>
+
             <p>
-              This premium showroom website demo is designed for businesses that want to look
-              modern, trusted, luxurious, and sales-ready online. Whether you run a furniture,
-              electronics, jewellery, boutique, automobile, appliance, interior, or multi-brand
-              retail showroom, this design helps present your products beautifully and convert
+              This premium showroom website demo is designed for businesses that
+              want to look modern, trusted, luxurious, and sales-ready online.
+              Whether you run a furniture, electronics, jewellery, boutique,
+              automobile, appliance, interior, or multi-brand retail showroom,
+              this design helps present your products beautifully and convert
               visitors into real leads.
             </p>
 
@@ -195,9 +225,11 @@ export default function ShowroomPage() {
               >
                 Get This Website on WhatsApp
               </a>
+
               <a href={CALL_URL} className="btn btn-outline">
                 Call Now
               </a>
+
               <Link href="/projects/showroom/contact" className="btn btn-outline">
                 Contact Page
               </Link>
@@ -253,7 +285,9 @@ export default function ShowroomPage() {
                 }}
               >
                 <span className="eyebrow">Premium Layout Preview</span>
-                <strong style={{ color: "#fff", fontSize: "15px" }}>Luxury Brand Feel</strong>
+                <strong style={{ color: "#fff", fontSize: "15px" }}>
+                  Luxury Brand Feel
+                </strong>
               </div>
 
               <div className="card-light" style={{ padding: "22px", marginBottom: "14px" }}>
@@ -275,9 +309,10 @@ export default function ShowroomPage() {
                     fontSize: "15px",
                   }}
                 >
-                  Give customers a premium feel online before they even walk into your showroom.
-                  Showcase collections, product categories, featured ranges, and trust-building
-                  business information in a rich premium style.
+                  Give customers a premium feel online before they even walk
+                  into your showroom. Showcase collections, product categories,
+                  featured ranges, and trust-building business information in a
+                  rich premium style.
                 </p>
               </div>
 
@@ -293,7 +328,9 @@ export default function ShowroomPage() {
                   >
                     24x7
                   </strong>
-                  <span className="soft-text">Your showroom stays visible online all day</span>
+                  <span className="soft-text">
+                    Your showroom stays visible online all day
+                  </span>
                 </div>
                 <div className="glass-card" style={{ padding: "18px" }}>
                   <strong
@@ -306,7 +343,9 @@ export default function ShowroomPage() {
                   >
                     Direct
                   </strong>
-                  <span className="soft-text">Calls and WhatsApp enquiries from visitors</span>
+                  <span className="soft-text">
+                    Calls and WhatsApp enquiries from visitors
+                  </span>
                 </div>
               </div>
             </div>
@@ -317,26 +356,28 @@ export default function ShowroomPage() {
                 Premium design that helps both your brand and your customer
               </h2>
               <p className="section-subtitle">
-                For your business, this website improves brand value, trust, and enquiry flow. For
-                your customer, it makes browsing easy, modern, premium, and confidence-building.
-                That combination creates stronger conversions and better buying intent.
+                For your business, this website improves brand value, trust, and
+                enquiry flow. For your customer, it makes browsing easy, modern,
+                premium, and confidence-building. That combination creates
+                stronger conversions and better buying intent.
               </p>
 
               <ul className="feature-list" style={{ marginTop: "22px" }}>
                 <li>
-                  Customers can quickly understand what your showroom sells and why they should
-                  trust you.
+                  Customers can quickly understand what your showroom sells and
+                  why they should trust you.
                 </li>
                 <li>
-                  Premium layout makes your business look bigger, more polished, and more
-                  established.
+                  Premium layout makes your business look bigger, more polished,
+                  and more established.
                 </li>
                 <li>
-                  Clear internal pages like products, offers, billing, and contact improve user
-                  journey and sales flow.
+                  Clear internal pages like products, offers, billing, and
+                  contact improve user journey and sales flow.
                 </li>
                 <li>
-                  Strong CTA buttons push real business action instead of just passive browsing.
+                  Strong CTA buttons push real business action instead of just
+                  passive browsing.
                 </li>
               </ul>
             </div>
@@ -344,14 +385,26 @@ export default function ShowroomPage() {
         </div>
       </section>
 
-      <section className="section" style={{ background: "linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01))" }}>
+      <section
+        className="section"
+        style={{
+          background:
+            "linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01))",
+        }}
+      >
         <div className="container">
           <div className="text-center">
             <div className="eyebrow">Perfect for many industries</div>
-            <h2 className="section-title">Made for premium showroom businesses across categories</h2>
-            <p className="section-subtitle" style={{ marginLeft: "auto", marginRight: "auto" }}>
-              This design is flexible and can be customized for multiple showroom industries with
-              premium branding, better product visibility, and direct lead capture.
+            <h2 className="section-title">
+              Made for premium showroom businesses across categories
+            </h2>
+            <p
+              className="section-subtitle"
+              style={{ marginLeft: "auto", marginRight: "auto" }}
+            >
+              This design is flexible and can be customized for multiple
+              showroom industries with premium branding, better product
+              visibility, and direct lead capture.
             </p>
           </div>
 
@@ -400,8 +453,9 @@ export default function ShowroomPage() {
                 marginRight: "auto",
               }}
             >
-              This homepage is not just for beauty. It is carefully designed to improve trust,
-              product discovery, enquiries, and final conversion for your showroom business.
+              This homepage is not just for beauty. It is carefully designed to
+              improve trust, product discovery, enquiries, and final conversion
+              for your showroom business.
             </p>
           </div>
 
@@ -438,10 +492,16 @@ export default function ShowroomPage() {
         <div className="container">
           <div className="text-center">
             <div className="eyebrow">Product presentation</div>
-            <h2 className="section-title">Showcase your products like a premium brand</h2>
-            <p className="section-subtitle" style={{ marginLeft: "auto", marginRight: "auto" }}>
-              Your showroom products should not look ordinary online. This section gives a strong
-              premium presentation to improve customer interest and enquiry rate.
+            <h2 className="section-title">
+              Showcase your products like a premium brand
+            </h2>
+            <p
+              className="section-subtitle"
+              style={{ marginLeft: "auto", marginRight: "auto" }}
+            >
+              Your showroom products should not look ordinary online. This
+              section gives a strong premium presentation to improve customer
+              interest and enquiry rate.
             </p>
           </div>
 
@@ -508,7 +568,9 @@ export default function ShowroomPage() {
                       flexWrap: "wrap",
                     }}
                   >
-                    <strong style={{ color: "#111111", fontSize: "16px" }}>{item.price}</strong>
+                    <strong style={{ color: "#111111", fontSize: "16px" }}>
+                      {item.price}
+                    </strong>
                     <Link href="/projects/showroom/products" className="btn btn-outline">
                       View Products
                     </Link>
@@ -532,9 +594,10 @@ export default function ShowroomPage() {
                 className="section-subtitle"
                 style={{ color: "#52525b", maxWidth: "unset" }}
               >
-                The best showroom websites do two jobs together. They make the business look strong,
-                and they make the customer feel comfortable enough to take action. This homepage is
-                built exactly for that purpose.
+                The best showroom websites do two jobs together. They make the
+                business look strong, and they make the customer feel
+                comfortable enough to take action. This homepage is built
+                exactly for that purpose.
               </p>
 
               <div className="grid-2" style={{ marginTop: "24px" }}>
@@ -608,8 +671,9 @@ export default function ShowroomPage() {
                   fontSize: "15px",
                 }}
               >
-                Get a customized showroom website with your own branding, products, categories,
-                offers, contact details, and customer enquiry flow.
+                Get a customized showroom website with your own branding,
+                products, categories, offers, contact details, and customer
+                enquiry flow.
               </p>
 
               <div className="kpi-grid" style={{ marginBottom: "18px" }}>
@@ -660,9 +724,15 @@ export default function ShowroomPage() {
         <div className="container">
           <div className="text-center">
             <div className="eyebrow">Simple process</div>
-            <h2 className="section-title">How your showroom website gets ready</h2>
-            <p className="section-subtitle" style={{ marginLeft: "auto", marginRight: "auto" }}>
-              A clear and simple process helps you move from idea to live premium website quickly.
+            <h2 className="section-title">
+              How your showroom website gets ready
+            </h2>
+            <p
+              className="section-subtitle"
+              style={{ marginLeft: "auto", marginRight: "auto" }}
+            >
+              A clear and simple process helps you move from idea to live
+              premium website quickly.
             </p>
           </div>
 
@@ -750,9 +820,9 @@ export default function ShowroomPage() {
                   fontSize: "15px",
                 }}
               >
-                Get a premium showroom website with products, offers, billing, contact flow, and
-                direct WhatsApp lead generation. Built for trust, premium branding, and better
-                conversion.
+                Get a premium showroom website with products, offers, billing,
+                contact flow, and direct WhatsApp lead generation. Built for
+                trust, premium branding, and better conversion.
               </p>
             </div>
 

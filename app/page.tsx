@@ -1,39 +1,201 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import HeroVideo from "@/components/HeroVideo";
+
+/* =========================
+   SEO Metadata
+========================= */
+const SITE_URL = "https://globalcomputers.net";
+const PAGE_URL = `${SITE_URL}/`;
+const OG_IMAGE = `${SITE_URL}/logo_header_svr.png`;
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://globalcomputers.net"),
-  title: "One Stop IT Solution | 20+ Years of Trust | Websites, Software & Hardware",
+  title:
+    "Global Computers & IT Solutions | Website, Billing Software, Hardware & AMC Since 2004",
   description:
-    "Complete digital transformation since 2004. Websites from ₹5,000, Billing Software, IT Hardware, and PSU enterprise solutions. Trusted by 10,000+ clients.",
+    "Global Computers & IT Solutions helps businesses with website development, GST billing software, IT hardware supply, CCTV, networking, AMC and local support. Trusted since 2004 in Korba, Chhattisgarh.",
+  keywords: [
+    "Global Computers Korba",
+    "website development Korba",
+    "billing software Korba",
+    "GST billing software Korba",
+    "IT hardware Korba",
+    "AMC services Korba",
+    "CCTV installation Korba",
+    "networking services Korba",
+    "computer shop Korba",
+    "business website Chhattisgarh",
+    "IT solutions Chhattisgarh",
+    "billing software India",
+  ],
   alternates: {
-    canonical: "https://globalcomputers.net",
+    canonical: "/",
   },
   openGraph: {
-    title: "One Stop IT Solution | 20+ Years of Trust | Websites, Software & Hardware",
+    title:
+      "Global Computers & IT Solutions | Website, Billing Software, Hardware & AMC Since 2004",
     description:
-      "Complete digital transformation since 2004. Websites from ₹5,000, Billing Software, IT Hardware, and PSU enterprise solutions.",
-    url: "https://globalcomputers.net",
+      "Trusted since 2004 for websites, billing software, hardware supply, CCTV, networking, AMC and practical local business support.",
+    url: PAGE_URL,
     siteName: "Global Computers & IT Solutions",
     locale: "en_IN",
     type: "website",
+    images: [
+      {
+        url: OG_IMAGE,
+        width: 1200,
+        height: 630,
+        alt: "Global Computers & IT Solutions homepage preview",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title:
+      "Global Computers & IT Solutions | Website, Billing Software, Hardware & AMC Since 2004",
+    description:
+      "Websites, billing software, hardware, CCTV, networking and AMC support from Korba.",
+    images: [OG_IMAGE],
   },
 };
 
+/* =========================
+   Constants
+========================= */
+const SITE_NAME = "Global Computers & IT Solutions";
 const SOFTWARE_PHONE = "+919752422686";
 const HARDWARE_PHONE = "+919827164811";
 const WEBSITE = "globalcomputers.net";
+const BUSINESS_EMAIL = "infoglobalcomputersit@gmail.com";
 
-function StatCard({ value, label }: { value: string; label: string }) {
+const WHATSAPP_SOFTWARE =
+  "https://wa.me/919752422686?text=Hi%20Global%20Computers,%20I%20want%20a%20website%20/%20billing%20software%20/%20digital%20setup%20for%20my%20business.%20Please%20share%20details.";
+const WHATSAPP_HARDWARE =
+  "https://wa.me/919827164811?text=Hi%20Global%20Computers,%20I%20need%20hardware%20/%20printer%20/%20desktop%20/%20laptop%20/%20CCTV%20/%20upgrade%20support.%20Please%20share%20details.";
+
+/* =========================
+   Structured Data
+========================= */
+const homePageSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": `${SITE_URL}/#webpage`,
+      url: PAGE_URL,
+      name: "Global Computers & IT Solutions",
+      description:
+        "Website development, billing software, hardware supply, CCTV, networking and AMC support in Korba, Chhattisgarh.",
+      isPartOf: {
+        "@id": `${SITE_URL}/#website`,
+      },
+      about: {
+        "@id": `${SITE_URL}/#organization`,
+      },
+      primaryImageOfPage: {
+        "@type": "ImageObject",
+        url: OG_IMAGE,
+      },
+    },
+    {
+      "@type": "Service",
+      "@id": `${SITE_URL}/#website-service`,
+      serviceType: "Website Development",
+      provider: {
+        "@id": `${SITE_URL}/#organization`,
+      },
+      areaServed: "Chhattisgarh, India",
+      url: `${SITE_URL}/software-solutions`,
+    },
+    {
+      "@type": "Service",
+      "@id": `${SITE_URL}/#billing-service`,
+      serviceType: "GST Billing Software and Inventory Solutions",
+      provider: {
+        "@id": `${SITE_URL}/#organization`,
+      },
+      areaServed: "Chhattisgarh, India",
+      url: `${SITE_URL}/projects/gst-inventory`,
+    },
+    {
+      "@type": "Service",
+      "@id": `${SITE_URL}/#hardware-service`,
+      serviceType: "IT Hardware Supply, CCTV, Networking and AMC",
+      provider: {
+        "@id": `${SITE_URL}/#organization`,
+      },
+      areaServed: "Chhattisgarh, India",
+      url: `${SITE_URL}/it-hardware-supply`,
+    },
+    {
+      "@type": "FAQPage",
+      "@id": `${SITE_URL}/#faq`,
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "What services does Global Computers & IT Solutions provide?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Global Computers & IT Solutions provides website development, billing software, GST billing and inventory setup, IT hardware supply, CCTV installation, networking, upgrades and AMC support.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Do you support local businesses in Korba and Chhattisgarh?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Yes. We support businesses in Korba, Chhattisgarh and nearby areas with local guidance, practical setup help and business-focused IT solutions.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Do you provide website solutions for shops, clinics, hotels and other local businesses?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Yes. We build websites and demo-based business pages for shops, restaurants, clinics, hotels, gyms, showrooms, travel businesses and other local service providers.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Do you also provide hardware and support along with software?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Yes. We help with hardware supply, printers, laptops, desktops, RAM and SSD upgrades, CCTV, networking and AMC support along with software and website needs.",
+          },
+        },
+      ],
+    },
+  ],
+};
+
+/* =========================
+   UI Components
+========================= */
+function SectionBadge({ children }: { children: React.ReactNode }) {
   return (
-    <div className="text-center group">
-      <div className="text-4xl md:text-5xl font-black text-blue-600 group-hover:scale-110 transition-transform">
-        {value}
-      </div>
-      <p className="text-slate-500 font-bold uppercase tracking-wider text-xs mt-2">
+    <span className="inline-flex items-center rounded-full border border-blue-200 bg-blue-50 px-4 py-1.5 text-xs font-extrabold uppercase tracking-[0.18em] text-blue-700">
+      {children}
+    </span>
+  );
+}
+
+function StatCard({
+  value,
+  label,
+  hint,
+}: {
+  value: string;
+  label: string;
+  hint: string;
+}) {
+  return (
+    <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm transition-transform hover:-translate-y-1 hover:shadow-md">
+      <div className="text-3xl font-black text-slate-900 md:text-4xl">{value}</div>
+      <div className="mt-2 text-sm font-extrabold uppercase tracking-wider text-blue-700">
         {label}
-      </p>
+      </div>
+      <p className="mt-2 text-sm leading-relaxed text-slate-600">{hint}</p>
     </div>
   );
 }
@@ -43,386 +205,755 @@ function ServiceCard({
   title,
   desc,
   bullets,
-  accent = "blue",
-  href = "/contact-us",
+  href,
+  cta,
 }: {
   icon: string;
   title: string;
   desc: string;
   bullets: string[];
-  accent?: "blue" | "green" | "orange";
-  href?: string;
+  href: string;
+  cta: string;
 }) {
-  const accentBg =
-    accent === "green"
-      ? "bg-green-100"
-      : accent === "orange"
-        ? "bg-orange-100"
-        : "bg-blue-100";
-
   return (
-    <div className="bg-white p-8 rounded-3xl border border-slate-100 shadow-sm hover:shadow-xl transition-all">
-      <div
-        className={`w-14 h-14 ${accentBg} rounded-2xl flex items-center justify-center text-3xl mb-6`}
-      >
+    <article className="group rounded-[28px] border border-slate-200 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+      <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-50 text-3xl ring-1 ring-blue-100">
         {icon}
       </div>
-
-      <h3 className="text-2xl font-bold mb-3">{title}</h3>
-      <p className="text-slate-600 mb-6 leading-relaxed">{desc}</p>
-
-      <ul className="space-y-3 font-medium text-slate-700 mb-7">
-        {bullets.map((b) => (
-          <li key={b}>✓ {b}</li>
+      <h3 className="text-2xl font-black text-slate-900">{title}</h3>
+      <p className="mt-3 text-base leading-relaxed text-slate-600">{desc}</p>
+      <ul className="mt-6 space-y-3 text-sm font-semibold text-slate-700">
+        {bullets.map((item) => (
+          <li key={item} className="flex items-start gap-3">
+            <span className="mt-0.5 text-blue-600">✓</span>
+            <span>{item}</span>
+          </li>
         ))}
       </ul>
-
       <Link
         href={href}
-        className="inline-flex items-center justify-center w-full px-6 py-3 rounded-2xl font-bold border border-slate-200 bg-white hover:bg-slate-50 transition"
+        className="mt-7 inline-flex w-full items-center justify-center rounded-2xl border border-slate-300 bg-slate-900 px-5 py-3.5 text-center text-sm font-extrabold text-white transition hover:bg-blue-700"
       >
-        Get Quote / Demo
+        {cta}
       </Link>
-    </div>
+    </article>
   );
 }
 
-function IndustryCard({ label, emoji }: { label: string; emoji: string }) {
+function DemoCard({
+  title,
+  desc,
+  href,
+  tag,
+}: {
+  title: string;
+  desc: string;
+  href: string;
+  tag: string;
+}) {
   return (
-    <Link
-      href="/projects"
-      className="bg-slate-800/50 border border-slate-700 p-6 rounded-2xl text-center hover:bg-blue-600 transition-colors"
-    >
-      <div className="text-3xl mb-3">{emoji}</div>
-      <div className="font-bold">{label}</div>
-      <div className="text-xs text-slate-200 mt-2 opacity-80">View projects →</div>
-    </Link>
+    <article className="rounded-[26px] border border-slate-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+      <div className="mb-4 inline-flex rounded-full bg-slate-100 px-3 py-1 text-xs font-extrabold uppercase tracking-wider text-slate-700">
+        {tag}
+      </div>
+      <h3 className="text-xl font-black text-slate-900">{title}</h3>
+      <p className="mt-3 text-sm leading-relaxed text-slate-600">{desc}</p>
+      <div className="mt-6 flex gap-3">
+        <Link
+          href={href}
+          className="inline-flex flex-1 items-center justify-center rounded-2xl border border-slate-300 bg-white px-4 py-3 text-sm font-bold text-slate-900 transition hover:bg-slate-50"
+        >
+          View Demo
+        </Link>
+      </div>
+    </article>
+  );
+}
+
+function TrustPill({ children }: { children: React.ReactNode }) {
+  return (
+    <span className="rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-bold text-slate-700 shadow-sm">
+      {children}
+    </span>
   );
 }
 
 function BrandLogo({ name, src }: { name: string; src: string }) {
   return (
-    <div className="relative w-24 h-12 md:w-32 md:h-16 transition-transform duration-300 ease-in-out hover:scale-110">
+    <div className="relative h-12 w-24 grayscale transition duration-300 hover:scale-105 hover:grayscale-0 md:h-14 md:w-28">
       <Image
         src={src}
-        alt={`${name} official logo`}
+        alt={`${name} logo`}
         fill
         className="object-contain"
+        sizes="(max-width: 768px) 96px, 112px"
       />
     </div>
   );
 }
 
+function FaqItem({
+  question,
+  answer,
+}: {
+  question: string;
+  answer: string;
+}) {
+  return (
+    <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+      <h3 className="text-lg font-black text-slate-900">{question}</h3>
+      <p className="mt-3 text-sm leading-relaxed text-slate-600">{answer}</p>
+    </div>
+  );
+}
+
+/* =========================
+   Main Page Component
+========================= */
 export default function HomePage() {
   return (
-    <main className="bg-slate-50 text-slate-900">
-      <div className="bg-slate-900 text-white">
-        <div className="max-w-7xl mx-auto px-6 py-3 flex flex-col sm:flex-row items-center justify-between gap-2 text-sm">
-          <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
-            <span className="font-semibold">Global Computers & IT Solutions</span>
-            <span className="text-slate-300">•</span>
-            <span className="text-slate-200">
-              Website:{" "}
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(homePageSchema) }}
+      />
+
+      <main className="bg-white pb-20 text-slate-900 md:pb-0">
+        {/* Top Contact Bar */}
+        <section
+          aria-label="Business contact highlights"
+          className="border-b border-slate-200 bg-slate-950 text-white"
+        >
+          <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 px-6 py-3 text-sm md:flex-row">
+            <div className="flex flex-wrap items-center justify-center gap-3 text-center md:justify-start">
+              <span className="font-extrabold">{SITE_NAME}</span>
+              <span className="hidden text-slate-500 md:inline">•</span>
+              <span className="text-slate-300">Trusted Since 2004</span>
+              <span className="hidden text-slate-500 md:inline">•</span>
+              <span className="text-slate-300">Korba, Chhattisgarh</span>
+            </div>
+
+            <div className="flex flex-wrap items-center justify-center gap-2">
               <a
-                className="underline hover:text-white"
                 href={`https://${WEBSITE}`}
                 target="_blank"
                 rel="noreferrer"
+                className="rounded-full border border-slate-700 px-3 py-1.5 font-semibold text-slate-200 transition hover:border-slate-500 hover:text-white"
               >
                 {WEBSITE}
               </a>
-            </span>
-          </div>
-
-          <div className="flex flex-wrap items-center gap-2">
-            <a
-              href={`tel:${SOFTWARE_PHONE}`}
-              className="px-3 py-1 rounded-full bg-blue-600/20 border border-blue-500/40 hover:bg-blue-600/30 transition"
-            >
-              Software: +91 9752422686
-            </a>
-            <a
-              href={`tel:${HARDWARE_PHONE}`}
-              className="px-3 py-1 rounded-full bg-emerald-600/20 border border-emerald-500/40 hover:bg-emerald-600/30 transition"
-            >
-              Hardware: +91 9827164811
-            </a>
-          </div>
-        </div>
-      </div>
-
-      <section className="relative overflow-hidden bg-gradient-to-b from-blue-50 to-white border-b">
-        <div className="max-w-7xl mx-auto px-6 py-20 lg:py-28 grid lg:grid-cols-2 gap-14 items-center">
-          <div className="relative z-10">
-            <div className="inline-flex items-center gap-2 mb-6 px-4 py-1.5 text-sm font-bold bg-blue-100 text-blue-700 rounded-full">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-600"></span>
-              </span>
-              Trusted Since 2004 • 20+ Years
-            </div>
-
-            <h1 className="text-4xl md:text-6xl font-black tracking-tight leading-[1.05]">
-              One Partner for{" "}
-              <span className="text-blue-600">Website + Software + Hardware</span>
-              <span className="block">That Actually Works.</span>
-            </h1>
-
-            <p className="mt-6 text-xl text-slate-600 max-w-xl leading-relaxed">
-              From <span className="font-bold text-slate-900">₹5,000 websites</span>{" "}
-              for local businesses to{" "}
-              <span className="font-bold text-slate-900">
-                turnkey IT infrastructure
-              </span>{" "}
-              for PSUs & enterprises. Build, supply, deploy, and support—under one
-              roof.
-            </p>
-
-            <div className="mt-8 flex flex-col sm:flex-row gap-4">
-              <Link
-                href="/contact-us"
-                className="px-8 py-4 bg-blue-600 text-white rounded-xl font-bold shadow-lg shadow-blue-200 hover:bg-blue-700 hover:-translate-y-1 transition-all text-center"
+              <a
+                href={`tel:${SOFTWARE_PHONE}`}
+                className="rounded-full border border-blue-500/40 bg-blue-500/10 px-3 py-1.5 font-semibold text-blue-100 transition hover:bg-blue-500/20"
               >
-                Get Free Consultation
-              </Link>
-
-              <Link
-                href="/projects"
-                className="px-8 py-4 border-2 border-slate-200 bg-white rounded-xl font-bold hover:bg-slate-50 transition-all text-center"
+                Software: +91 9752422686
+              </a>
+              <a
+                href={`tel:${HARDWARE_PHONE}`}
+                className="rounded-full border border-emerald-500/40 bg-emerald-500/10 px-3 py-1.5 font-semibold text-emerald-100 transition hover:bg-emerald-500/20"
               >
-                See Projects & Proof
-              </Link>
+                Hardware: +91 9827164811
+              </a>
             </div>
+          </div>
+        </section>
 
-            <div className="mt-6 flex flex-wrap gap-2">
-              {[
-                "Fast Delivery",
-                "On-site Support",
-                "AMC & Maintenance",
-                "PSU Tender Experience",
-                "Multi-Brand Authorized Supply",
-              ].map((chip) => (
-                <span
-                  key={chip}
-                  className="px-3 py-1.5 text-sm rounded-full bg-white border border-slate-200 text-slate-700 font-semibold"
-                >
-                  {chip}
+        {/* Hero Section */}
+        <section className="relative overflow-hidden border-b border-slate-200 bg-gradient-to-b from-slate-50 via-blue-50 to-white">
+          <div className="absolute inset-x-0 top-0 h-40 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.16),transparent_55%)]" />
+
+          <div className="mx-auto grid max-w-7xl gap-14 px-6 py-16 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:py-24">
+            <div className="relative z-10">
+              <SectionBadge>Website + Billing + Hardware + AMC</SectionBadge>
+
+              <h1 className="mt-6 max-w-4xl text-4xl font-black leading-[1.02] tracking-tight text-slate-950 md:text-6xl">
+                Real Business IT Support.
+                <span className="block text-blue-700">
+                  Websites, Software, Hardware & Service Under One Roof.
                 </span>
-              ))}
-            </div>
+              </h1>
 
-            <p className="mt-4 text-sm text-slate-500 font-medium italic">
-              *Popular bundle: Website + Billing/Inventory setup (for Retail/Hotel/School)
-            </p>
-          </div>
+              <p className="mt-6 max-w-2xl text-lg leading-relaxed text-slate-600 md:text-xl">
+                We help shops, offices, schools, hotels and growing businesses with{" "}
+                <span className="font-extrabold text-slate-900">
+                  websites, billing software, hardware supply, CCTV, networking and AMC
+                </span>{" "}
+                — with real local support from Korba since 2004.
+              </p>
 
-          <div className="relative hidden lg:block">
-            <div className="absolute -inset-4 bg-blue-100/50 rounded-full blur-3xl"></div>
-            <div className="relative bg-white p-4 rounded-3xl shadow-2xl border border-slate-100">
-              <Image
-                src="/images/hero-it-infrastructure.jpg"
-                alt="Complete IT solution"
-                width={700}
-                height={520}
-                className="rounded-2xl object-cover"
-                priority
-              />
-              <div className="mt-4 grid grid-cols-3 gap-3">
-                <div className="rounded-2xl border border-slate-200 bg-slate-50 p-3 text-center">
-                  <div className="text-sm font-black">Website</div>
-                  <div className="text-xs text-slate-600 mt-1">Fast + SEO</div>
-                </div>
-                <div className="rounded-2xl border border-slate-200 bg-slate-50 p-3 text-center">
-                  <div className="text-sm font-black">Software</div>
-                  <div className="text-xs text-slate-600 mt-1">Billing + ERP</div>
-                </div>
-                <div className="rounded-2xl border border-slate-200 bg-slate-50 p-3 text-center">
-                  <div className="text-sm font-black">Hardware</div>
-                  <div className="text-xs text-slate-600 mt-1">Supply + AMC</div>
+              <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+                <a
+                  href={WHATSAPP_SOFTWARE}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center justify-center rounded-2xl bg-blue-600 px-7 py-4 text-center text-base font-extrabold text-white shadow-lg shadow-blue-200 transition hover:-translate-y-0.5 hover:bg-blue-700"
+                >
+                  Get Setup on WhatsApp
+                </a>
+                <Link
+                  href="/projects"
+                  className="inline-flex items-center justify-center rounded-2xl border-2 border-slate-300 bg-white px-7 py-4 text-center text-base font-extrabold text-slate-900 transition hover:bg-slate-50"
+                >
+                  View Live Demos
+                </Link>
+              </div>
+
+              <div className="mt-6 flex flex-wrap gap-3">
+                <TrustPill>Website from ₹5,000 + GST</TrustPill>
+                <TrustPill>Billing & Inventory Setup</TrustPill>
+                <TrustPill>Hardware Supply & Installation</TrustPill>
+                <TrustPill>AMC & On-Site Support</TrustPill>
+                <TrustPill>PSU / Tender Experience</TrustPill>
+              </div>
+
+              <div className="mt-8 rounded-[28px] border border-slate-200 bg-white p-5 shadow-sm">
+                <div className="grid gap-4 md:grid-cols-3">
+                  <div className="rounded-2xl bg-slate-50 p-4">
+                    <div className="text-sm font-black text-slate-900">
+                      For Local Businesses
+                    </div>
+                    <p className="mt-2 text-sm leading-relaxed text-slate-600">
+                      Website, billing, Google setup and WhatsApp lead flow.
+                    </p>
+                  </div>
+                  <div className="rounded-2xl bg-slate-50 p-4">
+                    <div className="text-sm font-black text-slate-900">
+                      For Offices & Institutes
+                    </div>
+                    <p className="mt-2 text-sm leading-relaxed text-slate-600">
+                      Systems, printers, networking, CCTV, support and upgrades.
+                    </p>
+                  </div>
+                  <div className="rounded-2xl bg-slate-50 p-4">
+                    <div className="text-sm font-black text-slate-900">
+                      For PSU / Enterprise Needs
+                    </div>
+                    <p className="mt-2 text-sm leading-relaxed text-slate-600">
+                      Multi-brand supply, documentation support and deployment readiness.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
+
+            <div className="relative">
+              <div className="absolute -inset-3 rounded-[36px] bg-blue-100 blur-3xl" />
+              <div className="relative rounded-[32px] border border-slate-200 bg-white p-4 shadow-2xl">
+                <div className="overflow-hidden rounded-[24px] border border-slate-200 bg-slate-950">
+                  {/* 16:9 hero video area */}
+                  <div className="aspect-video w-full">
+                    <HeroVideo />
+                  </div>
+                </div>
+
+                <div className="mt-4 grid grid-cols-3 gap-3">
+                  <div className="rounded-2xl border border-slate-200 bg-slate-50 p-3 text-center transition hover:bg-slate-100">
+                    <div className="text-sm font-black text-slate-900">Website</div>
+                    <div className="mt-1 text-xs font-semibold text-slate-600">
+                      Fast + mobile-ready
+                    </div>
+                  </div>
+                  <div className="rounded-2xl border border-slate-200 bg-slate-50 p-3 text-center transition hover:bg-slate-100">
+                    <div className="text-sm font-black text-slate-900">Software</div>
+                    <div className="mt-1 text-xs font-semibold text-slate-600">
+                      Billing + workflow
+                    </div>
+                  </div>
+                  <div className="rounded-2xl border border-slate-200 bg-slate-50 p-3 text-center transition hover:bg-slate-100">
+                    <div className="text-sm font-black text-slate-900">Hardware</div>
+                    <div className="mt-1 text-xs font-semibold text-slate-600">
+                      Supply + AMC
+                    </div>
+                  </div>
+                </div>
+
+                
+              </div>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="py-12 bg-white border-b">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-            <StatCard value="20+" label="Years of Legacy" />
-            <StatCard value="10,000+" label="Satisfied Clients" />
-            <StatCard value="500+" label="PSU / Enterprise Works" />
-            <StatCard value="24/7" label="Lifetime Support" />
+        {/* Trust & Stats Section */}
+        <section className="border-b border-slate-200 bg-white py-12">
+          <div className="mx-auto max-w-7xl px-6">
+            <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+              <StatCard
+                value="20+"
+                label="Years of trust"
+                hint="Built on long-term customer relationships and local business credibility."
+              />
+              <StatCard
+                value="10,000+"
+                label="Customer interactions"
+                hint="Hardware, service, software and business support across years of work."
+              />
+              <StatCard
+                value="Multi-brand"
+                label="Supply capability"
+                hint="Desktops, laptops, printers, CCTV, upgrades, accessories and more."
+              />
+              <StatCard
+                value="Local + Practical"
+                label="Real support"
+                hint="Advice, installation help, service follow-up and nearby business understanding."
+              />
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="py-24 max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-5xl font-black mb-4">
-            Our 360° Digital Ecosystem
-          </h2>
-          <p className="text-slate-600 text-lg">
-            One team. One contract. One accountable partner for delivery + support.
-          </p>
-        </div>
-
-        <div className="grid md:grid-cols-3 gap-8">
-          <ServiceCard
-            icon="🌐"
-            accent="blue"
-            title="Websites & SEO"
-            desc="Modern, fast, mobile-first websites designed to convert. Ideal for local business and corporate presence. Starting @ ₹5,000."
-            bullets={["Business Websites", "E-commerce Stores", "SEO + Lead Landing Pages"]}
-          />
-
-          <ServiceCard
-            icon="💻"
-            accent="green"
-            title="Software & ERP"
-            desc="Billing, inventory, HR, and custom workflows. We tailor software to how you already work—then automate it."
-            bullets={["Billing + Inventory", "Hotel/School Management", "Custom Integrations & APIs"]}
-          />
-
-          <ServiceCard
-            icon="🔌"
-            accent="orange"
-            title="IT Hardware + AMC"
-            desc="Authorized supply, deployment, and AMC. Servers, workstations, networking, CCTV, biometrics—complete setup."
-            bullets={["PSU & Govt Tender Supply", "CCTV & Biometrics", "Networking + Workstations"]}
-          />
-        </div>
-      </section>
-
-      <section className="bg-slate-900 py-24 text-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <h2 className="text-3xl md:text-4xl font-black text-center mb-4">
-            Specialized Solutions For:
-          </h2>
-          <p className="text-center text-slate-300 mb-14">
-            Click any industry to view relevant work in our Projects.
-          </p>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {[
-              { label: "Retail & Supermarket", emoji: "🛒" },
-              { label: "Restaurant & Cafe", emoji: "🍽" },
-              { label: "Hotel & Resort", emoji: "🏨" },
-              { label: "School & Institute", emoji: "🏫" },
-              { label: "PSU & Government", emoji: "🏛" },
-              { label: "Corporate Office", emoji: "🏢" },
-              { label: "Rental Car & Travel", emoji: "🚗" },
-              { label: "Medical & Pharma", emoji: "💊" },
-            ].map((item) => (
-              <IndustryCard key={item.label} label={item.label} emoji={item.emoji} />
-            ))}
+        {/* Services Section */}
+        <section className="mx-auto max-w-7xl px-6 py-20 md:py-24">
+          <div className="max-w-3xl">
+            <SectionBadge>Why businesses choose us</SectionBadge>
+            <h2 className="mt-5 text-3xl font-black tracking-tight text-slate-950 md:text-5xl">
+              Not just products. Complete business setup.
+            </h2>
+            <p className="mt-5 text-lg leading-relaxed text-slate-600">
+              Most vendors sell only one piece of the problem. We help you connect the full
+              chain — website, billing, hardware, setup, support and after-sales service.
+            </p>
           </div>
 
-          <div className="mt-12 text-center">
+          <div className="mt-12 grid gap-8 md:grid-cols-3">
+            <ServiceCard
+              icon="🌐"
+              title="Websites & Digital Setup"
+              desc="Professional websites for local businesses, lead pages, WhatsApp-first inquiry flow and business-ready online presence."
+              bullets={[
+                "Business websites starting from ₹5,000 + GST",
+                "SEO-ready structure and local business positioning",
+                "Perfect for shops, services, clinics, gyms and showrooms",
+              ]}
+              href="/software-solutions"
+              cta="Explore Software & Website Solutions"
+            />
+            <ServiceCard
+              icon="🧾"
+              title="Billing Software & Workflow Systems"
+              desc="Billing, inventory, business process support and tailored software solutions that fit your actual business operations."
+              bullets={[
+                "GST billing and inventory setup",
+                "Retail, hotel, school and office use cases",
+                "Practical implementation with local guidance",
+              ]}
+              href="/projects/gst-inventory"
+              cta="See Billing / Software Demo"
+            />
+            <ServiceCard
+              icon="🖥️"
+              title="Hardware, CCTV, Networking & AMC"
+              desc="We supply and support laptops, desktops, printers, CCTV, accessories, upgrades and maintenance for daily business use."
+              bullets={[
+                "Laptop, desktop, printer and accessory support",
+                "RAM / SSD upgrades and system recommendations",
+                "AMC, installation help and business continuity support",
+              ]}
+              href="/it-hardware-supply"
+              cta="Explore Hardware & AMC"
+            />
+          </div>
+        </section>
+
+        {/* Value Proposition Section */}
+        <section className="border-y border-slate-200 bg-slate-950 py-20 text-white md:py-24">
+          <div className="mx-auto max-w-7xl px-6">
+            <div className="max-w-3xl">
+              <SectionBadge>Trust section</SectionBadge>
+              <h2 className="mt-5 text-3xl font-black tracking-tight md:text-5xl">
+                Real local business. Real support. Not just online promises.
+              </h2>
+              <p className="mt-5 text-lg leading-relaxed text-slate-300">
+                Your biggest advantage is not just having demos. Your biggest advantage is
+                that you are a real business with local presence, business understanding,
+                support capability and long-term trust.
+              </p>
+            </div>
+
+            <div className="mt-12 grid gap-6 lg:grid-cols-[1.15fr_0.85fr]">
+              <div className="rounded-[28px] border border-slate-800 bg-slate-900 p-7">
+                <div className="grid gap-4 sm:grid-cols-2">
+                  <div className="rounded-2xl border border-slate-800 bg-slate-950 p-5">
+                    <div className="text-sm font-black uppercase tracking-wider text-blue-300">
+                      Since 2004
+                    </div>
+                    <p className="mt-3 text-sm leading-relaxed text-slate-300">
+                      Long-standing trust in hardware, service and business IT support.
+                    </p>
+                  </div>
+                  <div className="rounded-2xl border border-slate-800 bg-slate-950 p-5">
+                    <div className="text-sm font-black uppercase tracking-wider text-blue-300">
+                      Korba presence
+                    </div>
+                    <p className="mt-3 text-sm leading-relaxed text-slate-300">
+                      Local understanding, nearby support and faster real-world assistance.
+                    </p>
+                  </div>
+                  <div className="rounded-2xl border border-slate-800 bg-slate-950 p-5">
+                    <div className="text-sm font-black uppercase tracking-wider text-blue-300">
+                      Hardware + software together
+                    </div>
+                    <p className="mt-3 text-sm leading-relaxed text-slate-300">
+                      Better than dealing with separate vendors for systems, website and
+                      support.
+                    </p>
+                  </div>
+                  <div className="rounded-2xl border border-slate-800 bg-slate-950 p-5">
+                    <div className="text-sm font-black uppercase tracking-wider text-blue-300">
+                      PSU / business readiness
+                    </div>
+                    <p className="mt-3 text-sm leading-relaxed text-slate-300">
+                      Better fit for structured requirements, documentation and practical
+                      delivery.
+                    </p>
+                  </div>
+                </div>
+                <div className="mt-6 rounded-2xl border border-blue-800/40 bg-blue-500/10 p-5">
+                  <p className="text-sm leading-relaxed text-blue-50">
+                    Add your real shop photo, business owner photo, GST details, office
+                    address, Google review screenshot and brand certificates here later.
+                    That will push trust much higher.
+                  </p>
+                </div>
+              </div>
+
+              <div className="flex flex-col justify-between rounded-[28px] border border-slate-800 bg-slate-900 p-7">
+                <div>
+                  <h3 className="text-2xl font-black">Best fit for</h3>
+                  <div className="mt-6 grid gap-3">
+                    {[
+                      "Retail shops and supermarkets",
+                      "Restaurants, cafes and hotels",
+                      "Clinics, schools and institutes",
+                      "Offices and growing businesses",
+                      "Computer hardware buyers",
+                      "Businesses needing website + billing + support",
+                    ].map((item) => (
+                      <div
+                        key={item}
+                        className="rounded-2xl border border-slate-800 bg-slate-950 px-4 py-4 text-sm font-semibold text-slate-200"
+                      >
+                        {item}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                <Link
+                  href="/about-us"
+                  className="mt-6 inline-flex w-full items-center justify-center rounded-2xl bg-white px-5 py-3.5 text-sm font-extrabold text-slate-950 transition hover:bg-slate-100"
+                >
+                  Learn More About Our Business
+                </Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Demos Section */}
+        <section className="mx-auto max-w-7xl px-6 py-20 md:py-24">
+          <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+            <div className="max-w-3xl">
+              <SectionBadge>Selected live demos</SectionBadge>
+              <h2 className="mt-5 text-3xl font-black tracking-tight text-slate-950 md:text-5xl">
+                Show the right demos. Not all demos at once.
+              </h2>
+              <p className="mt-5 text-lg leading-relaxed text-slate-600">
+                These demos help visitors quickly understand what you can build for their
+                business. Keep the homepage focused and let the full projects page handle the
+                rest.
+              </p>
+            </div>
             <Link
               href="/projects"
-              className="inline-flex items-center justify-center px-8 py-4 rounded-2xl bg-white text-slate-900 font-black hover:scale-105 transition-transform"
+              className="inline-flex items-center justify-center rounded-2xl border border-slate-300 bg-white px-6 py-3.5 text-sm font-extrabold text-slate-900 transition hover:bg-slate-50"
             >
-              View All Projects →
+              View All Demo Projects
             </Link>
           </div>
-        </div>
-      </section>
 
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <p className="text-blue-600 font-bold uppercase tracking-widest text-sm mb-4">
-            Authorized Partners & Trusted Brands
-          </p>
-          <p className="text-slate-600 mb-12">
-            We supply, deploy, and support multi-brand infrastructure as per requirement.
-          </p>
-
-          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16">
-            {[
-              { name: "Dell", src: "/brands/Dell.png" },
-              { name: "HP", src: "/brands/hp.png" },
-              { name: "Lenovo", src: "/brands/lenovo.png" },
-              { name: "Acer", src: "/brands/acer.png" },
-              { name: "Asus", src: "/brands/asus.png" },
-              { name: "Samsung", src: "/brands/Samsung.png" },
-              { name: "Apple", src: "/brands/Apple.png" },
-              { name: "Microsoft", src: "/brands/Microsoft.png" },
-              { name: "Google", src: "/brands/google.png" },
-              { name: "AWS", src: "/brands/aws.png" },
-              { name: "Sony", src: "/brands/sony.png" },
-              { name: "Nvidia", src: "/brands/nvidia.png" },
-              { name: "Intel", src: "/brands/intel.png" },
-              { name: "Epson", src: "/brands/epson.png" },
-              { name: "Canon", src: "/brands/Canon.png" },
-              { name: "Zebronics", src: "/brands/zebronics.png" },
-              { name: "Crucial", src: "/brands/Crucial.png" },
-              { name: "Lapcare", src: "/brands/lapcare.png" },
-              { name: "Honeywell", src: "/brands/honeywell.png" },
-              { name: "CP Plus", src: "/brands/cp-plus.png" },
-            ].map((brand) => (
-              <BrandLogo key={brand.name} name={brand.name} src={brand.src} />
-            ))}
+          <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+            <DemoCard
+              title="Retail / Supermarket Demo"
+              desc="Best for grocery, retail, mini-mart and billing-based businesses."
+              href="/projects/Retail-Supermarket"
+              tag="Retail"
+            />
+            <DemoCard
+              title="Restaurant Demo"
+              desc="Useful for restaurants, cafes, menu pages and food ordering flow."
+              href="/projects/restaurant"
+              tag="Food"
+            />
+            <DemoCard
+              title="Clinic Demo"
+              desc="For doctors, clinics, appointments, contact and service pages."
+              href="/projects/clinic"
+              tag="Healthcare"
+            />
+            <DemoCard
+              title="Gym Demo"
+              desc="Membership, plans, gallery and strong visual business branding."
+              href="/projects/gym"
+              tag="Fitness"
+            />
+            <DemoCard
+              title="Mobile Shop Demo"
+              desc="Great for product categories, offers, accessory sales and service shops."
+              href="/projects/mobile"
+              tag="Shop"
+            />
+            <DemoCard
+              title="Showroom Demo"
+              desc="Perfect for product-led businesses that need premium presentation."
+              href="/projects/showroom"
+              tag="Display"
+            />
+            <DemoCard
+              title="GST Billing / Inventory Demo"
+              desc="For businesses wanting billing software, inventory flow and operations support."
+              href="/projects/gst-inventory"
+              tag="Software"
+            />
+            <DemoCard
+              title="Car Rental Demo"
+              desc="For travel, car rental and service booking-focused businesses."
+              href="/projects/car-Rental"
+              tag="Travel"
+            />
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="relative py-24 px-6 overflow-hidden">
-        <div className="absolute inset-0 bg-blue-600"></div>
-        <div className="relative max-w-4xl mx-auto text-center text-white">
-          <h2 className="text-4xl md:text-5xl font-black mb-6 leading-tight">
-            Stop dealing with multiple vendors.
-            <span className="block">Get your IT solved—today.</span>
-          </h2>
+        {/* Hardware Value */}
+        <section className="border-y border-slate-200 bg-slate-50 py-20 md:py-24">
+          <div className="mx-auto max-w-7xl px-6">
+            <div className="max-w-3xl">
+              <SectionBadge>Hardware value section</SectionBadge>
+              <h2 className="mt-5 text-3xl font-black tracking-tight text-slate-950 md:text-5xl">
+                Why many buyers still prefer a real local IT partner over only buying online
+              </h2>
+              <p className="mt-5 text-lg leading-relaxed text-slate-600">
+                You can absolutely show RAM, SSD, printer, desktop and upgrade examples on
+                the homepage — but sell the{" "}
+                <span className="font-extrabold text-slate-900">value difference</span>, not
+                just random prices.
+              </p>
+            </div>
 
-          <p className="text-xl text-blue-100 mb-10">
-            Tell us your requirement. We’ll suggest the best solution + cost estimate.
-            Website, software, hardware supply, AMC, and deployment—everything in one place.
-          </p>
+            <div className="mt-12 grid gap-6 lg:grid-cols-3">
+              <div className="rounded-[28px] border border-slate-200 bg-white p-7 shadow-sm">
+                <div className="text-sm font-black uppercase tracking-wider text-slate-500">
+                  Online-only purchase
+                </div>
+                <h3 className="mt-3 text-2xl font-black text-slate-900">
+                  Looks cheaper at first
+                </h3>
+                <ul className="mt-5 space-y-3 text-sm font-medium text-slate-700">
+                  <li>• Price changes frequently</li>
+                  <li>• Compatibility confusion</li>
+                  <li>• Return / replacement hassle</li>
+                  <li>• No local installation help</li>
+                  <li>• Support depends on seller/platform</li>
+                </ul>
+              </div>
 
-          <div className="flex flex-col sm:flex-row justify-center gap-4">
-            <a
-              href={`tel:${SOFTWARE_PHONE}`}
-              className="px-10 py-5 bg-white text-blue-700 font-black rounded-2xl text-lg hover:scale-105 transition-transform shadow-2xl"
-            >
-              Call Software: +91 9752422686
-            </a>
+              <div className="rounded-[28px] border-2 border-blue-600 bg-white p-7 shadow-lg shadow-blue-100">
+                <div className="text-sm font-black uppercase tracking-wider text-blue-700">
+                  Buy with us
+                </div>
+                <h3 className="mt-3 text-2xl font-black text-slate-900">
+                  Better decision, better support
+                </h3>
+                <ul className="mt-5 space-y-3 text-sm font-medium text-slate-700">
+                  <li>• Guidance on correct RAM / SSD / parts</li>
+                  <li>• Better suitability for your system</li>
+                  <li>• Installation and practical support</li>
+                  <li>• Faster issue handling locally</li>
+                  <li>• Hardware + software + AMC together</li>
+                </ul>
+              </div>
 
-            <a
-              href={`tel:${HARDWARE_PHONE}`}
-              className="px-10 py-5 bg-blue-800 text-white font-black rounded-2xl text-lg hover:bg-blue-900 transition-colors border border-blue-400"
-            >
-              Call Hardware: +91 9827164811
-            </a>
+              <div className="rounded-[28px] border border-slate-200 bg-white p-7 shadow-sm">
+                <div className="text-sm font-black uppercase tracking-wider text-slate-500">
+                  Good homepage examples
+                </div>
+                <h3 className="mt-3 text-2xl font-black text-slate-900">
+                  Show popular items
+                </h3>
+                <ul className="mt-5 space-y-3 text-sm font-medium text-slate-700">
+                  <li>• RAM upgrade options</li>
+                  <li>• SSD upgrade options</li>
+                  <li>• Printers for office/shop</li>
+                  <li>• Desktop sets and accessories</li>
+                  <li>• CCTV and networking kits</li>
+                </ul>
+              </div>
+            </div>
+
+            <div className="mt-8 rounded-[28px] border border-slate-200 bg-white p-6 shadow-sm">
+              <p className="text-sm leading-relaxed text-slate-600">
+                <span className="font-extrabold text-slate-900">Best practice:</span> show
+                example products with “starting from” or “ask for today’s price on WhatsApp”
+                instead of hard-coding exact pricing on a static homepage.
+              </p>
+            </div>
           </div>
+        </section>
 
-          <div className="mt-8 text-sm text-blue-100">
-            Prefer WhatsApp? Use the same numbers • Or{" "}
-            <Link className="underline font-semibold hover:text-white" href="/contact-us">
-              request a quote
-            </Link>
+        {/* Brands Section */}
+        <section className="bg-white py-20 md:py-24">
+          <div className="mx-auto max-w-7xl px-6 text-center">
+            <SectionBadge>Brands & platforms</SectionBadge>
+            <h2 className="mt-5 text-3xl font-black tracking-tight text-slate-950 md:text-5xl">
+              Multi-brand support for real business needs
+            </h2>
+            <p className="mx-auto mt-5 max-w-3xl text-lg leading-relaxed text-slate-600">
+              Hardware, accessories, software ecosystem and business technology support based
+              on requirement — not one-size-fits-all selling.
+            </p>
+
+            <div className="mt-12 flex flex-wrap items-center justify-center gap-8 md:gap-12">
+              {[
+                { name: "Dell", src: "/brands/Dell.png" },
+                { name: "HP", src: "/brands/hp.png" },
+                { name: "Lenovo", src: "/brands/lenovo.png" },
+                { name: "Acer", src: "/brands/acer.png" },
+                { name: "Asus", src: "/brands/asus.png" },
+                { name: "Samsung", src: "/brands/Samsung.png" },
+                { name: "Apple", src: "/brands/Apple.png" },
+                { name: "Microsoft", src: "/brands/Microsoft.png" },
+                { name: "Google", src: "/brands/google.png" },
+                { name: "AWS", src: "/brands/aws.png" },
+                { name: "Canon", src: "/brands/Canon.png" },
+                { name: "Epson", src: "/brands/epson.png" },
+              ].map((brand) => (
+                <BrandLogo key={brand.name} name={brand.name} src={brand.src} />
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <div className="fixed bottom-0 inset-x-0 z-50 md:hidden">
-        <div className="bg-white/95 backdrop-blur border-t border-slate-200 px-3 py-3">
+        {/* FAQ Section */}
+        <section className="border-t border-slate-200 bg-slate-50 py-20 md:py-24">
+          <div className="mx-auto max-w-7xl px-6">
+            <div className="max-w-3xl">
+              <SectionBadge>FAQ</SectionBadge>
+              <h2 className="mt-5 text-3xl font-black tracking-tight text-slate-950 md:text-5xl">
+                Common questions businesses ask us
+              </h2>
+              <p className="mt-5 text-lg leading-relaxed text-slate-600">
+                These answers help customers understand your business quickly and also improve
+                homepage relevance for search.
+              </p>
+            </div>
+
+            <div className="mt-12 grid gap-6 md:grid-cols-2">
+              <FaqItem
+                question="Do you build websites for local businesses?"
+                answer="Yes. We create websites for local shops, clinics, restaurants, hotels, gyms, showrooms, travel businesses and service-based businesses."
+              />
+              <FaqItem
+                question="Do you provide GST billing software and inventory setup?"
+                answer="Yes. We help businesses with GST billing software, inventory workflow setup and practical guidance based on real business needs."
+              />
+              <FaqItem
+                question="Can I get hardware and software support from one place?"
+                answer="Yes. That is one of our strengths. We support websites, billing software, printers, desktops, laptops, CCTV, networking and AMC under one roof."
+              />
+              <FaqItem
+                question="Do you support customers in Korba and nearby areas?"
+                answer="Yes. We are based in Korba and support businesses in Chhattisgarh with local understanding and real support."
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* Footer CTA */}
+        <section className="border-t border-slate-200 bg-slate-950 py-20 text-white md:py-24">
+          <div className="mx-auto max-w-5xl px-6 text-center">
+            <SectionBadge>Final call to action</SectionBadge>
+            <h2 className="mt-5 text-3xl font-black tracking-tight md:text-5xl">
+              Tell us your business need.
+              <span className="block text-blue-300">
+                We’ll suggest the right setup.
+              </span>
+            </h2>
+
+            <p className="mx-auto mt-5 max-w-3xl text-lg leading-relaxed text-slate-300">
+              Whether you need a website, billing software, hardware upgrades, printers,
+              networking, CCTV or AMC — we’ll guide you with a practical solution, not
+              generic sales talk.
+            </p>
+
+            <div className="mt-10 flex flex-col justify-center gap-4 sm:flex-row">
+              <a
+                href={WHATSAPP_SOFTWARE}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center justify-center rounded-2xl bg-blue-600 px-8 py-4 text-base font-extrabold text-white transition hover:bg-blue-700"
+              >
+                WhatsApp for Website / Software
+              </a>
+              <a
+                href={WHATSAPP_HARDWARE}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center justify-center rounded-2xl border border-slate-700 bg-white px-8 py-4 text-base font-extrabold text-slate-950 transition hover:bg-slate-100"
+              >
+                WhatsApp for Hardware / Support
+              </a>
+            </div>
+
+            <div className="mt-8 flex flex-col items-center justify-center gap-3 text-sm text-slate-300 md:flex-row">
+              <a
+                href={`tel:${SOFTWARE_PHONE}`}
+                className="font-bold transition hover:text-white"
+              >
+                Call Software: +91 9752422686
+              </a>
+              <span className="hidden text-slate-600 md:inline">•</span>
+              <a
+                href={`tel:${HARDWARE_PHONE}`}
+                className="font-bold transition hover:text-white"
+              >
+                Call Hardware: +91 9827164811
+              </a>
+              <span className="hidden text-slate-600 md:inline">•</span>
+              <a
+                href={`mailto:${BUSINESS_EMAIL}`}
+                className="font-bold transition hover:text-white"
+              >
+                {BUSINESS_EMAIL}
+              </a>
+              <span className="hidden text-slate-600 md:inline">•</span>
+              <Link
+                href="/contact-us"
+                className="font-bold transition hover:text-white"
+              >
+                Contact / Quote Request
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        {/* Mobile Sticky Bar */}
+        <div className="fixed inset-x-0 bottom-0 z-50 border-t border-slate-200 bg-white/95 px-3 py-3 backdrop-blur md:hidden">
           <div className="grid grid-cols-2 gap-3">
             <a
-              href={`tel:${SOFTWARE_PHONE}`}
-              className="text-center font-extrabold rounded-xl py-3 bg-blue-600 text-white"
+              href={WHATSAPP_SOFTWARE}
+              target="_blank"
+              rel="noreferrer"
+              className="rounded-xl bg-blue-600 py-3 text-center text-sm font-extrabold text-white"
             >
-              Call (Software)
+              WhatsApp
             </a>
             <a
               href={`tel:${HARDWARE_PHONE}`}
-              className="text-center font-extrabold rounded-xl py-3 bg-emerald-600 text-white"
+              className="rounded-xl bg-emerald-600 py-3 text-center text-sm font-extrabold text-white"
             >
-              Call (Hardware)
+              Call Now
             </a>
           </div>
         </div>
-      </div>
-    </main>
+      </main>
+    </>
   );
 }

@@ -1,10 +1,15 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import DemoVideoPopup from "@/components/DemoVideoPopup";
+
+const SITE_URL = "https://globalcomputers.net";
+const PAGE_URL = `${SITE_URL}/projects/clinic/`;
 
 export const metadata: Metadata = {
-  title: "Clinic Website Demo | Doctor Appointment, Patient Care & Medical Billing",
+  title:
+    "Clinic Website Demo India | Doctor Website Design in Korba, Bilaspur, Raipur",
   description:
-    "Premium clinic website demo for doctors, dental clinics, skin clinics, diagnostic centers, and healthcare businesses. Includes appointment booking, services, billing, contact page, WhatsApp inquiry, and modern high-conversion patient-focused design.",
+    "Premium clinic website demo for doctors, dental clinics, skin clinics, diagnostic centers and healthcare businesses. Includes appointment booking, services, billing, contact page, WhatsApp inquiry and mobile-friendly patient-focused design for Korba, Bilaspur, Raipur, Chhattisgarh and across India.",
   keywords: [
     "clinic website demo",
     "doctor website demo",
@@ -15,25 +20,52 @@ export const metadata: Metadata = {
     "patient booking website",
     "medical clinic website demo",
     "clinic website development Korba",
+    "clinic website development Bilaspur",
+    "clinic website development Raipur",
     "clinic website development Chhattisgarh",
+    "doctor website design India",
+    "clinic website with WhatsApp",
+    "healthcare website demo India",
   ],
   alternates: {
-    canonical: "https://globalcomputers.net/projects/clinic/",
+    canonical: PAGE_URL,
   },
   openGraph: {
-    title: "Clinic Website Demo | Doctor Appointment, Patient Care & Medical Billing",
+    title:
+      "Clinic Website Demo India | Doctor Website Design in Korba, Bilaspur, Raipur",
     description:
-      "Modern clinic website demo with appointment booking, service pages, billing page, contact page, and WhatsApp-first lead conversion.",
-    url: "https://globalcomputers.net/projects/clinic/",
+      "Modern clinic website demo with appointment booking, service pages, billing page, contact page and WhatsApp-first lead conversion.",
+    url: PAGE_URL,
     type: "website",
     siteName: "Global Computers & IT Solutions",
     locale: "en_IN",
+    images: [
+      {
+        url: `${SITE_URL}/logo_header_svr.png`,
+        width: 1200,
+        height: 630,
+        alt: "Clinic Website Demo - Global Computers & IT Solutions",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Clinic Website Demo | Doctor Appointment, Patient Care & Medical Billing",
+    title:
+      "Clinic Website Demo India | Doctor Website Design in Korba, Bilaspur, Raipur",
     description:
-      "Premium healthcare website demo for clinics, doctors, and medical practices.",
+      "Premium healthcare website demo for clinics, doctors and medical practices.",
+    images: [`${SITE_URL}/logo_header_svr.png`],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-snippet": -1,
+      "max-image-preview": "large",
+      "max-video-preview": -1,
+    },
   },
 };
 
@@ -145,9 +177,93 @@ const faqs = [
   },
 ];
 
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      name: "Clinic Website Design Demo",
+      description:
+        "Premium clinic website demo with appointment booking, services, billing page, contact page and WhatsApp inquiry flow.",
+      provider: {
+        "@type": "Organization",
+        name: "Global Computers & IT Solutions",
+        url: SITE_URL,
+        logo: `${SITE_URL}/logo.png`,
+      },
+      serviceType: "Clinic and Doctor Website Design",
+      areaServed: [
+        { "@type": "Country", name: "India" },
+        { "@type": "State", name: "Chhattisgarh" },
+        { "@type": "City", name: "Korba" },
+        { "@type": "City", name: "Bilaspur" },
+        { "@type": "City", name: "Raipur" },
+      ],
+      url: PAGE_URL,
+    },
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: SITE_URL,
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Projects",
+          item: `${SITE_URL}/projects/`,
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: "Clinic Website Demo",
+          item: PAGE_URL,
+        },
+      ],
+    },
+    {
+      "@type": "VideoObject",
+      name: "Clinic Website Demo",
+      description:
+        "Premium clinic website demo with appointment booking, service pages, billing page and contact flow.",
+      contentUrl: `${SITE_URL}/videos/final_clinic.mp4`,
+      embedUrl: PAGE_URL,
+      thumbnailUrl: [`${SITE_URL}/logo.png`],
+      uploadDate: "2026-04-01",
+      publisher: {
+        "@type": "Organization",
+        name: "Global Computers & IT Solutions",
+        logo: {
+          "@type": "ImageObject",
+          url: `${SITE_URL}/logo.png`,
+        },
+      },
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: faqs.map((faq) => ({
+        "@type": "Question",
+        name: faq.q,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: faq.a,
+        },
+      })),
+    },
+  ],
+};
+
 export default function ClinicHomePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
+
       <section className="hero">
         <div className="container hero-grid">
           <div className="hero-copy">
@@ -404,6 +520,18 @@ export default function ClinicHomePage() {
           </div>
         </div>
       </section>
+
+      <DemoVideoPopup
+        videoSrc="/videos/final_clinic.mp4"
+        title="Clinic Website Demo"
+        buttonLabel="See Demo"
+        autoOpen={true}
+        autoOpenDelay={300}
+        showButton={true}
+        rememberAutoOpen={false}
+        storageKey="clinic-demo-popup-v1"
+        poster="/images/hero-it-infrastructure.jpg"
+      />
     </>
   );
 }

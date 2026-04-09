@@ -60,46 +60,42 @@ export const viewport: Viewport = {
 
 export default function ClinicLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
-      <body>
-        <div className="clinic-shell">
-          <a href="#main-content" className="skip-link">
-            Skip to main content
-          </a>
+    <div className="clinic-shell">
+      <a href="#main-content" className="skip-link">
+        Skip to main content
+      </a>
 
-          <div className="top-strip">
-            <div className="container top-strip-inner">
-              <div className="top-strip-left">
-                <span>Same-Day Appointments</span>
-                <span>Trusted Patient Care</span>
-                <span>Clean & Modern Clinic Experience</span>
-              </div>
-              <div className="top-strip-right">
-                <a href="tel:+919752422686">Call: +91 97524 22686</a>
-              </div>
-            </div>
+      <div className="top-strip">
+        <div className="container top-strip-inner">
+          <div className="top-strip-left">
+            <span>Same-Day Appointments</span>
+            <span>Trusted Patient Care</span>
+            <span>Clean & Modern Clinic Experience</span>
           </div>
-
-          <Header />
-
-          <main id="main-content" className="clinic-main">
-            {children}
-          </main>
-
-          <Footer />
-
-          <a
-            href="https://wa.me/919752422686?text=Hi%20I%20want%20to%20book%20a%20clinic%20appointment."
-            target="_blank"
-            rel="noopener noreferrer"
-            className="floating-whatsapp"
-            aria-label="Chat on WhatsApp"
-          >
-            <span className="wa-icon">✆</span>
-            <span className="wa-text">Book on WhatsApp</span>
-          </a>
+          <div className="top-strip-right">
+            <a href="tel:+919752422686">Call: +91 97524 22686</a>
+          </div>
         </div>
-      </body>
-    </html>
+      </div>
+
+      <Header />
+
+      <main id="main-content" className="clinic-main">
+        {children}
+      </main>
+
+      <Footer />
+
+      <a
+        href="https://wa.me/919752422686?text=Hi%20I%20want%20to%20book%20a%20clinic%20appointment."
+        target="_blank"
+        rel="noopener noreferrer"
+        className="floating-whatsapp"
+        aria-label="Chat on WhatsApp"
+      >
+        <span className="wa-icon">✆</span>
+        <span className="wa-text">Book on WhatsApp</span>
+      </a>
+    </div>
   );
 }

@@ -73,40 +73,37 @@ export default function CoachingLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en">
-      <body>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
-        <div className="site-shell">
-          <Header />
-          <main id="main-content" className="site-main">
-            {children}
-          </main>
-          <Footer />
-        </div>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <div className="site-shell">
+        <Header />
+        <main id="main-content" className="site-main">
+          {children}
+        </main>
+        <Footer />
+      </div>
 
-        {/* Floating CTA */}
-        <div className="floating-cta">
-          <a
-            href="tel:+919752422686"
-            className="floating-call"
-            aria-label="Call now"
-          >
-            Call
-          </a>
-          <a
-            href="https://wa.me/919752422686?text=Hi%20I%20want%20admission%20details%20for%20your%20coaching%20institute."
-            target="_blank"
-            rel="noreferrer"
-            className="floating-whatsapp"
-            aria-label="Chat on WhatsApp"
-          >
-            WhatsApp
-          </a>
-        </div>
-      </body>
-    </html>
+      <div className="floating-cta">
+        <a
+          href="tel:+919752422686"
+          className="floating-call"
+          aria-label="Call now"
+        >
+          Call
+        </a>
+        <a
+          href="https://wa.me/919752422686?text=Hi%20I%20want%20admission%20details%20for%20your%20coaching%20institute."
+          target="_blank"
+          rel="noreferrer"
+          className="floating-whatsapp"
+          aria-label="Chat on WhatsApp"
+        >
+          WhatsApp
+        </a>
+      </div>
+    </>
   );
 }

@@ -95,31 +95,29 @@ const serviceJsonLd = {
 
 export default function MobileLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en">
-      <body>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
-        />
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}
+      />
 
-        <div className="site-shell">
-          <a href="#main-content" className="skip-link">
-            Skip to content
-          </a>
+      <div className="site-shell">
+        <a href="#main-content" className="skip-link">
+          Skip to content
+        </a>
 
-          <Header />
+        <Header />
 
-          <main id="main-content" className="site-main">
-            {children}
-          </main>
+        <main id="main-content" className="site-main">
+          {children}
+        </main>
 
-          <Footer />
-        </div>
-      </body>
-    </html>
+        <Footer />
+      </div>
+    </>
   );
 }

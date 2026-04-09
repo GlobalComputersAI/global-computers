@@ -74,20 +74,18 @@ export default function ComputerLayout({
   children: ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body>
-        <a href="#computer-page-content" className="skip-link">
-          Skip to content
-        </a>
+    <>
+      <a href="#computer-page-content" className="skip-link">
+        Skip to content
+      </a>
 
-        <div className="site-shell">
-          <Header />
-          <main id="computer-page-content" className="main-shell">
-            {children}
-          </main>
-          <Footer />
-        </div>
-      </body>
-    </html>
+      <div className="site-shell">
+        <Header />
+        <main id="computer-page-content" className="main-shell">
+          {children}
+        </main>
+        <Footer />
+      </div>
+    </>
   );
 }

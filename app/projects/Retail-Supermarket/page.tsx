@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import DemoVideoPopup from "@/components/DemoVideoPopup";
 
 const SITE_URL = "https://globalcomputers.net/projects/retail-supermarket";
 const WHATSAPP =
@@ -172,6 +173,18 @@ function SectionHeading({
 export default function RetailSupermarketHomePage() {
   return (
     <>
+      <DemoVideoPopup
+        videoSrc="/videos/final_retailer.mp4"
+        title="Retail Supermarket Demo Video"
+        buttonLabel="See Live Demo"
+        poster="/images/hero-it-infrastructure.jpg"
+        autoOpen
+        autoOpenDelay={800}
+        showButton
+        storageKey="retail-supermarket-demo-video"
+        rememberAutoOpen
+      />
+
       <section className="section section-lg">
         <div className="container">
           <div className="hero-grid">
@@ -210,7 +223,10 @@ export default function RetailSupermarketHomePage() {
                 >
                   Get on WhatsApp
                 </a>
-                <Link href="/projects/retail-supermarket/products" className="btn btn-secondary">
+                <Link
+                  href="/projects/retail-supermarket/products"
+                  className="btn btn-secondary"
+                >
                   View Products Page
                 </Link>
                 <a href={CALL} className="btn btn-dark">
@@ -346,19 +362,27 @@ export default function RetailSupermarketHomePage() {
           <div className="stats-grid">
             <div className="stat-card card-hover">
               <p className="stat-value">5</p>
-              <p className="stat-label">Essential pages for a complete retail demo</p>
+              <p className="stat-label">
+                Essential pages for a complete retail demo
+              </p>
             </div>
             <div className="stat-card card-hover">
               <p className="stat-value">100%</p>
-              <p className="stat-label">Mobile-friendly business presentation</p>
+              <p className="stat-label">
+                Mobile-friendly business presentation
+              </p>
             </div>
             <div className="stat-card card-hover">
               <p className="stat-value">24×7</p>
-              <p className="stat-label">Always available online for customer trust</p>
+              <p className="stat-label">
+                Always available online for customer trust
+              </p>
             </div>
             <div className="stat-card card-hover">
               <p className="stat-value">1</p>
-              <p className="stat-label">Strong link to share on WhatsApp, Google and social media</p>
+              <p className="stat-label">
+                Strong link to share on WhatsApp, Google and social media
+              </p>
             </div>
           </div>
         </div>
@@ -428,7 +452,10 @@ export default function RetailSupermarketHomePage() {
               <div>
                 <div className="invoice-box">
                   <div className="invoice-header">
-                    <p className="mb-0" style={{ fontWeight: 900, fontSize: "1.35rem" }}>
+                    <p
+                      className="mb-0"
+                      style={{ fontWeight: 900, fontSize: "1.35rem" }}
+                    >
                       Retail Website + Billing Value
                     </p>
                     <p className="mt-8 mb-0" style={{ opacity: 0.92 }}>
@@ -669,7 +696,10 @@ export default function RetailSupermarketHomePage() {
             <div className="container-narrow">
               <span className="eyebrow">Ready to Start</span>
               <h2 className="display-lg mt-20">
-                Want a <span className="text-gradient">Retail Supermarket Website</span>{" "}
+                Want a{" "}
+                <span className="text-gradient">
+                  Retail Supermarket Website
+                </span>{" "}
                 Like This for Your Business?
               </h2>
               <p className="lead mt-20">

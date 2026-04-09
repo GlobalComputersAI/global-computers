@@ -1,10 +1,15 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import DemoVideoPopup from "@/components/DemoVideoPopup";
+
+const SITE_URL = "https://globalcomputers.net";
+const PAGE_URL = `${SITE_URL}/projects/coaching/`;
 
 export const metadata: Metadata = {
-  title: "Coaching Institute Website Demo | Admission Open, Courses, Results",
+  title:
+    "Coaching Institute Website Demo India | Admission Website Design in Korba, Bilaspur, Raipur",
   description:
-    "Premium coaching institute website demo with admission open banner, course details, student results, testimonials, fee highlights, and WhatsApp enquiry flow. Built for high student and parent conversion.",
+    "Premium coaching institute website demo with admission open banner, course details, student results, testimonials, fee highlights and WhatsApp enquiry flow. Built for higher student and parent conversion in Korba, Bilaspur, Raipur, Chhattisgarh and across India.",
   keywords: [
     "coaching institute website demo",
     "tuition classes website design",
@@ -15,17 +20,52 @@ export const metadata: Metadata = {
     "course admission page",
     "school coaching classes website",
     "education website premium design",
+    "coaching website design Korba",
+    "coaching website design Bilaspur",
+    "coaching website design Raipur",
+    "coaching website design Chhattisgarh",
+    "admission website design India",
+    "education website demo India",
   ],
   alternates: {
-    canonical: "https://globalcomputers.net/projects/coaching/",
+    canonical: PAGE_URL,
   },
   openGraph: {
-    title: "Coaching Institute Website Demo | Admission Open, Courses, Results",
+    title:
+      "Coaching Institute Website Demo India | Admission Website Design in Korba, Bilaspur, Raipur",
     description:
-      "Premium SEO-ready coaching website demo with admission enquiry, results, testimonials, fee section, and WhatsApp conversion flow.",
-    url: "https://globalcomputers.net/projects/coaching/",
+      "Premium SEO-ready coaching website demo with admission enquiry, results, testimonials, fee section and WhatsApp conversion flow.",
+    url: PAGE_URL,
     type: "website",
     siteName: "Global Computers & IT Solutions",
+    locale: "en_IN",
+    images: [
+      {
+        url: `${SITE_URL}/logo_header_svr.png`,
+        width: 1200,
+        height: 630,
+        alt: "Coaching Institute Website Demo - Global Computers & IT Solutions",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title:
+      "Coaching Institute Website Demo India | Admission Website Design in Korba, Bilaspur, Raipur",
+    description:
+      "High-conversion coaching institute website demo with SEO-ready pages and WhatsApp enquiry flow.",
+    images: [`${SITE_URL}/logo_header_svr.png`],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-snippet": -1,
+      "max-image-preview": "large",
+      "max-video-preview": -1,
+    },
   },
 };
 
@@ -118,10 +158,103 @@ const faqs = [
   },
 ];
 
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "EducationalOrganization",
+      name: "Coaching Institute Website Demo",
+      url: PAGE_URL,
+      logo: `${SITE_URL}/logo.png`,
+      description:
+        "Premium coaching institute website demo with admission enquiry, courses, results, testimonials, fee section and WhatsApp lead flow.",
+      telephone: "+91-9752422686",
+      areaServed: "India",
+    },
+    {
+      "@type": "Service",
+      name: "Coaching Institute Website Design Demo",
+      description:
+        "Premium coaching institute website demo for admissions, courses, results, testimonials and WhatsApp enquiry conversion.",
+      provider: {
+        "@type": "Organization",
+        name: "Global Computers & IT Solutions",
+        url: SITE_URL,
+        logo: `${SITE_URL}/logo.png`,
+      },
+      serviceType: "Coaching and Education Website Design",
+      areaServed: [
+        { "@type": "Country", name: "India" },
+        { "@type": "State", name: "Chhattisgarh" },
+        { "@type": "City", name: "Korba" },
+        { "@type": "City", name: "Bilaspur" },
+        { "@type": "City", name: "Raipur" },
+      ],
+      url: PAGE_URL,
+    },
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: SITE_URL,
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Projects",
+          item: `${SITE_URL}/projects/`,
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: "Coaching Website Demo",
+          item: PAGE_URL,
+        },
+      ],
+    },
+    {
+      "@type": "VideoObject",
+      name: "Coaching Institute Website Demo",
+      description:
+        "Premium coaching institute website demo with admission pages, course sections, results and enquiry flow.",
+      contentUrl: `${SITE_URL}/videos/final_coaching.mp4`,
+      embedUrl: PAGE_URL,
+      thumbnailUrl: [`${SITE_URL}/logo.png`],
+      uploadDate: "2026-04-01",
+      publisher: {
+        "@type": "Organization",
+        name: "Global Computers & IT Solutions",
+        logo: {
+          "@type": "ImageObject",
+          url: `${SITE_URL}/logo.png`,
+        },
+      },
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: faqs.map((item) => ({
+        "@type": "Question",
+        name: item.q,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.a,
+        },
+      })),
+    },
+  ],
+};
+
 export default function CoachingHomePage() {
   return (
     <>
-      {/* HERO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
+
       <section className="hero">
         <div className="container">
           <div className="hero-grid">
@@ -132,7 +265,9 @@ export default function CoachingHomePage() {
 
               <h1>
                 Coaching Institute Website Demo Designed to Increase{" "}
-                <span className="text-primary">Admissions, Trust, and Enquiries</span>
+                <span className="text-primary">
+                  Admissions, Trust, and Enquiries
+                </span>
               </h1>
 
               <p className="lead">
@@ -196,7 +331,8 @@ export default function CoachingHomePage() {
                     <div>
                       <h3>Course Clarity</h3>
                       <p>
-                        Show class-wise and exam-wise programs in a clean and easy way.
+                        Show class-wise and exam-wise programs in a clean and easy
+                        way.
                       </p>
                     </div>
                   </div>
@@ -214,17 +350,24 @@ export default function CoachingHomePage() {
                     <div>
                       <h3>Instant Enquiry</h3>
                       <p>
-                        Strong WhatsApp and call CTA increase enquiry speed on mobile.
+                        Strong WhatsApp and call CTA increase enquiry speed on
+                        mobile.
                       </p>
                     </div>
                   </div>
                 </div>
 
                 <div className="btn-row">
-                  <Link href="/projects/coaching/courses/" className="btn btn-primary">
+                  <Link
+                    href="/projects/coaching/courses/"
+                    className="btn btn-primary"
+                  >
                     Explore Courses
                   </Link>
-                  <Link href="/projects/coaching/results/" className="btn btn-secondary">
+                  <Link
+                    href="/projects/coaching/results/"
+                    className="btn btn-secondary"
+                  >
                     View Results
                   </Link>
                 </div>
@@ -234,7 +377,6 @@ export default function CoachingHomePage() {
         </div>
       </section>
 
-      {/* TRUST STATS */}
       <section className="section section-sm">
         <div className="container">
           <div className="stats">
@@ -248,14 +390,13 @@ export default function CoachingHomePage() {
         </div>
       </section>
 
-      {/* WHY THIS WEBSITE WORKS */}
       <section className="section">
         <div className="container">
           <div className="section-title">
             <span className="eyebrow">High Conversion Coaching Website</span>
             <h2>
-              Why This Coaching Institute Website Demo Converts Better Than a Basic
-              Website
+              Why This Coaching Institute Website Demo Converts Better Than a
+              Basic Website
             </h2>
           </div>
 
@@ -270,55 +411,54 @@ export default function CoachingHomePage() {
             <div className="feature-card card panel">
               <h3>Strong First Impression</h3>
               <p>
-                Hero section immediately explains what the institute offers and gives
-                direct admission CTA for quick conversion.
+                Hero section immediately explains what the institute offers and
+                gives direct admission CTA for quick conversion.
               </p>
             </div>
 
             <div className="feature-card card panel">
               <h3>Trust Before Decision</h3>
               <p>
-                Results, testimonials, and student-focused benefits reduce hesitation
-                and build confidence for parents.
+                Results, testimonials, and student-focused benefits reduce
+                hesitation and build confidence for parents.
               </p>
             </div>
 
             <div className="feature-card card panel">
               <h3>SEO-Friendly Structure</h3>
               <p>
-                Proper headings, keyword-rich content, internal links, and clean page
-                structure support better local search visibility.
+                Proper headings, keyword-rich content, internal links, and clean
+                page structure support better local search visibility.
               </p>
             </div>
 
             <div className="feature-card card panel">
               <h3>Course Clarity</h3>
               <p>
-                Visitors can quickly understand classes, batches, programs, and exam
-                preparation support without confusion.
+                Visitors can quickly understand classes, batches, programs, and
+                exam preparation support without confusion.
               </p>
             </div>
 
             <div className="feature-card card panel">
               <h3>Mobile Lead Flow</h3>
               <p>
-                Since most local visitors browse on phone, the website is built around
-                easy call and WhatsApp action.
+                Since most local visitors browse on phone, the website is built
+                around easy call and WhatsApp action.
               </p>
             </div>
 
             <div className="feature-card card panel">
               <h3>Admission-Oriented Content</h3>
               <p>
-                Every section is designed to increase confidence, answer objections,
-                and move visitors toward contacting the institute.
+                Every section is designed to increase confidence, answer
+                objections, and move visitors toward contacting the institute.
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* COURSES */}
       <section className="section bg-white">
         <div className="container">
           <div className="section-title">
@@ -327,9 +467,9 @@ export default function CoachingHomePage() {
           </div>
 
           <p className="section-text">
-            A coaching website should clearly explain what is taught, for whom, and
-            why the institute is the right choice. Clear course presentation increases
-            serious admissions.
+            A coaching website should clearly explain what is taught, for whom,
+            and why the institute is the right choice. Clear course presentation
+            increases serious admissions.
           </p>
 
           <div className="feature-grid spacer-lg">
@@ -349,16 +489,15 @@ export default function CoachingHomePage() {
         </div>
       </section>
 
-      {/* WHY CHOOSE US */}
       <section className="section">
         <div className="container grid-2">
           <div className="card panel-lg">
             <span className="eyebrow">Student Success Factors</span>
             <h2>What Makes a Coaching Institute More Trustworthy Online</h2>
             <p>
-              Parents usually compare multiple institutes before making a decision.
-              The websites that clearly show teaching quality, support, discipline,
-              and student outcomes usually get more enquiries.
+              Parents usually compare multiple institutes before making a
+              decision. The websites that clearly show teaching quality, support,
+              discipline, and student outcomes usually get more enquiries.
             </p>
             <ul className="list-clean spacer-top">
               {highlights.map((item) => (
@@ -372,8 +511,8 @@ export default function CoachingHomePage() {
             <h2>How This Demo Helps Increase Coaching Enquiries</h2>
             <p>
               This page follows a strong conversion flow: attention, trust,
-              credibility, clarity, proof, and then action. That is why it performs
-              better than plain education websites.
+              credibility, clarity, proof, and then action. That is why it
+              performs better than plain education websites.
             </p>
             <ul className="list-clean spacer-top">
               <li>Clear admission CTA above the fold</li>
@@ -387,20 +526,22 @@ export default function CoachingHomePage() {
         </div>
       </section>
 
-      {/* CTA */}
       <section className="section">
         <div className="container">
           <div className="cta-section">
             <div className="grid-2" style={{ alignItems: "center" }}>
               <div>
-                <span className="eyebrow" style={{ color: "#312e81", background: "#fff" }}>
+                <span
+                  className="eyebrow"
+                  style={{ color: "#312e81", background: "#fff" }}
+                >
                   Admission Open
                 </span>
                 <h2>Want More Student Admissions From Your Coaching Website?</h2>
                 <p>
-                  This premium coaching institute demo is designed to help education
-                  businesses get more local visibility, more trust, and more direct
-                  enquiries from students and parents.
+                  This premium coaching institute demo is designed to help
+                  education businesses get more local visibility, more trust, and
+                  more direct enquiries from students and parents.
                 </p>
               </div>
 
@@ -422,7 +563,6 @@ export default function CoachingHomePage() {
         </div>
       </section>
 
-      {/* TESTIMONIALS */}
       <section className="section">
         <div className="container">
           <div className="section-title">
@@ -431,15 +571,19 @@ export default function CoachingHomePage() {
           </div>
 
           <p className="section-text">
-            Education is a trust-based decision. Testimonials and result-based proof
-            help parents feel more confident before they contact the institute.
+            Education is a trust-based decision. Testimonials and result-based
+            proof help parents feel more confident before they contact the
+            institute.
           </p>
 
           <div className="grid-3 spacer-lg">
             {testimonials.map((item) => (
               <div key={item.name} className="card panel-lg">
                 <h3>{item.name}</h3>
-                <p className="muted" style={{ marginBottom: "0.8rem", fontWeight: 700 }}>
+                <p
+                  className="muted"
+                  style={{ marginBottom: "0.8rem", fontWeight: 700 }}
+                >
                   {item.role}
                 </p>
                 <p>{item.quote}</p>
@@ -455,21 +599,20 @@ export default function CoachingHomePage() {
         </div>
       </section>
 
-      {/* FEE / ADMISSION PREVIEW */}
       <section className="section bg-white">
         <div className="container grid-2">
           <div>
             <span className="eyebrow">Fee & Admission</span>
             <h2>Simple Admission Information Helps Visitors Decide Faster</h2>
             <p>
-              When fees, batches, and admission process look clear and professional,
-              more visitors feel comfortable making an enquiry. Confusion reduces
-              conversion. Clarity improves it.
+              When fees, batches, and admission process look clear and
+              professional, more visitors feel comfortable making an enquiry.
+              Confusion reduces conversion. Clarity improves it.
             </p>
             <p>
               A good coaching website should present fees, registration details,
-              payment options, trial class offer, and admission support in a clean and
-              confidence-building format.
+              payment options, trial class offer, and admission support in a clean
+              and confidence-building format.
             </p>
 
             <div className="btn-row spacer-top">
@@ -523,7 +666,6 @@ export default function CoachingHomePage() {
         </div>
       </section>
 
-      {/* FAQ */}
       <section className="section">
         <div className="container">
           <div className="section-title">
@@ -542,11 +684,13 @@ export default function CoachingHomePage() {
         </div>
       </section>
 
-      {/* FINAL CTA */}
       <section className="section">
         <div className="container">
           <div className="cta-section center">
-            <span className="eyebrow" style={{ color: "#312e81", background: "#fff" }}>
+            <span
+              className="eyebrow"
+              style={{ color: "#312e81", background: "#fff" }}
+            >
               Premium Coaching Website Demo
             </span>
             <h2>Ready to Increase Coaching Admissions and Enquiries?</h2>
@@ -556,9 +700,9 @@ export default function CoachingHomePage() {
                 margin: "0.75rem auto 0",
               }}
             >
-              Explore the courses page, results page, admission page, and contact page
-              to see how a conversion-focused coaching website can help attract more
-              parents, students, and serious enquiries.
+              Explore the courses page, results page, admission page, and contact
+              page to see how a conversion-focused coaching website can help
+              attract more parents, students, and serious enquiries.
             </p>
 
             <div
@@ -568,10 +712,16 @@ export default function CoachingHomePage() {
                 marginTop: "1.5rem",
               }}
             >
-              <Link href="/projects/coaching/courses/" className="btn btn-secondary">
+              <Link
+                href="/projects/coaching/courses/"
+                className="btn btn-secondary"
+              >
                 Explore Courses
               </Link>
-              <Link href="/projects/coaching/contact/" className="btn btn-secondary">
+              <Link
+                href="/projects/coaching/contact/"
+                className="btn btn-secondary"
+              >
                 Contact Institute
               </Link>
               <a
@@ -586,6 +736,18 @@ export default function CoachingHomePage() {
           </div>
         </div>
       </section>
+
+      <DemoVideoPopup
+        videoSrc="/videos/final_coaching.mp4"
+        title="Coaching Website Demo"
+        buttonLabel="See Demo"
+        autoOpen={true}
+        autoOpenDelay={300}
+        showButton={true}
+        rememberAutoOpen={false}
+        storageKey="coaching-demo-popup-v1"
+        poster="/images/hero-it-infrastructure.jpg"
+      />
     </>
   );
 }

@@ -1,8 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 import "./globals.css";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
 
 const SITE_NAME = "SuperMartPro";
 const SITE_TITLE =
@@ -136,37 +134,33 @@ export default function RetailSupermarketLayout({
   children: ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(localBusinessJsonLd),
-          }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(serviceJsonLd),
-          }}
-        />
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(localBusinessJsonLd),
+        }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(serviceJsonLd),
+        }}
+      />
 
-        <div className="retail-shell">
-          <Header />
-          <main className="retail-main">{children}</main>
-          <Footer />
-        </div>
+      <div className="retail-shell">
+        {children}
+      </div>
 
-        <a
-          href="https://wa.me/919752422686?text=Hi%20I%20want%20a%20Retail%20Supermarket%20Website%20%2B%20Billing%20System"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="floating-whatsapp"
-          aria-label="Chat on WhatsApp"
-        >
-          WhatsApp
-        </a>
-      </body>
-    </html>
+      <a
+        href="https://wa.me/919752422686?text=Hi%20I%20want%20a%20Retail%20Supermarket%20Website%20%2B%20Billing%20System"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="floating-whatsapp"
+        aria-label="Chat on WhatsApp"
+      >
+        WhatsApp
+      </a>
+    </>
   );
 }

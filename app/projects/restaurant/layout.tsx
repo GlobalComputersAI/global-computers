@@ -89,20 +89,16 @@ export default function RestaurantLayout({
   children: ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={[
-          geistSans.variable,
-          geistMono.variable,
-          "bg-slate-50 text-slate-900 antialiased",
-        ].join(" ")}
-      >
-        <div className="min-h-screen flex flex-col">
-          <Header />
-          <div className="flex-1">{children}</div>
-          <Footer />
-        </div>
-      </body>
-    </html>
+    <div
+      className={[
+        geistSans.variable,
+        geistMono.variable,
+        "min-h-screen flex flex-col bg-slate-50 text-slate-900 antialiased",
+      ].join(" ")}
+    >
+      <Header />
+      <main className="flex-1">{children}</main>
+      <Footer />
+    </div>
   );
 }

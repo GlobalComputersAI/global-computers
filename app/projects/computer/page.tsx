@@ -1,11 +1,15 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import DemoVideoPopup from "@/components/DemoVideoPopup";
+
+const SITE_URL = "https://globalcomputers.net";
+const PAGE_URL = `${SITE_URL}/projects/computer/`;
 
 export const metadata: Metadata = {
   title:
-    "Computer Shop Website Demo | Laptop, Desktop, Printer, CCTV, Repair & AMC",
+    "Computer Shop Website Demo India | Laptop, Desktop, Printer, CCTV, Repair & AMC",
   description:
-    "Premium computer shop website demo for laptop dealers, desktop sellers, printer shops, CCTV businesses, repair centers, networking providers, AMC companies, and IT solution firms. Built for high trust, local SEO, and WhatsApp lead conversion.",
+    "Premium computer shop website demo for laptop dealers, desktop sellers, printer shops, CCTV businesses, repair centers, networking providers, AMC companies and IT solution firms. Built for high trust, local SEO and WhatsApp lead conversion in Korba, Bilaspur, Raipur, Chhattisgarh and across India.",
   keywords: [
     "computer shop website demo",
     "computer store website India",
@@ -21,26 +25,49 @@ export const metadata: Metadata = {
     "WhatsApp lead website",
     "local SEO computer shop",
     "computer shop website Korba",
+    "computer shop website Bilaspur",
+    "computer shop website Raipur",
     "computer store web design",
   ],
   alternates: {
-    canonical: "https://globalcomputers.net/projects/computer/",
+    canonical: PAGE_URL,
   },
   openGraph: {
     title:
-      "Computer Shop Website Demo | Laptop, Desktop, Printer, CCTV, Repair & AMC",
+      "Computer Shop Website Demo India | Laptop, Desktop, Printer, CCTV, Repair & AMC",
     description:
-      "A premium high-conversion website demo for computer shops and IT businesses with modern UI, strong trust sections, and WhatsApp-first enquiry flow.",
-    url: "https://globalcomputers.net/projects/computer/",
+      "A premium high-conversion website demo for computer shops and IT businesses with modern UI, strong trust sections and WhatsApp-first enquiry flow.",
+    url: PAGE_URL,
     type: "website",
     siteName: "Global Computers & IT Solutions",
+    locale: "en_IN",
+    images: [
+      {
+        url: `${SITE_URL}/logo_header_svr.png`,
+        width: 1200,
+        height: 630,
+        alt: "Computer Shop Website Demo - Global Computers & IT Solutions",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title:
-      "Computer Shop Website Demo | Laptop, Desktop, Printer, CCTV, Repair & AMC",
+      "Computer Shop Website Demo India | Laptop, Desktop, Printer, CCTV, Repair & AMC",
     description:
-      "Premium website demo for computer shops, IT hardware sellers, repair centers, AMC providers, CCTV installers, and networking businesses.",
+      "Premium website demo for computer shops, IT hardware sellers, repair centers, AMC providers, CCTV installers and networking businesses.",
+    images: [`${SITE_URL}/logo_header_svr.png`],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-snippet": -1,
+      "max-image-preview": "large",
+      "max-video-preview": -1,
+    },
   },
 };
 
@@ -160,15 +187,102 @@ const faqs = [
   },
 ];
 
+const schema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      name: "Computer Shop Website Design Demo",
+      description:
+        "Premium computer shop website demo for laptop dealers, desktop sellers, repair centers, CCTV businesses, networking providers and AMC service companies.",
+      provider: {
+        "@type": "Organization",
+        name: "Global Computers & IT Solutions",
+        url: SITE_URL,
+        logo: `${SITE_URL}/logo.png`,
+      },
+      serviceType: "Computer Shop and IT Business Website Design",
+      areaServed: [
+        { "@type": "Country", name: "India" },
+        { "@type": "State", name: "Chhattisgarh" },
+        { "@type": "City", name: "Korba" },
+        { "@type": "City", name: "Bilaspur" },
+        { "@type": "City", name: "Raipur" },
+      ],
+      url: PAGE_URL,
+    },
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: SITE_URL,
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "Projects",
+          item: `${SITE_URL}/projects/`,
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: "Computer Shop Website Demo",
+          item: PAGE_URL,
+        },
+      ],
+    },
+    {
+      "@type": "VideoObject",
+      name: "Computer Shop Website Demo",
+      description:
+        "Premium computer shop website demo with product sections, repair services, AMC support and WhatsApp enquiry flow.",
+      contentUrl: `${SITE_URL}/videos/final_computer.mp4`,
+      embedUrl: PAGE_URL,
+      thumbnailUrl: [`${SITE_URL}/logo.png`],
+      uploadDate: "2026-04-01",
+      publisher: {
+        "@type": "Organization",
+        name: "Global Computers & IT Solutions",
+        logo: {
+          "@type": "ImageObject",
+          url: `${SITE_URL}/logo.png`,
+        },
+      },
+    },
+    {
+      "@type": "FAQPage",
+      mainEntity: faqs.map((item) => ({
+        "@type": "Question",
+        name: item.q,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.a,
+        },
+      })),
+    },
+  ],
+};
+
 export default function ComputerHomePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
+
       <section className="section">
         <div className="container grid-2-hero align-center">
           <div className="fade-up">
-            <span className="badge">Computer Shop • IT Hardware • Repair • AMC • CCTV</span>
+            <span className="badge">
+              Computer Shop • IT Hardware • Repair • AMC • CCTV
+            </span>
             <h1 className="title-xl">
-              Premium Computer Shop Website Demo That Builds Trust and Brings More Enquiries
+              Premium Computer Shop Website Demo That Builds Trust and Brings
+              More Enquiries
             </h1>
             <p className="lead">
               A high-conversion website demo for computer shops, laptop dealers,
@@ -235,7 +349,9 @@ export default function ComputerHomePage() {
             </div>
 
             <div className="card card-pad" style={{ marginTop: 20 }}>
-              <h3 className="title-sm">This helps your customer say yes because:</h3>
+              <h3 className="title-sm">
+                This helps your customer say yes because:
+              </h3>
               <ul className="list-check">
                 <li>It makes even a local shop look professional and premium</li>
                 <li>It supports both retail sales and B2B service enquiries</li>
@@ -253,7 +369,9 @@ export default function ComputerHomePage() {
           <div className="card card-pad-lg hover-lift">
             <div className="section-head center">
               <span className="badge">What This Demo Can Sell</span>
-              <h2 className="title-lg">One Website for Complete Computer Business Presentation</h2>
+              <h2 className="title-lg">
+                One Website for Complete Computer Business Presentation
+              </h2>
               <p className="lead">
                 This homepage is designed to present all major product and IT
                 business categories in a clean, premium, highly saleable format.
@@ -288,7 +406,9 @@ export default function ComputerHomePage() {
         <div className="container grid-2 align-center">
           <div className="card card-pad-lg hover-lift">
             <span className="badge">Best Revenue Driver</span>
-            <h2 className="title-lg">Service Sections Bring High-Intent Leads Fast</h2>
+            <h2 className="title-lg">
+              Service Sections Bring High-Intent Leads Fast
+            </h2>
             <p className="lead">
               Many customers search for repair, support, AMC, printer setup,
               networking, CCTV installation, and urgent IT help. That is why
@@ -330,16 +450,23 @@ export default function ComputerHomePage() {
           <div className="cta-band">
             <div className="grid-2 align-center">
               <div>
-                <span className="badge" style={{ background: "rgba(255,255,255,0.12)", color: "#fff", borderColor: "rgba(255,255,255,0.12)" }}>
+                <span
+                  className="badge"
+                  style={{
+                    background: "rgba(255,255,255,0.12)",
+                    color: "#fff",
+                    borderColor: "rgba(255,255,255,0.12)",
+                  }}
+                >
                   High Conversion Website Demo
                 </span>
                 <h2 className="title-lg" style={{ marginTop: 18 }}>
                   Want this same premium website for your computer or IT business?
                 </h2>
                 <p className="lead">
-                  Ideal for computer shops, laptop dealers, printer sellers, CCTV
-                  installers, networking providers, repair centers, AMC support
-                  businesses, and complete IT solution companies.
+                  Ideal for computer shops, laptop dealers, printer sellers,
+                  CCTV installers, networking providers, repair centers, AMC
+                  support businesses, and complete IT solution companies.
                 </p>
               </div>
 
@@ -353,7 +480,14 @@ export default function ComputerHomePage() {
                   </a>
                 </div>
 
-                <div className="card card-pad" style={{ marginTop: 18, background: "rgba(255,255,255,0.12)", borderColor: "rgba(255,255,255,0.14)" }}>
+                <div
+                  className="card card-pad"
+                  style={{
+                    marginTop: 18,
+                    background: "rgba(255,255,255,0.12)",
+                    borderColor: "rgba(255,255,255,0.14)",
+                  }}
+                >
                   <h3 className="title-sm" style={{ color: "#fff" }}>
                     Perfect for:
                   </h3>
@@ -390,7 +524,9 @@ export default function ComputerHomePage() {
         <div className="container">
           <div className="section-head center">
             <span className="badge">Why This Works for You</span>
-            <h2 className="title-lg">This Homepage Helps You Sell Better and Charge Better</h2>
+            <h2 className="title-lg">
+              This Homepage Helps You Sell Better and Charge Better
+            </h2>
             <p className="lead">
               A strong demo should not just look nice. It should increase trust,
               improve lead flow, and help you position yourself as a serious
@@ -413,7 +549,9 @@ export default function ComputerHomePage() {
         <div className="container grid-2 align-center">
           <div className="hero-card">
             <span className="badge">Business Positioning</span>
-            <h2 className="title-lg">A Website That Works for Retail, Service, and Business Clients</h2>
+            <h2 className="title-lg">
+              A Website That Works for Retail, Service, and Business Clients
+            </h2>
             <p className="lead">
               The best part of this niche is that one strong website can attract
               retail customers, office clients, institutions, and service-related
@@ -462,7 +600,8 @@ export default function ComputerHomePage() {
               <span className="badge">FAQ</span>
               <h2 className="title-lg">Frequently Asked Questions</h2>
               <p className="lead">
-                These common questions also help with SEO, clarity, and customer confidence.
+                These common questions also help with SEO, clarity, and customer
+                confidence.
               </p>
             </div>
 
@@ -486,6 +625,18 @@ export default function ComputerHomePage() {
           </div>
         </div>
       </section>
+
+      <DemoVideoPopup
+        videoSrc="/videos/final_computer.mp4"
+        title="Computer Shop Website Demo"
+        buttonLabel="See Demo"
+        autoOpen={true}
+        autoOpenDelay={300}
+        showButton={true}
+        rememberAutoOpen={false}
+        storageKey="computer-demo-popup-v1"
+        poster="/images/hero-it-infrastructure.jpg"
+      />
     </>
   );
 }
