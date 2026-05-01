@@ -425,6 +425,50 @@ export default function AboutUsPage() {
         </div>
       </section>
 
+      {/* Founder Story */}
+      <section className="mx-auto max-w-7xl px-6 pb-8 md:pb-12">
+        <div className="rounded-[32px] border border-slate-200 bg-white p-8 shadow-sm md:p-12 lg:flex lg:items-center lg:gap-12">
+          <div className="relative mx-auto max-w-sm shrink-0 lg:mx-0 lg:w-1/3">
+            <div className="overflow-hidden rounded-[24px] bg-slate-100 shadow-xl">
+              <Image
+                src="/images/father.jpg"
+                alt="Founder of Global Computers & IT Solutions"
+                width={600}
+                height={800}
+                className="h-auto w-full object-cover"
+              />
+            </div>
+            <div className="absolute -bottom-4 -right-4 rounded-2xl border border-blue-100 bg-blue-50 px-4 py-3 shadow-sm">
+              <div className="text-sm font-black uppercase tracking-wider text-blue-700">The Founder</div>
+              <div className="mt-0.5 text-xs font-semibold text-slate-600">Leading since 2004</div>
+            </div>
+          </div>
+
+          <div className="mt-10 lg:mt-0 lg:w-2/3">
+            <SectionBadge>Our Foundation</SectionBadge>
+            <h2 className="mt-5 text-3xl font-black tracking-tight text-slate-950 md:text-4xl">
+              Built on grit, raw hard work, and single-handed dedication.
+            </h2>
+            <div className="mt-6 space-y-4 text-lg leading-relaxed text-slate-600">
+              <p>
+                Before opening Global Computers in 2004, our founder spent <strong className="font-extrabold text-slate-900">10 rigorous years working on contract at NTPC</strong>. That decade of hands-on, high-pressure experience taught him how to execute large-scale IT operations and deliver solutions that simply work without excuses.
+              </p>
+              <p>
+                Backed by a formal Computer Science certificate in hardware, he didn't just open a shop—he built a reliable local institution. From complex motherboard repairs to immediate on-site business support, <strong className="font-extrabold text-slate-900">he single-handedly managed every single aspect of this business for years</strong>, forging the rock-solid reputation we have today.
+              </p>
+              <p>
+                His relentless dedication to practical solutions, honest pricing, and immediate customer support is the exact DNA that powers Global Computers & IT Solutions right now.
+              </p>
+            </div>
+            <div className="mt-8 flex flex-wrap gap-3">
+               <SmallChip>10 Yrs NTPC Experience</SmallChip>
+               <SmallChip>Certified Hardware Expert</SmallChip>
+               <SmallChip>Single-Handed Execution</SmallChip>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Who we are */}
       <section className="mx-auto max-w-7xl px-6 py-8 md:py-12">
         <div className="max-w-4xl">
